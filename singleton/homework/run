@@ -1,0 +1,3 @@
+#!/bin/bash
+
+make &>/dev/pts/4 && java Client &>/dev/pts/4

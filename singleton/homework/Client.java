@@ -1,6 +1,7 @@
 class Client {
-    Logger logger = Logger.getInstance();
+    static Logger logger = null;
     public static void main(String[] args) {
-        System.out.println("Test");
+        logger = Logger.getInstance("testfile", 2);
+        logger.log("testing logger");
     }
 }
