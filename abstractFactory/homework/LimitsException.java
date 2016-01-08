@@ -1,5 +1,3 @@
-package pattpack.account;
-
 /** Exception thrown when an account usage exceeds its limits. */
 public class LimitsException extends Exception {
     /**

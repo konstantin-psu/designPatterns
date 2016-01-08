@@ -1,5 +1,3 @@
-import pattpack.account.*;
-
 /**
  *  This class is only a driver to show how to use
  *  an abstract factory.  The factory is about computer

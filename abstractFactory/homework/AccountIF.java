@@ -1,5 +1,3 @@
-package pattpack.account;
-
 /**
  * Base class of all accounts.
  */

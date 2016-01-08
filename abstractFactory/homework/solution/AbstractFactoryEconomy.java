@@ -1,5 +1,3 @@
-import pattpack.account.*;
-
 /**
  *  Economy implementation of a factory of accounts.
  *  @see <A HREF="../../doc/pattpack/account/index.html">package account</A>.

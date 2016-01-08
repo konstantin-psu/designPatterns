@@ -1,5 +1,3 @@
-import pattpack.account.*;
-
 /**
  *  Interface to create accounts and security managers.
  *  The structure follows the Abstract Factory pattern.

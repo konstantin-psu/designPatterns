@@ -1,5 +1,3 @@
-package pattpack.account;
-
 /**
  * This class represents a user of the internet service provider.
  */

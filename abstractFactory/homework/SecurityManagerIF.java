@@ -1,5 +1,3 @@
-package pattpack.account;
-
 /**
  *  Interface of all security managers of an account.
  */
