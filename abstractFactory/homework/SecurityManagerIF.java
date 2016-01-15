@@ -15,8 +15,7 @@ public abstract class SecurityManagerIF {
 	if (account.getConnectionSpeedThisLogin () > getConnectionSpeed ())
 	    throw new LimitsException ("Connection speed exceeds limit");
     }
-    /**
-     *  Get the maximum allowed connection hours.
+    /** *  Get the maximum allowed connection hours.
      */
     public abstract int getConnectionHours ();
     /**

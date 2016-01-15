@@ -26,17 +26,17 @@ public class Main {
 	AbstractFactoryIF factory = null;
 	if (1000 < loginId && loginId <= 5000)
 	    factory = new AbstractFactoryEconomy ();
-//      Standard and professional factories haven't been code, yet
-//	else if (5000 < loginId && loginId <= 8000)
-//	    factory = new AbstractFactoryStandard ();
-//	else if (8000 < loginId && loginId <= 9999)
-//	    factory = new AbstractFactoryProfessonal ();
+        //Standard and professional factories haven't been code, yet
+	else if (5000 < loginId && loginId <= 8000)
+	    factory = new AbstractFactoryStandard ();
+	else if (8000 < loginId && loginId <= 9999)
+	    factory = new AbstractFactoryProfessional ();
 	else {
 	    System.err.println ("Argument out of range");
 	    System.exit (1);
 	}
 	// Note how the following code is independent of the
-        // account type: economy, standard or professional. 
+    // account type: economy, standard or professional.
 	// Both the account and the security manager are
 	// created consistently (for each other) by the factory.
 	User user

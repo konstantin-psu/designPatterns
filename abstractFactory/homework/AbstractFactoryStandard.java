@@ -1,7 +1,7 @@
 /**
- * Created by konstantin on 1/7/16.
+ * Created by kmacarenco on 1/15/16.
  */
-public class AbstractFactoryEconomy implements AbstractFactoryIF {
+public class AbstractFactoryStandard implements AbstractFactoryIF {
     public AccountIF createAccount(int loginId) {
         return null;
     }
