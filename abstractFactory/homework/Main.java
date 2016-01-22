@@ -32,7 +32,7 @@ public class Main {
 	else if (8000 < loginId && loginId <= 9999)
 	    factory = new AbstractFactoryProfessional ();
 	else {
-	    System.err.println ("Argument out of range");
+	    System.err.println ("Argument out of range. Range: 1000 < x < 10000");
 	    System.exit (1);
 	}
 	// Note how the following code is independent of the
