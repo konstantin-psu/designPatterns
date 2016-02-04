@@ -1,8 +1,0 @@
-
-Tue Oct 12 11:27:16 PDT 1999 logger initialize
-Tue Oct 12 11:27:16 PDT 1999   configuration file "config.txt"
-Tue Oct 12 11:27:16 PDT 1999   log file "logfile.txt"
-Tue Oct 12 11:27:16 PDT 1999   verbosity level 3
-Tue Oct 12 11:27:16 PDT 1999   realtime true
-Tue Oct 12 11:27:16 PDT 1999 application start
-Tue Oct 12 11:27:17 PDT 1999 application stop

@@ -1,2 +1,0 @@
-class RomanFaucet implements Faucet {
-}

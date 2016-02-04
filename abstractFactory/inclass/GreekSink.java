@@ -1,2 +1,0 @@
-class GreekSink implements Sink {
-}

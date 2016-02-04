@@ -1,2 +1,0 @@
-class RomanSink extends Sink {
-}
