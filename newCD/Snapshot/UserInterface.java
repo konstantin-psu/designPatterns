@@ -1,0 +1,9 @@
+public class UserInterface {
+    private String saveFileName;
+    //...
+    public String getSaveFileName() { return saveFileName; }
+    //...
+    public void displayError(String msg) {
+        //...
+    } // displayError(String)
+} // class UserInterface

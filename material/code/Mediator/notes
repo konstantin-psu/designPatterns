@@ -1,0 +1,25 @@
+Consider a board for the game of Othello.  The problem of deciding
+whether a player can occupy a position on the board can be
+delegated to the position itself or to an object that implements a
+Mediator pattern.  The mediator encapsulates how the positions
+interact in a move of the game.  Hence it should implement the
+move as well.
+
+Design, code and test such an object.  In addition, discuss the
+design of a program that does not use a mediator, but lets the
+positions interact with each other.
+
+THE PROPOSED SOLUTION
+
+The class "Mediator" serves two purposes: (1) a mediator of the
+positions and (2) a mouse listener of the positions.  For purpose
+#2, it is convenient to have an object for each position.  Each
+object has the position it is listening to "hard wired" at
+construction.  For purpose #1, each mediator works exactly as any
+other, the only difference being the row and column of the
+position that has been clicked.
+
+A solution more conformant to the pattern would place position
+listeners and mediator proper in different classes.  A listener
+would activate the mediator when a position is clicked and pass
+the clicked position to it at that time.

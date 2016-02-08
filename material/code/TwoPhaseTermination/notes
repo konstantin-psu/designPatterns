@@ -1,0 +1,8 @@
+This implementation uses a specific synchronization object, lock,
+instead of the queue.  Curiously enough, using the Main object
+does not work.  I do not understand why.
+
+------------------------------------------------------------------
+
+Features of this exercise:
+  - InterruptedException

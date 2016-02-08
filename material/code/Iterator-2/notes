@@ -1,0 +1,10 @@
+The code in this directory is a thread-based implementation of the
+iterator exercise.
+
+The Main program and the tree package of this implementation
+are unchanged with respect to the the stack implementation.
+
+The inorder iterator uses a thread that allows "switching
+context" as coroutines do.  Students should consider this implementation
+only after the presentation in class of the Concurrency patterns.
+

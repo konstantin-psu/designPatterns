@@ -1,0 +1,8 @@
+In the proposed solution, the stack functionality is severely
+deficient, e.g., there is not even a top method and to show the
+content of a stack it is necessary do destroy the stack itself.
+
+However, this limitation makes the stack much easier to understand
+and allows the student to focus on the Bridge pattern rather than
+on the stack.
+

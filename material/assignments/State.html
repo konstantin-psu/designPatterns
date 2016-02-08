@@ -1,0 +1,35 @@
+<HTML>
+<HEAD><TITLE>State</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>State (5.7)</H2>
+<BLOCKQUOTE>
+
+Envision a multilevel computer game that simulates driving a car.
+In the initial level, the road's condition is "regular".  As the
+player moves to higher levels, new conditions of the road appear,
+e.g., gravel, wet, ice.  The response to the car's controls,
+steering, braking, etc., varies with the road conditions.  The game
+employs a State pattern to react to the player's use of the car controls.
+<P>
+For the purpose of this exercise, design a small GUI with four
+buttons (labeled left, accel, right and brake), a choice of
+conditions (labeled regular, gravel, wet and ice), and a feedback
+textfield showing the effect (in an arbitrary scale) of pressing a
+button in a given road ondition as follows:
+<PRE>
+               Regular   Gravel    Wet     Ice
+        left      5        3        4       1
+       accel      9        7        9       3
+       right      5        3        4       1
+       brake      8        6        7       2
+</PRE>
+Hint: One does not need to use the State pattern to manage such a
+trivial state.  Pretend that the behavior of the car in various
+conditions is determinted by the simulator using complicated
+independent algorithms that are better encapsulated in various
+states.
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

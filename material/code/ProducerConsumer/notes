@@ -1,0 +1,33 @@
+In a computer game, coconuts fall from a tree.  Three monkeys on
+the ground must catch the coconuts before they hit the ground and
+eat them.  Suppose that a new coconut falls between 0 and 250
+milliseconds with uniform distribution.  The monkey that catches
+the coconut is busy for 500 milliseconds to eat it before it can
+catch another one.  The game ends when a coconut hits the ground.
+
+Model the game using a Producer-Consumer pattern.  Your program
+should produce a trace showing the events of a game.  Run your
+program a few times to count how many coconuts fall from the tree
+before the game ends (usually between 10 and 19 on the
+instructor's system).
+
+------------------------------------------------------------------
+
+
+Nut #0 dropped at 21
+Monkey #0 catches nut #0 at 48
+Nut #1 dropped at 148
+Monkey #1 catches nut #1 at 156
+Nut #2 dropped at 318
+Monkey #2 catches nut #2 at 326
+Nut #3 dropped at 388
+Monkey #0 catches nut #3 at 558
+Nut #4 dropped at 568
+Nut #5 dropped at 598
+Monkey #1 catches nut #4 at 668
+Nut #6 dropped at 718
+Nut #7 dropped at 798
+Monkey #2 catches nut #5 at 838
+Nut #8 dropped at 847
+Nut #9 dropped at 968
+Game ends at 976. 10 nuts 

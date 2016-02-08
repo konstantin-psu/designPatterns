@@ -1,0 +1,70 @@
+<HTML>
+<TITLE>Decorator</TITLE>
+<BODY>
+
+<H2>Decorator</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Extend the functionality of an instance of a class,
+    but not of all instances of the class.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define a class, the <EM>Decorator</EM>, that encloses
+    the object whose functionality is to be extended.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Consider a security and monitoring system.
+    When the object controlling a door receives a request to open a door,
+    the monitor controlling the door displays the doorway.
+    There are several classes for opening a door and
+    several classes for displaying a doorway.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Service</B></TD>
+  <TD>
+      There is both an interface and one or more concrete classes.
+      Objects of these classes provide a service.
+  </TD>
+  <TD>Doorway monitor</TD>
+  </TR>
+  <TR>
+  <TD><B>Wrapper</B></TD>
+  <TD>
+      There is both an interface and one or more concrete classes.
+      Objects of these classes delegate operations to <EM>Service</EM>.
+  </TD>
+  <TD>Door opener</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Delegation.html>Delegation</A>
+       (the Decorator pattern uses delegation)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

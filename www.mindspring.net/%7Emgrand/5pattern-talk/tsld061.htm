@@ -1,0 +1,48 @@
+
+<HTML>
+
+<HEAD>
+
+<meta name="GENERATOR" content="Microsoft Internet Assistant for PowerPoint 97">
+ <TITLE>Code Example: Scheduler continued</TITLE> 
+</HEAD>
+
+<BODY     >
+
+ <H1>Code Example: Scheduler continued</H1> 
+ <P><UL>
+<H2>       synchronized (this) {
+</H2>
+</UL><UL>
+<H2>            int i;
+</H2>
+</UL><UL>
+<H2>            i = waitingThreads.indexOf(thisThread);
+</H2>
+</UL><UL>
+<H2>            waitingThreads.remove(i);
+</H2>
+</UL><UL>
+<H2>            waitingRequests.remove(i);
+</H2>
+</UL><UL>
+<H2>        } // synchronized (this)
+</H2>
+</UL><UL>
+<H2>    } // enter(ScheduleOrdering)</H2>
+</UL></P>
+<P></P> 
+<P>
+<TABLE>
+  <TD HEIGHT=100 WIDTH=100> <A HREF="tsld060.htm">Previous slide</A> </TD>
+  <TD HEIGHT=100 WIDTH=100> <A HREF="tsld062.htm">Next slide</A> </TD>
+  <TD HEIGHT=100 WIDTH=150> <A HREF="tsld001.htm">Back to first slide</A> </TD>
+  <TD HEIGHT=100 WIDTH=150> <A HREF="sld061.htm">View graphic version</A> </TD>
+</TABLE>
+<BR>
+</P>
+
+
+
+</Body>
+</HTML>

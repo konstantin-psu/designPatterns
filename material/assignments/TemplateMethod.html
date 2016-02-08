@@ -1,0 +1,50 @@
+<HTML>
+<HEAD><TITLE>Template Method</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>Template Method (5.10)</H2>
+<BLOCKQUOTE>
+
+A banner program writes large letters by using characters instead
+of pixels.  Suppose that the banner program stores the definition
+of each letter in a separate file and takes advantage of symmetries
+to reduce the files's sizes.  For example, the following files
+define the letters 'A', 'B' and 'C', which are representative of
+all cases of symmetry.  The font is "misc-10x20".
+<PRE>
+    VERTICAL                NONE                    HORIZONTAL
+    The letter A            The letter B            The letter C
+    5                       9                       9
+    14                      14                      8
+    10                      10                      10
+    20                      20                      20
+    -----                   ---------               ---------
+    ----+                   -+++++---               ---++++--
+    ---++                   -++--++--               --++--++-
+    --++-                   -++---++-               -++----++
+    --++-                   -++---++-               -++------
+    -++--                   -++---++-               -++------
+    -++--                   -++--++--               -++------
+    -++--                   -++++++--               -++------
+    -++++                   -++---++-               
+    -++--                   -++----++               
+    -++--                   -++----++               
+    -++--                   -++----++               
+    -++--                   -++---++-               
+    -++--                   -++++++--               
+</PRE>
+The first line defines the symmetry.  The second is a comment.
+The 3rd and 4th lines define the numbers of columns and rows of
+the file, e.g., in the letter 'A' file there are 5 columns and 14
+rows.  The 5th and 6th define the size of the complete letter.
+Complete letters are represented in a 10 by 20 matrix.
+<P>
+Design, code and test a banner program that uses a Template Method
+pattern to construct a complete letter from its definition.  The
+skeleton algorithm is specialized for letters with a vertical axis
+of symmetry (like 'A'), horizontal axis (like 'C' or no symmetry
+(like 'B').
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

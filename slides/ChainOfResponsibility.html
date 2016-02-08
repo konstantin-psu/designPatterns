@@ -1,0 +1,81 @@
+<HTML>
+<TITLE>Chain of Responsibility</TITLE>
+<BODY>
+
+<H2>Chain of Responsibility</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To issue a command to an object that may execute it or
+    send it to another object for execution.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Different commands are executed by different objects in a chain.
+    Objects early in the chain pass on commands they should not execute.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Consider a security system.
+    In a system with only a few sensors, an alarm is handled locally,
+    e.g., ring a bell.  In a large system, an alarm is reported
+    to a remote control station.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>CommandSender</B></TD>
+  <TD>
+      Calls <EM>postCommand</EM> of the first object in the chain.
+      It is the client of the chain.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>CommandHandler</B></TD>
+  <TD>
+      Superclass of all the <EM>ConcreteCommandHandlers</EM>
+      in a chain of responsibility.
+      Defines methods <EM>postCommand</EM>
+      that manages the chaining of commands, and
+      <EM>handleCommand</EM> that returns whether
+      a command was completely executed.
+      Has link to next <EM>CommandHandler</EM> in the chain.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ConcreteCommandHandler<SUB>i</SUB></B></TD>
+  <TD>
+      These classes override <EM>handleCommand</EM>, but not
+      <EM>postCommand</EM>.  
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Composite.html>Composite</A>
+       (the chain is a composite object)<BR>
+    <A HREF=Command.html>Command</A>
+       (may use it for representing commands)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

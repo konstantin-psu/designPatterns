@@ -1,0 +1,77 @@
+a:link {  color: #990000; text-decoration: none}
+a:active {  color: #CC3300; text-decoration: underline}
+a:visited {  color: #660000; text-decoration: none}
+a:hover {  color: #CC3300; text-decoration: underline}
+layer {  color: #000000; background-color: ffffff }
+body, td, center, p, div {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px }
+.brink {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #000000}
+a.brink:link {  color: #000000; text-decoration: none}
+a.brink:active {  color: #990000; text-decoration: underline}
+a.brink:visited {  color: #666666; text-decoration: none}
+a.brink:hover {  color: #990000; text-decoration: underline}
+.bread{ font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #FFFFFF}
+a.bread:link {  color: #FFFFFF; text-decoration: none}
+a.bread:active {  color: #FFFFFF; text-decoration: underline}
+a.bread:visited {  color: #FFFFFF; text-decoration: none}
+a.bread:hover {  color: #FFFFFF; text-decoration: underline}
+.brook {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #003399; text-align: left}
+a.brook:link {  color: #336699; text-decoration: none}
+a.brook:active {  color: #6699CC; text-decoration: underline}
+a.brook:visited {  color: #000066; text-decoration: none}
+a.brook:hover {  color: #6699CC; text-decoration: underline}
+.top { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color: #333333; text-align: left; text-decoration: none; font-weight: bold}
+a.top:link {  color: #FFFFFF; text-decoration: none; font-weight: bold}
+a.top:active {  color: #FFCC33; text-decoration: none; font-weight: bold}
+a.top:visited {  color: #FFFFFF; text-decoration: none; font-weight: bold}
+a.top:hover {  color: #FFCC33; text-decoration: none; font-weight: bold}
+
+.banners {  margin-top: 5px; margin-right: 0px; margin-bottom: 10px; margin-left: 0px; text-align: center}
+.copyright {  font-size: 10px; color: #FFFFFF; text-align: center; margin-top: 5px; margin-bottom: 5px}
+.bold {  font-size: 12px; text-align: left; font-weight: bold}
+.wititle {  font-size: 12px; color: #FFFFFF; text-align: left; margin-top: 5px; margin-right: 10px; margin-bottom: 5px; margin-left: 15px}
+.blktitle {  font-size: 12px; color: #000000; margin-top: 5px; margin-right: 10px; margin-bottom: 5px; margin-left: 15px}
+.quote {  font-size: 11px; font-style: italic; margin-top: 2px; margin-right: 0px; margin-bottom: 2px; margin-left: 5px}
+.date { font-size: 12px; color: #000000; text-align: right; margin-top: 2px; margin-right: 2px; margin-bottom: 2px}
+.redt {  text-align: right; margin-top: 5px; margin-right: 10px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #990000; font-weight: bold}
+.hd {  font-size: 14px; margin-left: 15px; text-align: left; margin-right: 20px }
+.hdb {  font-size: 14px; margin-left: 15px; text-align: left; margin-right: 20px; font-weight: bold }
+.hdm {  font-size: 16px; color: #000000; text-align: center; margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px }
+.hdmb {  font-size: 16px; color: #990000; font-weight: bold; text-align: left; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; }
+.hdsub {  font-size: 12px; margin-left: 15px; text-align: left; margin-right: 20px }
+.hdsubb {  font-size: 12px; margin-left: 15px; text-align: left; margin-right: 20px ; font-weight: bold}
+.hdmwitb{  font-size: 16px; color: #FFFFFF; text-align: left; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 5px; font-weight: bold }
+
+.text {  font-size: 12px; text-align: left; margin-top: 2px; margin-bottom: 5px; margin-right: 0px; margin-left: 5px}
+.text2 { font-size: 12px; color: #000000; text-align: left; margin-top: 2px; margin-bottom: 2px; margin-left: 2px; margin-right: 2px; line-height: 14px}
+.textr {  text-align: right; margin-top: 2px; margin-bottom: 2px; margin-right: 5px; margin-left: 5px }
+.textc {  font-size: 12px; text-align: center; margin-top: 2px; margin-bottom: 2px; margin-right: 5px; margin-left: 5px }
+.textj  {  font-size: 12px; text-align: justify; margin-top: 2px; margin-bottom: 2px; margin-right: 5px; margin-left: 5px }
+.section { font-size: 14px; color: #000000; text-align: left; margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px }
+.textsm { font-size: 10px; color: #000000; margin-top: 2px; margin-right: 5px; margin-bottom: 2px; margin-left: 5px; font-family: Verdana, Arial, Helvetica, sans-serif}
+.textnav { font-size: 9px; color: #990000; text-align: left; margin-left: 5px; font-family: Verdana, Arial, Helvetica, sans-serif}
+.texttop { text-align: left; margin-left: 2px}
+
+.texthd { font-size: 12pt; margin-top: 2px; margin-bottom: 7px; margin-left: 5px ; font-weight: bold}
+.boldhd { font-size: 13px; text-align: left; font-weight: bold }
+.bannertop { margin-right: 5px; margin-left: 5px }
+.textin { font-size: 12px; margin-top: 2px; margin-bottom: 2px; margin-right: 5px; margin-left: 5px}
+.hdmbin { font-size: 16px; color: #990000; font-weight: bold; text-align: left; margin-top: 5px; margin-right: 10px; margin-bottom: 5px; margin-left: 10px; }
+.boldhdin { font-size: 13px; text-align: left; font-weight: bold ; margin-top: 2px; margin-right: 10px; margin-bottom: 2px; margin-left: 10px}
+.textinwide { font-size: 12px; text-align: left; margin-top: 2px; margin-bottom: 2px; margin-right: 10px; margin-left: 10px ; line-height: 14pt}
+.rouge { font-size: 11px; text-align: left; margin-top: 5px; margin-bottom: 5px; margin-right: 0px; margin-left: 5px ; color: #990000; font-family: Verdana, Arial, Helvetica, sans-serif}
+.boldhdgr { font-size: 14px; text-align: left; font-weight: bold; color: #669966; font-family: Verdana, Arial, Helvetica, sans-serif}
+.textinNav { text-align: left; margin-top: 2px; margin-bottom: 5px; margin-right: 5px; margin-left: 5px ; font-size: 10px}
+.redbox { font-size: 14px; text-align: left; font-weight: 300; color: #FFFFFF; font-family: Arial, Helvetica, sans-serif; background-color: #990000; margin-top: 2px; margin-bottom: 2px}
+.redboxsub { font-size: 12px; text-align: left; font-weight: 100; color: #FFFFFF; font-family: Arial, Helvetica, sans-serif; background-color: #990000; margin-top: 2px; margin-bottom: 5px; margin-left: 5px }
+.textinc { text-align: center; margin-top: 2px; margin-bottom: 2px; margin-right: 0px; margin-left: 5px }
+body { color: #000000; background-color: #990000} .rd {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; color: #990000; text-align: center}
+.hdrd { font-size: 12px; margin-left: 5px; color: #990000; font-family: Verdana, Arial, Helvetica, sans-serif; font-weight: bold; margin-top: 2px; margin-bottom: 7px}
+.wit { margin-top: 5px; margin-right: 10px; margin-left: 10px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #FFFFFF}
+
+.textingra { font-size: 12px; text-align: left; margin-top: 2px; margin-bottom: 2px; margin-right: 0px; margin-left: 5px ; color: #CCCCCC}
+.bio {  font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #000000}
+.articlebody {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000}
+ol {  font-size: 10px; color: #000000;; margin-right: 10px; margin-left: 10px}
+li {  font-size: 10px; color: #333333;; list-style-type: disc}
+ul {  font-size: 10px; color: #000000; list-style-type: disc; margin-right: 10px; margin-left: 10px}
+.calendar { font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #000000 ; font-weight: bolder}

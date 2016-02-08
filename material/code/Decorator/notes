@@ -1,0 +1,20 @@
+Define classes to represent and evaluate simple integer
+expressions such as, e.g., "3+2-1".  Then, consider the problem of
+measuring the time it takes to evaluate an expression, e.g., for
+profiling or billing purposes. One obvious possibility is to
+extend (subclass) some classes used to represent expressions with
+the new functionality.  Another option is to decorate (i.e., use
+the Decorator pattern) existing classes.
+
+Choosing decoration requires a bit more design, but a bit less
+code and offers more flexibility.  Concerning design, one needs an
+interface defining the classes that may be decorated.  Concerning
+code, one can have a single decorator rather than many subclasses.
+Note that the interface required by the decorator would in many
+cases be already in place.
+
+The decorator of this example works well because the decorator's
+functionality is fairly well separated from the functionality of
+the decorated classes.  For example, if the problem was to count
+the number of elementary operations (such as additions) performed
+for an evaluation, a decorator would not be that useful.

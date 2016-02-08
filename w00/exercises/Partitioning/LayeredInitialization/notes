@@ -1,0 +1,18 @@
+Problem: Need multiple implementations of an abstraction
+Solution: Define a class to encapsulate common logic.
+          and subclasses to encapsulate specialized logic.
+Drawback: does not work when common logic is used to decide
+          which specialized class to instantiate.
+Fix: encapsulate the common and specialized logic
+     to create an object in unrelated classes.
+
+------
+
+Problem: multiple implementations of an image class
+         for a gif, pbm, pnf, etc. file.  Pass filename
+         to constructor.  Must decide class before looking
+         at constructor argument.         
+Solution: Uses an internal "image reader" specialized by
+          the image type or format: gif, pbm, pnf, etc.
+          The image reader (extra layer) is constructed
+          by a creational pattern. 

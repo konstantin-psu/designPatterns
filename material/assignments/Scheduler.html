@@ -1,0 +1,48 @@
+<HTML>
+<HEAD><TITLE>Scheduler</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>Scheduler</H2>
+<BLOCKQUOTE>
+
+Consider the simulation of a robot that delivers parcels of mail
+between desks on a same floor. Each request comes at a random
+time.  Parameters such that the origin and destination desks are
+ignored for the purpose of this exercise.  Each request has
+priority and the amount of time or duration necessary for the
+delivery.  The priority is 0 (bulk), 1 (regular), or 2 (express).
+The robot should deliver parcels in the order in which they arrive
+except for the priority.  If the delivery of a parcel has not
+begun and the delivery of a new parcel with higher priority is
+requested, the new parcel will be delivered first.
+<P>
+Design, code, and test a simulation of the robot activities.
+Assume that delivery requests and delivery time are uniformly and
+randomly distributed.  Use a Scheduler pattern to schedule
+concurrent requests to the robot.
+<P>
+Hints:  
+<OL>
+<LI>
+   A difficulty of this exercise is to simulate the clients.
+   Consider constructing a dozen or two threads that wake up at
+   random times and request a delivery with a random priority and
+   duration.  Some (but not too many) requests should be overlapping.
+<LI>
+   The scheduler pattern is quite difficult.  You may simplify the
+   technique described in the textbook by hardcoding in the scheduler
+   the scheduling order (this solution is less general, but it may
+   ease understanding a difficult pattern).
+<LI>
+   Ideally you first code a solution that does not use a scheduler.
+   The robot simply delivers parcels in the order in which they are
+   requested, i.e., it ignores the priority.  Then you add the scheduler.
+<LI>
+   The scheduler uses wait() and notify() to first prevent and
+   then free the access to a resource.  Could these be replaced by
+   suspend() and resume()?
+</OL>
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

@@ -1,0 +1,1106 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Mark Grand">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <META NAME="KeyWords" CONTENT="Design Patterns">
+   <TITLE>Errata for Patterns in Java, Volume 1</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Errata for <U>Patterns in Java, Volume 1</U></H1>
+This page contains a list of errors found in my book, <U>Patterns in Java,
+Volume 1</U>. All of the errors list here are present in the first printing
+of the book. Some have been fixed in later printings. The publisher does
+not tell me what gets fixed when. As I learn of fixes being included in
+later printing, I will note them on this page.
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER WIDTH="100%" >
+<TR>
+<TD><B>First Found</B>&nbsp;
+<BR><B>in Printing</B></TD>
+
+<TD><B>Page</B></TD>
+
+<TD><B>Description of Error</B></TD>
+
+<TD><B>Fixed in</B>&nbsp;
+<BR><B>Printing</B></TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>20</TD>
+
+<TD>
+<DL>
+<DT>
+The sentence that says&nbsp;</DT>
+
+<DD>
+UML provides a symbol that allows us to draw links that connect an indefinite
+number of projects.&nbsp;</DD>
+
+<DT>
+should say&nbsp;</DT>
+
+<DD>
+UML provides a symbol that allows us to draw links that connect an indefinite
+number of objects.&nbsp;</DD>
+</DL>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>23</TD>
+
+<TD>.The lines&nbsp;
+<BR>&nbsp;&nbsp;&nbsp; <TT>{concurrency = guarded}</TT>&nbsp;
+<BR>and&nbsp;
+<BR>&nbsp;&nbsp;&nbsp; <TT>{concurrency = concurrent}</TT>&nbsp;
+<BR>are reversed. The line&nbsp;
+<BR>&nbsp;&nbsp;&nbsp; <TT>{concurrency = concurrent}</TT>&nbsp;
+<BR>should appear first.</TD>
+
+<TD>&nbsp;?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>25</TD>
+
+<TD>Figure 1.28 refers to a method named <TT>isisEmpty</TT>. The method
+name should be <TT>isEmpty</TT>.</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>57</TD>
+
+<TD>There is a paragraph that begins&nbsp;
+<UL>
+<LI>
+Follow the Don't Talk to Strangers pattern...</LI>
+</UL>
+It should say&nbsp;
+<UL>
+<LI>
+Follow the Law of Demeter pattern...</LI>
+</UL>
+</TD>
+
+<TD>&nbsp;?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>92</TD>
+
+<TD>Paragraph Heading # 2 - Factory IE should be FactoryIF.</TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>96</TD>
+
+<TD>There is a line in a code listing that says&nbsp;
+<BR><TT>&nbsp;* @param factory The Factory object for creatig Encryption
+objects.</TT>&nbsp;
+
+<P>The line should say&nbsp;
+<BR><TT>&nbsp;* @param factory The Factory object for creating Encryption
+objects.</TT></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>97</TD>
+
+<TD>In line 8 of the code listing at the top of the page,&nbsp;
+<BR><TT>// interface EncryptionFactoryIF</TT>&nbsp;
+<BR>should be plain not bold&nbsp;
+
+<P>The first line of the second code listing on the page should read&nbsp;
+<BR><TT>public class EncryptionFactory implements EncryptionFactoryIF</TT></TD>
+
+<TD>&nbsp;3</TD>
+</TR>
+
+<TR>
+<TD>1&nbsp;</TD>
+
+<TD>100</TD>
+
+<TD>In Figure 5.5, the two classes at the bottom of the diagram should
+be labeled EnginolaMMU and EmberMMU rather than EnginolaCPU and EmberCPU</TD>
+
+<TD>&nbsp;3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>102</TD>
+
+<TD>In figure 5.6, the class at the bottom right should be labeled Product2WidgetB
+rather than Product1WidgetB.</TD>
+
+<TD>&nbsp;3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>105</TD>
+
+<TD>The code listing line&nbsp;
+<BR><TT>class EmberFactory extends ArchitectureToolkit</TT>&nbsp;
+<BR>should say&nbsp;
+<BR><TT>class EmberToolkit extends ArchitectureToolkit</TT>&nbsp;
+
+<P>Further down the page,&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private static final
+EmberFactory emberFactory</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+new EmberFactory();</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private static EnginolaFactory
+enginolaFactory</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+new EnginolaFactory();</TT>&nbsp;
+<BR>should say&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private static final
+EmberToolkit emberToolkit</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+new EmberToolkit();</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; private static final
+EnginolaToolkit enginolaToolkit</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; =
+new EnginolaToolkit();</TT></TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>106</TD>
+
+<TD>The code listing line&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return emberFactory;</TT>&nbsp;
+<BR>should say&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+return emberToolkit;</TT></TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1&nbsp;</TD>
+
+<TD>107</TD>
+
+<TD>
+<DT>
+The paragraph that begins&nbsp;</DT>
+
+<DD>
+The <TT>MIMEParser</TT> class is a subclass of the <TT>MessageParser</TT>
+class that can...</DD>
+
+<DL>
+<DT>
+should say&nbsp;</DT>
+
+<DD>
+The <TT>MIMEParser</TT> class is a subclass of the <TT>MessageParser</TT>
+class (a class invented for but not included in this example) that can...</DD>
+</DL>
+</TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>108</TD>
+
+<TD>In figure 5.7, the type of the parameter for the <TT>MIMEParser</TT>
+class’s <TT>parse</TT>&nbsp; method should be <TT>MIMEMsg</TT> instead
+of <TT>MIMEMessage</TT>.&nbsp;</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>114</TD>
+
+<TD>The code listing line that says&nbsp;
+<BR><TT>class MIMEParser {</TT>&nbsp;
+<BR>should say&nbsp;
+<BR><TT>class MIMEParser extends MessageParser {</TT>&nbsp;
+
+<P>The code listing line that says&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp; bdy = nextHeader();</TT>&nbsp;
+<BR>should say&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp; bdy = nextBodyPart();</TT></TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>115</TD>
+
+<TD>The code listing line that says&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp; <B>} // Consructor(String, String)</B></TT>&nbsp;
+<BR>should say&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp; <B>}</B> // Consructor(String, String)</TT>&nbsp;
+
+<P>The code listing line that says&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp; Object getValue() { return value; }</TT>&nbsp;
+<BR>should say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; Object getValue() { return value; }</TT></B></TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>125</TD>
+
+<TD>The code listing lines&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<B>if (c instanceof Character) {</B></TT>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mgr.addCharacter((Character)c);</TT></B>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} </B>// if</TT>&nbsp;
+<BR>should include an additional line like this&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (c instanceof Character) {</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mgr.addCharacter((Character)c);</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+objectCount++;</TT></B>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} </B>// if</TT></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>140</TD>
+
+<TD>In the first paragraph under the “Code Example” heading, <TT>ConnectionImpl.ConnectionPool</TT>
+should be changed to <TT>ConnectionPool</TT></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>148</TD>
+
+<TD>In Figure 6.2, methods named <TT>createDataQueryImpl</TT> are shown
+as returning <TT>DataQueryIimpl</TT>. It should be shown&nbsp; as returning
+<TT>DataQueryImplIF</TT>.</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>149</TD>
+
+<TD>In figure 6.3, the class named <TT>DataQuery</TT> should be named <TT>Service</TT>.&nbsp;
+It should look like this:&nbsp;
+<BR><IMG SRC="vol_1_figure_6-3.gif" HEIGHT=377 WIDTH=518></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>152</TD>
+
+<TD>There are some code listing lines that look like this:&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private DataQueryFactoryIF factory;</TT></B>&nbsp;
+
+<P><B><TT>&nbsp;&nbsp;&nbsp; public void setFactory(DataQueryFactoryIF
+myFactory) {</TT></B>&nbsp;
+
+<P>They should look like this:&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private static DataQueryFactoryIF factory;</TT></B>&nbsp;
+
+<P><B><TT>&nbsp;&nbsp;&nbsp; public static void setFactory(DataQueryFactoryIF
+myFactory) {</TT></B></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>163</TD>
+
+<TD>Under the “Related Patterns” heading, in the Layered Architecture section,
+the words&nbsp;
+<BLOCKQUOTE>described in Volume 2</BLOCKQUOTE>
+should be changed to&nbsp;
+<BLOCKQUOTE>described in [BMRSS96]</BLOCKQUOTE>
+</TD>
+
+<TD></TD>
+</TR>
+
+<TR>
+<TD>1&nbsp;</TD>
+
+<TD>171</TD>
+
+<TD>The direction of the aggregation in figure 6.11 is reversed. It should
+look like this:&nbsp;
+<BR><IMG SRC="vol_1_figure_6-11.gif" VSPACE=2 HEIGHT=388 WIDTH=543></TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>177</TD>
+
+<TD>In Figure 7.1, the line showing that MyCopyFilter implements the CopyFilterIF
+interface should be dashed. The figure should look like this:&nbsp;
+<BR><IMG SRC="vol_1_figure_7-1.gif" VSPACE=2 HEIGHT=186 WIDTH=423></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>178</TD>
+
+<TD>In Figure 7.2, the line showing that DocumentCopyFilterAdapter implements
+the CopyFilterIF interface should be dashed. The figure should look like
+this:&nbsp;
+
+<P><IMG SRC="vol_1_figure_7-2.gif" VSPACE=2 HEIGHT=183 WIDTH=445></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>179</TD>
+
+<TD>In Figure 7.3, the line showing Adapter implements TargetIF should
+be dashed. The figure should look like this:&nbsp;
+<BR>&nbsp;
+<BR><IMG SRC="vol_1_figure_7-3.gif" VSPACE=2 HEIGHT=183 WIDTH=435></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>181</TD>
+
+<TD>The parapgraph that begins&nbsp;
+<BLOCKQUOTE>1. Pass a reference to the client object</BLOCKQUOTE>
+should have read&nbsp;
+<BLOCKQUOTE>1. Pass a reference to the adaptee objecct.</BLOCKQUOTE>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>203</TD>
+
+<TD>There is a reference to a related pattern named Layered Architecture
+Analysis. That reference and the rest of that paragraph should be deleted.</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1&nbsp;</TD>
+
+<TD>193</TD>
+
+<TD>There are some paragraphs that say this:&nbsp;
+<OL>
+<LI>
+There is a hierarchy for manufacturer-independent sensor classes shown
+with bold boxes—<TT>SimpleSensor, AveragingSensor, and StreamingSensor</TT>.</LI>
+
+<BR>&nbsp;
+<LI>
+There is a parallel hierarchy of manufacturer specific classes shown in
+gray dark gray boxes—<TT>SimpleSenorImpl, AveragingSensorImpl, and StreamingSensorImpl</TT>.</LI>
+
+<BR>&nbsp;
+<LI>
+There is a parallel hierarchy of interfaces, shown in light gray boxes
+that allow the manufacturer independent classes to remain independent of
+any manufacturer-specific classes</LI>
+</OL>
+The paragraphs should say this:&nbsp;
+<OL>
+<LI>
+There is a hierarchy for the manufacturer-independent sensor classes —
+<TT>SimpleSensor, AveragingSensor, and StreamingSensor</TT>.</LI>
+
+<BR>&nbsp;
+<LI>
+There is a parallel hierarchy of manufacturer specific classes — <TT>SimpleSenorImpl,
+AveragingSensorImpl</TT>, and <TT>StreamingSensorImpl</TT> that&nbsp; have
+names beginning with Eagle and Hawk.</LI>
+
+<BR>&nbsp;
+<LI>
+There is a parallel hierarchy of interfaces that allow the manufacturer
+independent classes to remain independent of any manufacturer-specific
+classes — <TT>SimpleSenorImpl</TT>, <TT>AveragingSensorImpl</TT>, and <TT>StreamingSensorImpl</TT>.</LI>
+</OL>
+</TD>
+
+<TD>&nbsp;?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>211</TD>
+
+<TD>
+<DT>
+There is a paragraph that begins&nbsp;</DT>
+
+<BLOCKQUOTE><B>Don't Talk to Strangers</B>&nbsp; A conceptual model that
+uses the Don't Talk to Strangers pattern (discussed in Volume 2) ...</BLOCKQUOTE>
+
+<DL>The paragraph should say&nbsp;
+<DL><B>Law of Demeter</B>&nbsp; A conceptual model that uses the Law of
+Demeter&nbsp; pattern (discussed in Volume 2) ...</DL>
+</DL>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>216</TD>
+
+<TD>
+<DT>
+The last sentence on the page begins with:&nbsp;</DT>
+
+<DD>
+The primary motivation for using the Fa&ccedil;ade pattern...</DD>
+
+<DT>
+The sentence should begin with&nbsp;</DT>
+
+<DD>
+The primary&nbsp; motivation for using the Flyweight pattern...</DD>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>227</TD>
+
+<TD>
+<DT>
+The sentence&nbsp;</DT>
+
+<DD>
+It implements the <TT>EnvironmentIF</TT> class.</DD>
+
+<BR>should be deleted</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>244</TD>
+
+<TD>The pair of words “<TT>DoorController</TT> interface” occur twice and
+should be replaced with “<TT>DoorControllerIF</TT> interface”</TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>253</TD>
+
+<TD>In figure 7.32, the association labeled <TT>Cache-objects-for</TT>
+has its navigation and label arrows reversed. It should look like this:&nbsp;
+<BR><IMG SRC="vol_1_figure_7-32.gif" HEIGHT=188 WIDTH=452></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>254</TD>
+
+<TD>
+<DT>
+Under the “Consequences” heading, there is a sentence that begins with&nbsp;</DT>
+
+<DD>
+If the <TT>CacheManager</TT> class is implemented as a subclass of the
+<TT>ObjectFetcher</TT> class...</DD>
+
+<DT>
+It should begin with&nbsp;</DT>
+
+<DD>
+If the <TT>CacheManager</TT> class is implemented as a subclass of the
+<TT>ObjectCreater</TT> class...</DD>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>260</TD>
+
+<TD>In figure 7.33, the association labeled Fetches-employee-profiles-for
+has its navigation and label arrows reversed. It should look like this:&nbsp;
+<BR><IMG SRC="vol_1_figure_7-33.gif" HEIGHT=174 WIDTH=489></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>261</TD>
+
+<TD>There is a line of code that says&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cache.remove(newLink);</TT></B>&nbsp;
+<BR>It should say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+cache.remove(id);</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+currentCacheSize--;</TT></B></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>262</TD>
+
+<TD>There are some lines of code that say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newLink.profile = emp;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newLink.next = mru;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newLink.previous = null;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mru = newLink;</TT></B>&nbsp;
+<BR>They should say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newLink.profile = emp;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newLink.next = mru;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mru.previous = newLink;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+newLink.previous = null;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mru = newLink;</TT></B>&nbsp;
+
+<P>There are some other lines of code that say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (mru != foundLink)
+{</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (foundLink.previous != null)</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.previous.next = foundLink.next;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (foundLink.next != null)</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.next.previous = foundLink.previous;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.previous = null;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.next = mru;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mru = foundLink;</TT></B>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</B> // if currentCacheSize
+> 1</TT>&nbsp;
+<BR>They should say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (mru != foundLink)
+{</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if ( foundLink == lru ) {</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lru = foundLink.previous;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+lru.next = null;</TT></B>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} </B>// if lru</TT>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (foundLink.previous != null)</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.previous.next = foundLink.next;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if (foundLink.next != null)</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.next.previous = foundLink.previous;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mru.previous = foundLink</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.previous = null;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+foundLink.next = mru;</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+mru = foundLink;</TT></B>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } </B>// if mru 1=
+foundLink</TT></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>271</TD>
+
+<TD>
+<DT>
+The paragraph that begins&nbsp;</DT>
+
+<DD>
+The first version of Java, version 1.0, used the Chain of Command pattern
+to...</DD>
+
+<DT>
+should say&nbsp;</DT>
+
+<DD>
+The first version of Java, version 1.0, used the Chain of Responsibility
+pattern to...</DD>
+</TD>
+
+<TD>3</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>338</TD>
+
+<TD>
+<DT>
+There is a line of code that looks like this:&nbsp;</DT>
+
+<DD>
+<B><TT>ObOut.writeObject(foo);</TT></B>&nbsp;</DD>
+
+<DT>
+The first 'o' should be lower case like this:</DT>
+
+<DD>
+<B><TT>obOut.writeObject(foo);</TT></B></DD>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>339</TD>
+
+<TD>
+<DL>
+<DT>
+There is a line in&nbsp; acode example that looks like&nbsp;</DT>
+
+<DD>
+<B><TT>objectInputStream obIn = new ObjectInputStream(fin);</TT></B></DD>
+
+<DT>
+The first 'o' in that line should be capalized like this:&nbsp;</DT>
+
+<DD>
+<B><TT>ObjectInputStream obIn = new ObjectInputStream(fin);</TT></B></DD>
+
+<DT>
+There is a line of code that says&nbsp;</DT>
+
+<DD>
+<B><TT>import java.io.serializable;</TT></B></DD>
+
+<DT>
+It should say&nbsp;</DT>
+
+<DD>
+<B><TT>import java.io.Serializable;</TT></B></DD>
+</DL>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>341</TD>
+
+<TD>
+<DT>
+The last code listing line on this page is formatted as text rather than
+code. Instead of being formatted like&nbsp;</DT>
+
+<DD>
+&nbsp;<B>}</B> // readObject(ObjectInputStream)</DD>
+
+<DT>
+it should be formatted like&nbsp;</DT>
+
+<DD>
+<TT>&nbsp;<B>}</B> // readObject(ObjectInputStream)</TT></DD>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>359</TD>
+
+<TD>There is a sentence that says&nbsp;
+<BLOCKQUOTE>The start method also creates an instance of the <TT>DirtyState</TT>
+class and assigns its variables <TT>notDirty</TT>, <TT>fileDirty</TT>,
+<TT>paramDirty</TT> and <TT>bothDirty</TT> to the corresponding subclass
+instances that it creates.</BLOCKQUOTE>
+The sentence should say&nbsp;
+<BLOCKQUOTE>The start method also creates an instance of the <TT>DirtyState</TT>
+class.</BLOCKQUOTE>
+Figure 2.21 should look like this:&nbsp;
+<BR><IMG SRC="vol_1_figure_8-21.gif" VSPACE=5 HEIGHT=372 WIDTH=566></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>362</TD>
+
+<TD>There are some code listing lines that look like this:&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final BothDirty&nbsp; bothDirty&nbsp;
+= new BothDirty();</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final FileDirty&nbsp; fileDirty&nbsp;
+= new FileDirty();</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final ParamDirty paramDirty = new
+ParamDirty();</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final NotDirty&nbsp;&nbsp; notDirty&nbsp;&nbsp;
+= new NotDirty();</TT></B>&nbsp;
+
+<P>They should look like this&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final static BothDirty&nbsp; bothDirty&nbsp;
+= new BothDirty();</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final static FileDirty&nbsp; fileDirty&nbsp;
+= new FileDirty();</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final static ParamDirty paramDirty
+= new ParamDirty();</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private final static NotDirty&nbsp;&nbsp;
+notDirty&nbsp;&nbsp; = new NotDirty();</TT></B></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>363</TD>
+
+<TD>Change the listing line that says
+<BR><B><TT>&nbsp;&nbsp;&nbsp; private class FileDirty extends DirtyState
+{</TT></B>
+<BR>to&nbsp;
+<BR><TT>&nbsp;&nbsp;<B>&nbsp; private static class FileDirty extends DirtyState
+{</B></TT></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>368</TD>
+
+<TD>There is a line of code that reads&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; warning.routeWarning msg);</TT></B>&nbsp;
+<BR>It should say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp; warning.routeWarning(msg);</TT></B></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>382</TD>
+
+<TD>There are two lines of a code listing that look like this&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; logonDialog = new
+LogonDialog(frame,</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Log on to "+programName);</TT></B>&nbsp;
+<BR>they should look like this&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; logonDialog = new
+LogonDialog(frame,</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+"Log on to "+programName);</TT></B></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>409</TD>
+
+<TD>
+<DL>
+<DT>
+There is a sentence that begins with&nbsp;</DT>
+
+<DD>
+When the queue is empty, you want the <TT>get</TT> method to wait...&nbsp;</DD>
+</DL>
+
+<DT>
+It should begin with&nbsp;</DT>
+
+<DD>
+When the queue is empty, you want the <TT>pull</TT> method to wait...</DD>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>411</TD>
+
+<TD>
+<DL>
+<DT>
+There is a sentence that begins like this:</DT>
+
+<DD>
+The call to <TT>foo</TT> will not return until a call to bar takes...</DD>
+</DL>
+
+<DT>
+It should be formatted like this:</DT>
+
+<DD>
+The call to <TT>foo</TT> will not return until a call to <TT>bar</TT> takes...</DD>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>429</TD>
+
+<TD>The first line of code on the page reads&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+waitingThreads.remove(0);</TT></B>&nbsp;
+<BR>That line should be deleted.&nbsp;
+
+<P>There is a range of lines of code that read&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runningThread = (Thread)waitingThreads.get(next);</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+synchronized (runningThread) {</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runningThread.notifyAll();</TT></B>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+}</B> // synchronized (runningThread)</TT>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</B> // if waitCount</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp; <B>}</B> // done()</TT>&nbsp;
+<BR>Those lines of code should say&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runningThread = (Thread)waitingThreads.get(next);</TT></B>&nbsp;
+<BR><TT><B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</B> // if waitCount</TT>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; synchronized (runningThread)
+{</TT></B>&nbsp;
+<BR><B><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+runningThread.notifyAll();</TT></B>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B>}</B> // synchronized
+(runningThread)</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp; <B>}</B> // done()</TT></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>443</TD>
+
+<TD>
+<DL>
+<DT>
+There is a sentence that says</DT>
+
+<DD>
+If the <TT>Queue</TT> object is empty, a <TT>Producer</TT> object that
+wants to get an object from it must wait until a consumer object puts an
+object in the <TT>Queue</TT> object.</DD>
+</DL>
+
+<DT>
+It should say</DT>
+
+<BLOCKQUOTE>If the <TT>Queue</TT> object is empty, a <TT>Consumer</TT>
+object that wants to get an object from it must wait until a <TT>Producer</TT>
+object puts an object in the <TT>Queue</TT> object.</BLOCKQUOTE>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>438</TD>
+
+<TD>There is a range of lines of code that says:&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread = (Thread)waitingForWriteLock.get(0);&nbsp;</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread.notifyAll();&nbsp;</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} // if&nbsp;</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (Thread.currentThread()
+== writeLockedThread) {&nbsp;</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if ( outstandingReadLocks==0&nbsp;</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&amp;&amp; waitingForWriteLock.size()>0) {&nbsp;</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread = (Thread)waitingForWriteLock.get(0);&nbsp;</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread.notifyAll();&nbsp;&nbsp;</TT>&nbsp;
+
+<P>It should say:&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread = (Thread)waitingForWriteLock.get(0);</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+synchronized (writeLockedThread) {</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread.notifyAll();</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} // synchronized</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} // if</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else if (Thread.currentThread()
+== writeLockedThread) {</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+if ( outstandingReadLocks==0</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&amp;&amp; waitingForWriteLock.size()>0) {</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread = (Thread)waitingForWriteLock.get(0);</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+synchronized (writeLockedThread) {</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+writeLockedThread.notifyAll();</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+} // synchronized</TT></TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>457</TD>
+
+<TD>
+<DT>
+The first paragraph begins&nbsp;</DT>
+
+<DD>
+The CD-ROM contains the complete code for ...</DD>
+
+<DT>
+It should say&nbsp;</DT>
+
+<DD>
+The CD-ROM contains the complete Java 1.2 code for ...</DD>
+</TD>
+
+<TD>?</TD>
+</TR>
+</TABLE>
+&nbsp;
+</BODY>
+</HTML>

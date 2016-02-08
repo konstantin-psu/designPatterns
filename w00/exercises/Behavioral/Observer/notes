@@ -1,0 +1,11 @@
+This example also shows some interesting features:
+  - inner anonymous classes
+    - an action listener
+    - a change listener
+  - a bean
+  - a bean property
+  - a bound bean property
+
+Concerning method firePropertyChange, in Component the signature is
+    firePropertyChange (String, Object, Object) 
+whereas in JComponent there are 9 overloaded instances.

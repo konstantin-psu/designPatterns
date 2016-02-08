@@ -1,0 +1,96 @@
+<HTML>
+<TITLE>Proxy</TITLE>
+<BODY>
+
+<H2>Proxy</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>unknown</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+It is incovenient to access a service for a variety of reasons,
+e.g., the object providing the service is quite complex,
+or may not exist at the time the service is requested
+(and so it must be created).
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+Access an object's services indirectly
+through another object, the proxy.
+Clients are generally unaware of the proxy's existence.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+A hashtable is expensive to clone.
+Reading into a cloned hashtable gives the same results
+as reading into the original, until the original is modified.
+Cloning can be delayed until the cloned hashtable is
+to become different from the original hashtable.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>ServiceClass</B></TD>
+  <TD>The class providing services.</TD>
+  <TD>Hashtable</TD>
+  </TR>
+  <TR>
+  <TD><B>Proxy</B></TD>
+  <TD>The class through which the <EM>ServiceClass</EM> services are accessed.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+  <TD><B>ServiceIF</B></TD>
+  <TD>Common interface of both <EM>ServiceClass</EM> and <EM>Proxy</EM>.</TD>
+  <TD>say, HashtableIF</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+<A HREF=Bridge.html>Bridge</A><BR>
+<A HREF=Decorator.html>Decorator</A><BR>
+<A HREF=Delegation.html>Delegation</A><BR>
+<A HREF=Facade.html>Facade</A><BR>
+</TD>
+</TR>
+<TR>
+<TD>Variations:</TD>
+<TD>
+  <TABLE CELLSPACING=0 CELLPADDING=0>
+  <TR>
+  <TD>Access proxy:</TD>  <TD>&nbsp;</TD>
+  <TD>Enforces security policies to access a service object.</TD>
+  </TR>
+  <TR>
+  <TD>Remote proxy:</TD>  <TD>&nbsp;</TD>
+  <TD>Hides that a service object is on a remote machine.</TD>
+  </TR>
+  <TR>
+  <TD>Virtual proxy:</TD>  <TD>&nbsp;</TD>
+  <TD>Creates perception that a service object exists when it might not.</TD>
+  </TR>
+  </TABLE>
+
+
+
+
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

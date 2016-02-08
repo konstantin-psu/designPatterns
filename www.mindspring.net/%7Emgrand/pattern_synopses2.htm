@@ -1,0 +1,1309 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Mark Grand">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <META NAME="Description" CONTENT="Synopses of software patterns from the book Patterns in Java Volume 2: A Catalog of Non-Design Software Patterns by Mark Grand Illustrated with UML">
+   <META NAME="KeyWords" CONTENT="Pattern, Design Patterns">
+   <TITLE>Software Pattern Synopses</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>
+<A NAME="top"></A><B>Preview of Patterns in Java Volume 2</B></H1></CENTER>
+Volume 2 of my patterns book contains patterns that apply to phases of
+the software development cycle other than design.&nbsp; Synopses of the
+<A HREF="pattern_synopses.htm#Top of Page">design patterns in volume 1</A>
+are available on a separate page. I have begun work on Volume 3. There
+is a preliminary <A HREF="pattern_synopses3.htm#top">outline for volume
+3</A>.
+<CENTER><TABLE BORDER COLS=1 WIDTH="40%" BGCOLOR="#C0C0C0" >
+<TR>
+<TD>
+<CENTER><A HREF="http://www.amazon.com/exec/obidos/ISBN=0471258415/markgrandA/">Order
+Volume 2</A></CENTER>
+</TD>
+</TR>
+</TABLE></CENTER>
+There is also an <A HREF="volume_2_patterns_errata.html">errata page for
+Volume 2</A>.
+
+<P>The 50 patterns in volume 2 are organized into categories as shown in
+the following table:
+<BR>&nbsp;
+<CENTER><TABLE BORDER=3 COLS=2 WIDTH="65%" >
+<TR>
+<TD VALIGN=CENTER WIDTH="35%"><A HREF="#GRASP Patterns">GRASP Patterns</A></TD>
+
+<TD><A HREF="#Controller">Controller</A>&nbsp;
+<BR><A HREF="#Creator">Creator</A>&nbsp;
+<BR><A HREF="#Expert">Expert</A>&nbsp;
+<BR><A HREF="#Don't Talk to Strangers">Law of Demeter</A>&nbsp;
+<BR><A HREF="#Low Coupling/High Cohesion">Low Coupling/High Cohesion</A>&nbsp;
+<BR><A HREF="#Polymorphism">Polymorphism</A>&nbsp;
+<BR><A HREF="#Pure Fabrication">Pure Fabrication</A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="#GUI Design Patterns">GUI Design Patterns</A></TD>
+
+<TD><A HREF="#Conversational Text">Conversational Text&nbsp;</A>&nbsp;
+<BR><A HREF="#Direct Manipulation">Direct Manipulation</A>&nbsp;
+<BR><A HREF="#Ephemeral Feedback">Ephemeral Feedback</A>&nbsp;
+<BR><A HREF="#Explorable Interface">Explorable Interface</A>&nbsp;
+<BR><A HREF="#Data Entry Form">Form</A>&nbsp;
+<BR><A HREF="#Context Sensitive Menu Item">Disabled Irrelevant Things</A>&nbsp;
+<BR><A HREF="#Interaction Style">Interaction Style</A>&nbsp;
+<BR><A HREF="#Limited Selection Size">Limited Selection Size</A>&nbsp;
+<BR><A HREF="#Menu">Selection</A>&nbsp;
+<BR><A HREF="#Step-by-Step Instructions">Step-by-Step Instructions</A>&nbsp;
+<BR><A HREF="#Dialog">Supplementary Window</A>&nbsp;
+<BR><A HREF="#Window Per Task">Window per Task</A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="#Organizational Coding Patterns">Organizational Coding Patterns</A></TD>
+
+<TD><A HREF="#Accessor Method">Accessor Method Name</A>&nbsp;
+<BR><A HREF="#Anonymous Adapter">Anonymous Adapter</A>&nbsp;
+<BR><A HREF="#Checked Versus Unchecked Exceptions">Checked vs. Unchecked
+Exceptions</A>&nbsp;
+<BR><A HREF="#Conditional Compilation">Conditional Compilation</A>&nbsp;
+<BR><A HREF="#Composed Method">Composed Method</A>&nbsp;
+<BR><A HREF="#Convert Exceptions">Convert Exceptions</A>&nbsp;
+<BR><A HREF="#Define Constants in Interfaces">Define Constants in Interfaces</A>&nbsp;
+<BR><A HREF="#Extend Super">Extend Super</A>&nbsp;
+<BR><A HREF="#Intention Revealing Method">Intention Revealing Method</A>&nbsp;
+<BR><A HREF="#ServerSocket">ServerSocket</A>&nbsp;
+<BR><A HREF="#Socket">Client Socket</A>&nbsp;
+<BR><A HREF="#Switch">Switch</A>&nbsp;
+<BR><A HREF="#Symbolic Name">Symbolic Constant Name</A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="#Code Optimization Patterns">Optimization Coding Patterns</A></TD>
+
+<TD><A HREF="#Double Checked Locking">Double Checked Locking&nbsp;</A>&nbsp;
+<BR><A HREF="#Hashed Adapter Objects">Hashed Adapter Objects</A>&nbsp;
+<BR><A HREF="#Lazy Initialization">Lazy Initialization</A>&nbsp;
+<BR><A HREF="#Lookup Table">Lookup Table</A>&nbsp;
+<BR><A HREF="#Loop Unrolling">Loop Unrolling</A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="#Robustness Coding Patterns">Robustness Coding Patterns</A></TD>
+
+<TD><A HREF="#Assertion Testing">Assertion Testing</A>&nbsp;
+<BR><A HREF="#Copy Mutable Parameters">Copy Mutable Parameters</A>&nbsp;
+<BR><A HREF="#Guaranteed Cleanup">Guaranteed Cleanup</A>&nbsp;
+<BR><A HREF="#Maximize Privacy">Maximize Privacy</A>&nbsp;
+<BR><A HREF="#Return New Objects from Accessor Method">Return New Objects
+from Accessor</A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="#Testing Patterns">Testing Patterns</A></TD>
+
+<TD><A HREF="#Acceptance Testing">Acceptance Testing</A>&nbsp;
+<BR><A HREF="#Black Box Testing">Black Box Testing</A>&nbsp;
+<BR><A HREF="#Clean Room Testing">Clean Room Testing</A>&nbsp;
+<BR><A HREF="#Integration Testing">Integration Testing</A>&nbsp;
+<BR><A HREF="#Regression Testing">Regression Testing</A>&nbsp;
+<BR><A HREF="#System Testing">System Testing</A>&nbsp;
+<BR><A HREF="#Unit Testing">Unit Testing</A>&nbsp;
+<BR><A HREF="#White Box Testing">White Box Testing</A></TD>
+</TR>
+</TABLE></CENTER>
+If you have any suggestions about this page or would like to discuss a
+pattern with its author, send e-mail to&nbsp; <A HREF="mailto:mgrand@mindspring.com">mgrand@mindspring.com</A>
+.&nbsp;
+<HR WIDTH="100%">
+<H2>
+<A NAME="GRASP Patterns"></A>GRASP Patterns</H2>
+GRASP is an acronym for General Responsibility Assignment Software Patterns.
+GRASP Patterns provide guidance for assigning responsibilities to classes
+and, to a limited extent, determining the classes that will be in a design.
+
+<P>This book discusses GRASP patterns as they are applied to object oriented
+design. Most GRASP patterns apply equally well to business process reengineering.
+
+<P>During analysis, when you are building a conceptual model of an organization
+that has more than one way to do something, GRASP patterns can provide
+guidance in selecting paths through the organization to include in the
+conceptual model.
+<UL>
+<LI>
+<A NAME="Low Coupling/High Cohesion"></A><B>Low Coupling/High Cohesion</B></LI>
+
+<BR>If you find that a class is so highly coupled or lacking in cohesion
+as to make a design brittle or difficult to modify, then apply other appropriate
+GRASP patterns to reassign the class’ responsibilities.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Interface">Interface</A></LI>
+
+<BR>One form of coupling between classes is the coupling between a subclass
+and its superclass. It is often possible to avoid subclassing by using
+the Interface pattern.</UL>
+
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Mediator">Mediator</A></LI>
+
+<BR>It is not necessary or even always desirable for all of the classes
+in a design to have low coupling and high cohesion. Sometimes the overall
+complexity of a class can be reduced by concentrating complexity in one
+class. The Mediator pattern provides an example of that.</UL>
+
+<UL>&nbsp;</UL>
+
+<UL>
+<LI>
+<A HREF="#Composed Method">Composed Method</A></LI>
+
+<BR>It is possible for methods to be uncohesive and difficult to work with.
+Some common causes are excessive length or too many execution paths within
+a method. The Composed Method pattern provides guidance of breaking up
+such methods into smaller, simpler and more cohesive methods.</UL>
+
+<LI>
+<A NAME="Expert"></A><B>Expert</B></LI>
+
+<BR>Assign a responsibility to the class that has the information needed
+to carry out the responsibility.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Low Coupling/High Cohesion">Low Coupling/High Cohesion</A></LI>
+
+<BR>The Expert pattern promotes low coupling by putting methods in the
+classes that have the information that the methods need. Classes whose
+methods only need the class’ own information have less need to rely on
+other classes. A set of methods that all operate on the same information
+tends to be cohesive.</UL>
+
+<LI>
+<A NAME="Creator"></A><B>Creator</B></LI>
+
+<BR>Determine which class should create instances of a class based on the
+relationship between the potential creator classes and the class to be
+instantiated.
+<BR>&nbsp;
+<LI>
+<A NAME="Polymorphism"></A><B>Polymorphism</B></LI>
+
+<BR>When alternate behaviors are selected based on the type of an object,
+use a polymorphic method call to select the behavior, rather than using
+if statements to test the type.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Dynamic Linkage">Dynamic Linkage</A></LI>
+
+<BR>You can implement plug-ins or pluggable software components using a
+combination of polymorphism and the Dynamic Linkage pattern.</UL>
+
+<LI>
+<A NAME="Pure Fabrication"></A><B>Pure Fabrication</B></LI>
+
+<BR>Fabricate a class that does not represent a problem domain entity when
+you must assign a responsibility to a class, but assigning it to a class
+that represents a problem domain entity would ruin its low coupling or
+high cohesion.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Low Coupling/High Cohesion">Low Coupling/High Cohesion</A></LI>
+
+<BR>The point of the Pure Fabrication pattern is to maintain the low coupling
+and high cohesion of the classes in an object oriented design.</UL>
+
+<LI>
+<A NAME="Don't Talk to Strangers"></A><B>Law of Demeter</B></LI>
+
+<BR>If two classes have no other reason to be directly aware of each other
+or otherwise coupled, then the two classes should not directly interact.
+Instead of having a class call the methods of another class that it has
+no other reason to be coupled with, it should call that method indirectly
+through another class. Insisting on such indirection keeps a design’s overall
+level of coupling down.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Low Coupling/High Cohesion">Low Coupling/High Cohesion</A></LI>
+
+<BR>The fundamental motivation for the Don’t Talk to Strangers pattern
+is to maintain low coupling.
+<BR>&nbsp;
+<LI>
+<A HREF="#Pure Fabrication">Pure Fabrication</A></LI>
+
+<BR>There are sometimes good reasons for calls made to classes added to
+a design using the Pure Fabrication pattern to violate the guidelines of
+the Don’t Talk to Strangers pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Mediator">Mediator</A></LI>
+
+<BR>The Mediator pattern provides an example of a class created through
+pure fabrication that receives direct method calls from classes unrelated
+to it with a benefit that outweighs the disadvantages of the direct calls.</UL>
+<A NAME="Controller"></A><B>Controller</B>
+<BR>&nbsp;If a program will receive events from external sources other
+than its graphical user interface, add an event class to decouple the event
+source(s) from the objects that actually handle the events.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Pure Fabrication">Pure Fabrication</A></LI>
+
+<BR>The Controller pattern is a specialized form of the Pure Fabrication
+pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Mediator">Mediator</A></LI>
+
+<BR>The Mediator pattern is used to coordinates events from a GUI.&nbsp;
+Like controller objects, a highly coupled and incohesive&nbsp; mediator
+object may involve less overall complexity than an arrangement that distributes
+the same responsibilities over more objects.</UL>
+</UL>
+
+<HR WIDTH="100%">
+<H2>
+<A NAME="GUI Design Patterns"></A>GUI Design Patterns</H2>
+
+<UL>
+<LI>
+&nbsp;<A NAME="Window Per Task"></A><B>Window Per Task</B></LI>
+
+<BR>&nbsp;A GUI should have a separate window for each cohesive task a
+user must perform. All information needed to perform the task is available
+from the window. The application provides a way to navigate between windows
+that allows the coordination of tasks.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Low Coupling/High Cohesion">Low Coupling/High Cohesion</A></LI>
+
+<BR>The Task per Window pattern is based on the principles of low coupling
+and high cohesion.</UL>
+
+<LI>
+&nbsp;<A NAME="Interaction Style"></A><B>Interaction Style</B></LI>
+
+<BR>&nbsp;Match the style of interaction offered by a GUI to the abilities
+of its users and the requirements of the application. The most common styles
+of interaction are Selection, Form, Direct Manipulation and Conversational
+Text.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Converational Text">Conversational Text</A></LI>
+
+<BR>This pattern describes one of the interaction styles that this pattern
+promotes.
+<BR>&nbsp;
+<LI>
+<A HREF="#Data Entry Form">Form</A></LI>
+
+<BR>This pattern describes one of the interaction styles that this pattern
+promotes.
+<BR>&nbsp;
+<LI>
+<A HREF="#Direct Manipulation">Direct Manipulation</A></LI>
+
+<BR>This pattern describes one of the interaction styles that this pattern
+promotes.
+<BR>&nbsp;
+<LI>
+<A HREF="#Menu">Selection</A></LI>
+
+<BR>This pattern describes one of the interaction styles that this pattern
+promotes.</UL>
+
+<UL>
+<LI>
+<A HREF="#Step-by-Step Instructions">Step-by-Step Instructions</A></LI>
+
+<BR>The Step-by-Step Instruction pattern may be used to specifiy a sequence
+of interaction modes.</UL>
+
+<LI>
+<A NAME="Explorable Interface"></A><B>Explorable Interface</B></LI>
+
+<BR>Design user interaction to be forgiving of the user’s mistakes by allowing
+the user to undo actions and go back to previous decision points.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Command">Command</A></LI>
+
+<BR>The Command pattern describes a way to undo the effects of a command
+or the performance of a task.
+<BR>&nbsp;
+<LI>
+<A HREF="#Converational Text">Conversational Text</A></LI>
+
+<BR>The Explorable Interface pattern is often used with the Conversational
+Text pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="#Data Entry Form">Form</A></LI>
+
+<BR>The Explorable Interface pattern is often used with the Form pattern.</UL>
+
+<UL>
+<LI>
+<A HREF="#Dialog">Supplementary Window</A></LI>
+
+<BR>The Explorable Interface pattern is often used with the&nbsp; Supplementary
+Window pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="#Direct Manipulation">Direct Manipulation</A></LI>
+
+<BR>The Explorable Interface pattern is often used with the Direct Manipulation
+pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="#Menu">Selection</A></LI>
+
+<BR>The Explorable Interface pattern is often used with the Selection pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Snapshot">Snapshot</A></LI>
+
+<BR>The Snapshot pattern can be used to restore the state of a program
+to what it was at a previous time.</UL>
+
+<LI>
+&nbsp;<A NAME="Conversational Text"></A><B>Conversational Text</B></LI>
+
+<BR>Design a GUI to accept commands in the form of textual input.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Explorable Interface">Explorable Interface</A></LI>
+
+<BR>The Interaction Style pattern is used to decide to use the Conversational
+Text pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="#Interaction Style">Interaction Style</A></LI>
+
+<BR>The Interaction Style pattern is used to decide to use the Conversational
+Text pattern.</UL>
+
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Little Language / Interpreter">Little Language</A></LI>
+
+<BR>The Little Language pattern describes how to design and implement textual
+command input as a little language.</UL>
+
+<LI>
+<A NAME="Menu"></A><B>Selection</B></LI>
+
+<BR>Allow users to interact with a GUI by selecting commands and data values
+from lists.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Explorable Interface">Explorable Interface</A></LI>
+
+<BR>&nbsp;The Explorable Interface pattern describes a technique for making
+a selection interaction more useable.
+<BR>&nbsp;
+<LI>
+<A HREF="#Limited Selection Size">Limited Selection Size</A></LI>
+
+<BR>The Limited Selection Size pattern provides additional guidance in
+determining the presentation of a menu interaction.</UL>
+
+<LI>
+<A NAME="Data Entry Form"></A><B>Form</B></LI>
+
+<BR>Allow a user to enter structured data into a GUI as discrete pieces
+of information.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Dialog">Supplementary Window</A></LI>
+
+<BR>Data entry form interactions often occur within a dialog.</UL>
+
+<UL>
+<LI>
+<A HREF="#Ephemeral Feedback">Ephemeral Feedback</A></LI>
+
+<BR>The Ephemeral Feedback pattern provides guidance in providing brief,
+short lived feedback to a user.</UL>
+
+<UL>
+<LI>
+<A HREF="#Explorable Interface">Explorable Interface</A></LI>
+
+<BR>The Explorable Interface pattern describes a technique for making a
+data entry form interaction more useable.</UL>
+
+<UL>
+<LI>
+<A HREF="#Menu">Selection</A></LI>
+
+<BR>Data Entry Form interactions often include selection interactions to
+select data values.</UL>
+
+<LI>
+<A NAME="Direct Manipulation"></A><B>Direct Manipulation</B></LI>
+
+<BR>Allow users to interact with objects by manipulating representation
+of objects presented by a GUI.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Ephemeral Feedback">Ephemeral Feedback</A></LI>
+
+<BR>The Ephemeral Feedback pattern provides guidance in providing brief,
+short lived feedback to a user.
+<BR>&nbsp;
+<LI>
+<A HREF="#Explorable Interface">Explorable Interface</A></LI>
+
+<BR>The Explorable Interface pattern describes a technique for making a
+direct manipulation interaction more useable.
+<BR>&nbsp;
+<LI>
+<A HREF="#Menu">Selection</A></LI>
+
+<BR>When a direct manipulation interaction that supports Menus are used
+to select a command to manipulate previously selected objects.</UL>
+
+<LI>
+<A NAME="Limited Selection Size"></A><B>Limited Selection Size</B></LI>
+
+<BR>Design the presentation of selection interactions to avoid displaying
+more than a limited number of choices at a time.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Menu">Selection</A></LI>
+
+<BR>The Limited Selection Size pattern provides guidance on designing the
+presentation of selection interactions.</UL>
+
+<LI>
+<A NAME="Ephemeral Feedback"></A><B>Ephemeral Feedback</B></LI>
+
+<BR>Provide feedback to users about the status of their work, without interfering
+with the natural flow of their work.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Ease of Use">Ease of Use</A></LI>
+
+<BR>Use of the Ephemeral Feedback pattern can result in a GUI that presents
+uses with fewer surprises, which the Ease of Use pattern says is a good
+thing.</UL>
+
+<LI>
+<A NAME="Context Sensitive Menu Item"></A><B>Disabled Irrelevant Things</B></LI>
+
+<BR>&nbsp;Hide or disable GUI elements that that are not relevant in the
+current context.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Menu">Selection</A></LI>
+
+<BR>The Disabled Irrelevant Things pattern is used with the Selection pattern.</UL>
+
+<LI>
+<A NAME="Dialog"></A><B>Supplementary Window</B></LI>
+
+<BR>Display a window for a user interaction that supplements a parent window’s
+interaction. The purpose of the supplementary window is to collect information
+for the parent window’s interaction, display additional information about
+the parent window’s interaction or provide a notification about the status
+of the parent’s interaction. The supplementary window is shorter lived
+than its parent.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Limited Selection Size">Limited Selection Size</A></LI>
+
+<BR>Use the Limited Selection Size pattern to decide if a dialog will have
+pull-down menus.
+<BR>&nbsp;
+<LI>
+<A HREF="#Window Per Task">Window Per Task</A></LI>
+
+<BR>The Supplementary Window Pattern is partially motivated by the Window
+Per Task pattern.</UL>
+
+<LI>
+<A NAME="Step-by-Step Instructions"></A><B>Step-by-Step Instructions</B></LI>
+
+<BR>Lead a user through the steps of a task, so that the GUI tells the
+user what to do next, rather than the user telling the GUI what to do next.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Menu">Selection</A></LI>
+
+<BR>Implementations of the Step-by-Step Instructions pattern usually rely
+heavily on selection interactions to acquire information from users.
+<BR>&nbsp;
+<LI>
+<A HREF="#Dialog">Supplementary Window</A></LI>
+</UL>
+Sometimes the Step-by-Step Instructions pattern is used to supplement a
+GUI that requires the user to lead the program through tasks. Wizards that
+are available in popular word processing and spreadsheet programs are an
+example. When the Step-by-Step instructions pattern is used to design a
+supplementary GUI, it is usually in the context of a dialog.</UL>
+
+<HR WIDTH="100%">
+<H2>
+<A NAME="Organizational Coding Patterns"></A>Organizational Coding Patterns</H2>
+
+<UL>The patterns in this chapter provide guidance in organizing your code
+in ways that promote readability and maintainability. A principle that
+underlies many of these patterns is that simple code is easier to understand
+and less likely to contain bugs.
+<BR>&nbsp;
+<LI>
+<A NAME="Accessor Method"></A><B>Accessor Method Name</B></LI>
+
+<BR>Use names and signatures for accessor methods that are easy to read
+and conform to the JavaBeans specification.
+<BR>&nbsp;
+<LI>
+<A NAME="Anonymous Adapter"></A><B>Anonymous Adapter</B></LI>
+
+<BR>Use anonymous adapter objects to handle events. This simplifies the
+code and allows code relating to the same event source to be in the same
+part of the source code.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm">Adapter</A></LI>
+
+<BR>The Anonymous Adapters pattern uses Adapter objects.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Mediator">Mediator</A></LI>
+
+<BR>&nbsp;If handling events from multiple sources involves managing or
+using common or interrelated state information, then the Mediator pattern
+may provide a better way to handle the events.
+<BR>&nbsp;
+<LI>
+<A HREF="#Hashed Adapter Objects">Hashed Adapter Objects</A></LI>
+
+<BR>You can use the hashed Adapter Objects pattern to provide a more flexible
+way to manage event handlers than the Anonymous Adapters pattern.</UL>
+
+<LI>
+<A NAME="Symbolic Name"></A><B>Symbolic Constant Name</B></LI>
+
+<BR>&nbsp;Use symbolic names for constants. A meaningful name makes the
+purpose of the constant clear to someone reading the code. Symbolic names
+can also simplify maintenance.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Immutable">Immutable</A></LI>
+
+<BR>The Immutable pattern describes other uses for immutable objects.
+<BR>&nbsp;
+<LI>
+<A HREF="#Switch">Switch</A></LI>
+
+<BR>Code that uses the Switch pattern should also use the Symbolic Constant
+Name pattern.</UL>
+
+<LI>
+<A NAME="Define Constants in Interfaces"></A><B>Define Constants in Interfaces</B></LI>
+
+<BR>Avoid having to qualify symbolic constant names with the name of the
+class that defines them. Define them in an interface. That way, any class
+that implements the interface can use the symbolic names without any qualification.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Symbolic Name">Symbolic Constant Name</A></LI>
+
+<BR>This pattern only applies to classes that use symbolic names for constants.</UL>
+
+<LI>
+<A NAME="Switch"></A><B>Switch</B></LI>
+
+<BR>Select a piece of code to execute from multiple alternatives based
+on an <TT>int</TT> data value by using a switch statement.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Hashed Adapter Objects">Hashed Adapter Objects</A></LI>
+
+<BR>Switch statements associate <TT>int</TT> values pieces of code. The
+Hashed Adapter Objects pattern associates objects with pieces of code.</UL>
+
+<UL>
+<LI>
+<A HREF="#Symbolic Name">Symbolic Constant Name</A></LI>
+
+<BR>Code that uses the Switch pattern should also use the Symbolic Constant
+Name pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="#Polymorphism">Polymorphism</A></LI>
+
+<BR>In many situations, polymorphic method calls are a more appropriate
+technique than switch statements. However, people with a background in
+procedural programming who are new to object oriented techniques often
+use switch statements when polymorphic method calls would be more appropriate.</UL>
+
+<LI>
+<A NAME="Extend Super"></A><B>Extend Super</B></LI>
+
+<BR>Implement a method that modifies the behavior of a superclass’ method
+by calling the superclass’ method.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Composed Method">Composed Method</A></LI>
+
+<BR>The Composed Method pattern describes the more general case of composing
+the behavior of a method from the behavior of other methods.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Template">Template Method</A></LI>
+
+<BR>The Template Method pattern describes a way to design a class that
+plans for its behavior to be extended by a subclass’s methods. It provides
+more flixibility and control over how a subclass extends the behavior of
+its superclass than the Extend Super pattern at the expense of greater
+complexity. In particular, the Template Method patterns allows behavior
+of a subclass to occur in the middle of the exection of superclass’s methods.
+The template method pattern can also be used to force a subclass to extend
+a superclass in predefined ways.</UL>
+
+<LI>
+<A NAME="Intention Revealing Method"></A><B>Intention Revealing Method</B></LI>
+
+<BR>If the intention of a call to a general purpose method is not obvious,
+then define a method with a meaningful name to call the general purpose
+method.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Intention Revealing Method">&nbsp;Intention Revealing Method</A></LI>
+
+<BR>The sort of methods described by the Intention Revealing Method pattern
+should be the smallest methods that you create when applying the Composed
+Method pattern.</UL>
+
+<UL>
+<LI>
+<A HREF="#Composed Method">Composed Method</A></LI>
+
+<BR>&nbsp;The Composed Method pattern provides other reasons for moving
+code into a separate method.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Facade">Fa&ccedil;ade</A></LI>
+
+<BR>After applying the Composed Method pattern, you may decide to break
+a class up into smaller classes with the original class acting as a fa&ccedil;ade.
+<UL>&nbsp;</UL>
+</UL>
+
+<LI>
+<A NAME="Conditional Compilation"></A><B>Conditional Compilation</B></LI>
+
+<BR>Control whether a compiler includes statements for debugging in the
+byte codes it generates or ignores those statements.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Assertion Testing">Assertion Testing</A></LI>
+
+<BR>The Conditional Compilation pattern is often used with the Assertion
+Testing pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="#White Box Testing">White Box Testing</A></LI>
+
+<BR>The Conditional Compilation pattern is often used with the White Box
+Testing pattern.</UL>
+
+<LI>
+<A NAME="Composed Method"></A><B>Composed Method</B></LI>
+
+<BR>Reorganize methods that are too large to easily understand into smaller
+methods.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Intention Revealing Method">Intention Revealing Method</A></LI>
+
+<BR>The sort of methods described by the Intention Revealing Method pattern
+should be the smallest methods that you create when applying the Composed
+Method pattern.</UL>
+
+<UL>
+<LI>
+<A HREF="#Maximize Privacy">Maximize Privacy</A></LI>
+
+<BR>The Maximize Privacy pattern provide the motivation for making sub-methods
+private that are created by applying the Composed Method pattern.
+
+<P><A HREF="pattern_synopses.htm#Facade">Fa&ccedil;ade</A>
+<LI>
+After applying the Composed Method pattern, you may decide to break a class
+up into smaller classes with the original class acting as a fa&ccedil;ade.</LI>
+</UL>
+
+<UL>&nbsp;</UL>
+
+<LI>
+&nbsp;<A NAME="Checked Versus Unchecked Exceptions"></A><B>Checked Versus
+Unchecked Exceptions</B></LI>
+
+<BR>As part of its contract with its callers, a method may be expected
+to throw exceptions under certain circumstances. Those exceptions should
+be checked exceptions. Any exceptions a method throws that are outside
+of its contract, such exceptions to indicate internal errors or to help
+with debugging, should be unchecked exceptions.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Assertion Testing">Assertion Testing</A></LI>
+
+<BR>The Assertion Testing pattern provides additional guidance about checked
+or unchecked exception to report unsatisfied assertions.
+<BR>&nbsp;
+<LI>
+<A HREF="#Conditional Compilation">Conditional Compilation</A></LI>
+
+<BR>The Conditional Compilation pattern can be used to prevent debug code
+that throws unchecked exceptions from being included in a production version
+of a class.</UL>
+
+<LI>
+<A NAME="Convert Exceptions"></A><B>Convert Exceptions</B></LI>
+
+<BR>Many programs are organized into layers related to different domains,
+such as database management and an application domain. In such programs,
+some classes are part of one domain but have methods that call methods
+of classes that belong to another domain. Such methods should convert exceptions
+they do not catch from the other domain to their own domain.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Low Coupling/High Cohesion">Low Coupling/High Cohesion</A></LI>
+
+<BR>The Low Coupling/High Cohesion pattern tells us to avoid unnecessary
+dependencies between classes.</UL>
+
+<LI>
+<A NAME="ServerSocket"></A><B>Server Socket</B></LI>
+
+<BR>You need to write code to manage the server side of a socket based
+network connection. The code that you write follows a very consistent pattern
+that revolves around ServerSocket and Socket objects.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Socket">Client Socket</A></LI>
+
+<BR>The Client Socket pattern described the common logic for implementing
+clients.</UL>
+
+<UL>
+<LI>
+Thread Pool</LI>
+
+<BR>The Thread Pool pattern describes a more efficient way to to manage
+server threads. The Thread Pool pattern will be described in Volume 3.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Two-Phase">Two Phase Termination</A></LI>
+
+<BR>The Two Phase Termination pattern explains how to use a Thread object’s
+interrupt method to request that the thread show down in an orderly manner.
+<UL>&nbsp;</UL>
+</UL>
+
+<LI>
+<A NAME="Socket"></A><B>Client Socket</B></LI>
+
+<BR>Most uses of the Socket class to implement a client follow a very consistent
+coding pattern.
+
+<P>Related patterns are
+<UL>
+<LI>
+Heartbeat</LI>
+
+<BR>The Heartbeat pattern (described in Volume 3) describes a technique
+that allows a client program to detect that a server has gone down.</UL>
+
+<UL>
+<LI>
+<A HREF="#ServerSocket">Server Socket</A></LI>
+
+<BR>The ServerSocket pattern described the common logic for implementing
+servers.</UL>
+</UL>
+
+<HR WIDTH="100%">
+<H2>
+<A NAME="Code Optimization Patterns"></A>Code Optimization Patterns</H2>
+
+<UL>The patterns in this chapter can be used to improve the performance
+of a program in ways that a compiler’s automatic optimizations cannot accomplish.
+Like any other kind of optimization, you should use the patterns in this
+chapter only after you have established a definite need for them. For example,
+the Loop Unrolling pattern reduces the amount of time required to execute
+a loop. It does so at the expense of making the code larger and harder
+to understand and maintain. If the program makes enough loop iterations
+for a small reduction in the duration of each iteration to produce a noticeable
+improvement, that is a good application of the Loop Unrolling pattern.
+If applying the Loop Unrolling pattern does not produce a noticeable improvement,
+then you have made you program more difficult to understand an maintain
+with no corresponding benefit.
+
+<P>The usual way to determine what to optimize is to run a program using
+a good execution profiling tool. Such tools are able to tell you how much
+time a program spends in different methods or statements. They are also
+able to indicate the percentage of time that the program spent in each
+place and the number of times that each statement or method was executed.
+<BR>&nbsp;
+<LI>
+<A NAME="Hashed Adapter Objects"></A><B>Hashed Adapter Objects</B></LI>
+
+<BR>Dispatch a method call to an adapter object associated with an arbitrary
+object. The arbitrary object is used to find the adapter object in a hash
+table. The Hashed Adapter Objects pattern is most commonly used when an
+object must be created from unencapsulated data or unencapsulated data
+must be dispatched to an object.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Adapter">Adapter</A></LI>
+
+<BR>The Hashed Adapter Objects pattern uses Adapter objects.
+<BR>&nbsp;
+<LI>
+<A HREF="#Lookup Table">Lookup Table</A></LI>
+
+<BR>Both the Hashed Adapter Objects pattern and the Lookup Table pattern
+involve the use of an aggregation. However, the aggegation serves a different
+purpose for each. The Lookup Table pattern uses an aggregation of precomputed
+results to save the time it would take to compute those results in the
+future. For the Hashed Adapter Objects pattern, it is that data structure
+that implements the aggregation that is the source of the time savings.
+<BR>&nbsp;
+<LI>
+<A HREF="#Polymorphism">Polymorphism</A></LI>
+
+<BR>When it is possible to select a behavior based on the type of an object,
+the Polymorphism pattern produces a simpler result than the Hashed Adapter
+Objects pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Single Threaded Execution">Single Threaded
+Execution</A></LI>
+
+<BR>The Single Threaded Execution pattern is used to coordinate access
+by multiple threads to the hash table used by the Hashed Adapter Objects
+pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Strategy">Strategy</A></LI>
+
+<BR>The Hashed Adapter Objects pattern can used to design the selection
+of strategy objects in the Strategy pattern.</UL>
+
+<LI>
+<A NAME="Lazy Initialization"></A><B>Lazy Initialization</B></LI>
+
+<BR>Delay the creation of an object or other expensive action needed to
+initialize a variable until it is known that the variable will be used.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Maximize Privacy">Maximize Privacy</A></LI>
+
+<BR>The Maximize Privacy pattern provides a justification for making a
+lazily initialized variable private.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Virtual Proxy">Virtual Proxy</A></LI>
+
+<BR>Like the Lazy Initialization pattern, the Virtual Proxy pattern can
+be used to delay a computation or the creation of an object until it is
+actually needed. The difference is that the Virtual Proxy pattern uses
+a proxy object to hide the computation; the Lazy Initialization pattern
+uses a method to hide the computation.</UL>
+
+<LI>
+<A NAME="Double Checked Locking"></A><B>Double Checked Locking</B></LI>
+
+<BR>&nbsp;A multi-threaded program does not initialize a resource until
+it actually needs the resource. One thread recognizes that that resource
+is not yet initialized when another thread has already begun the initialization.
+Avoid duplicating the initialization effort by coordinating the actions
+of multiple threads.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="pattern_synopses.htm#Balking">Balking</A></LI>
+
+<BR>The Balking design pattern is usually implemented using the same if-synchronized-if
+structure as the Double Checked Locking pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="#Lazy Initialization">Lazy Initialization</A></LI>
+
+<BR>The Double Checked Locking pattern can be used to ensure the integrity
+of the Lazy Initialization pattern when it is used in multi-threaded application.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Singleton">Singleton</A></LI>
+
+<BR>The Double Checked Locking pattern can be used in a thread safe and
+efficient implementation of the Singleton pattern.
+<BR>&nbsp;
+<LI>
+<A HREF="pattern_synopses.htm#Virtual Proxy">Virtual Proxy</A></LI>
+
+<BR>&nbsp;The Double Checked Locking pattern can be used in a thread safe
+implementation of the Virtual Proxy pattern.</UL>
+
+<LI>
+&nbsp;<A NAME="Loop Unrolling"></A><B>Loop Unrolling</B></LI>
+
+<BR>Reduce the overhead of a loop’s control logic by increasing the amount
+of work it does in each iteration so that it can accomplish the same amount
+of work in fewer iterations. This pattern trades memory for speed.
+<BR>&nbsp;
+<LI>
+<A NAME="Lookup Table"></A><B>Lookup Table</B></LI>
+
+<BR>Save the memory consumed by complex code and the time it takes to execute
+by precomputing the results and putting them in a lookup table.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Hashed Adapter Objects">Hashed Adapter Objects</A></LI>
+
+<BR>Both the Hashed Adapter Objects pattern and the Lookup Table pattern
+involve the use of an aggregation. However, the aggegation serves a different
+purpose for each. The Lookup Table pattern uses an aggregation of precomputed
+results to save the time it would take to compute those results in the
+future. For the Hashed Adapter Objects pattern, it is that data structure
+that implements the aggregation that is the source of the time savings.</UL>
+</UL>
+
+<H2>
+
+<HR WIDTH="100%"><A NAME="Robustness Coding Patterns"></A>Robustness Coding
+Patterns</H2>
+
+<UL>
+<LI>
+<A NAME="Assertion Testing"></A><B>Assertion Testing</B></LI>
+
+<BR>Verify that a method conforms to its contract with its callers by inserting
+code to test its preconditions, postconditions, invariants and data conditions
+and run time.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Checked Versus Unchecked Exceptions">Checked vs. Unchecked Exceptions</A></LI>
+
+<BR>The Checked vs. Unchecked Exception pattern explains reasons for using
+unchecked exceptions to indicate assertion failures.
+<LI>
+<A HREF="#Conditional Compilation">Conditional Compilation</A></LI>
+
+<BR>You can use the Conditional Compilation pattern with the Assertion
+Testing pattern to control whether or not assertion testing code is included
+in a particular configuration of a program.</UL>
+
+<LI>
+<A NAME="Guaranteed Cleanup"></A><B>Guaranteed Cleanup</B></LI>
+
+<BR>Ensure that internal data are in a consistent state if an operation
+is unable to execute to its normal completion. Ensure that external resources
+are consistent state and, if appropriate, released after an operation is
+unable to execute to its normal completion.
+<BR>&nbsp;
+<LI>
+<A NAME="Maximize Privacy"></A><B>Maximize Privacy</B></LI>
+
+<BR>Make members of classes as private as possible.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Low Coupling/High Cohesion">Low Coupling/High Cohesion</A></LI>
+
+<BR>The Low Coupling/High Cohesion pattern also tries to avoid dependencies
+between classes.</UL>
+
+<LI>
+<A NAME="Return New Objects from Accessor Method"></A><B>Return New Objects
+from Accessor Method</B></LI>
+
+<BR>Accessor methods return values or objects that indicate an object’s
+state. If the objects that an accessor method returns are mutable, then
+they should be copies rather than the actual state determining objects.
+That prevents changes to the returned object from also changing the state
+of the accessor method’s associated object.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Copy Mutable Parameters">Copy Mutable Parameters</A></LI>
+
+<BR>The Return New Objects from Accessor Method pattern avoids the situation
+of an object sharing its state determining objects with callers of its
+accessor methods. The Copy Mutable Parameters pattern avoids a similar
+situation with callers that pass state determining objects into its constructors
+and methods.</UL>
+
+<LI>
+<A NAME="Copy Mutable Parameters"></A><B>Copy Mutable Parameters</B></LI>
+
+<BR>Objects may be passed to a method or constructor that will be used
+to determine the state of its associated object. If the passed objects
+are mutable, then copies of them should be used to determine the object’s
+state, rather than the original passed object. That prevents changes to
+the passed object from also changing the state of the object associated
+with the method or constructor.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Return New Objects from Accessor Method">Return New Objects from
+Accessor Method</A></LI>
+
+<BR>The Copy Mutable Parameters pattern avoids the situation of an object
+sharing its state determining objects with callers of its methods that
+specify those objects. The Return New Objects from Accessor Method pattern
+avoids a similar situation with callers of methods that return state determining
+objects.</UL>
+</UL>
+
+<H2>
+
+<HR WIDTH="100%"><A NAME="Testing Patterns"></A>Testing Patterns</H2>
+
+<UL>&nbsp;
+<LI>
+<A NAME="Black Box Testing"></A><B>Black Box Testing</B></LI>
+
+<BR>Ensure that software satisfies requirements by designing tests based
+solely on requirements. Do not base tests on the way that the software
+is implemented.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#White Box Testing">White Box Testing</A></LI>
+
+<BR>White box testing is the compliment of black box testing. It involves
+designing test cases based on the internal structure of the software to
+be tested.</UL>
+
+<LI>
+<A NAME="White Box Testing"></A><B>White Box Testing</B></LI>
+
+<BR>Design a suite of test cases to exhaustively test software by testing
+it in all meaningful situations. The set of meaningful situations is determined
+from knowledge of the software’s internal structure. A complete set of
+tests will exercise all the execution paths through the software.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Black Box Testing">Black Box Testing</A></LI>
+
+<BR>Black box testing is the compliment of white box testing. It involves
+designing test cases based only on the specifications of the software to
+be tested.</UL>
+
+<UL>
+<LI>
+<A HREF="#Unit Testing">Unit Testing</A></LI>
+
+<BR>Because there are many fewer execution paths through an individual
+class than an entire program, it is more common to see white box testing
+applied to unit testing than it is to see it applied to larger pieces of
+software.
+
+<P>Unit testing may be able to exercise execution paths in classes that
+are currently unavailable in the environment that you are developing the
+classes for. Exercising those execution paths avoids surprises in the future.
+<BR>&nbsp;</UL>
+
+<LI>
+<A NAME="Unit Testing"></A><B>Unit Testing</B></LI>
+
+<BR>Test individual classes in isolation from the other classes of the
+program under development.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#System Testing">System Testing</A></LI>
+
+<BR>System testing is a compliment to unit testing. System testing involves
+testing an entire program rather than individual classes.</UL>
+</UL>
+
+<UL>
+<UL>
+<LI>
+<A HREF="#White Box Testing">White Box Testing</A></LI>
+
+<BR>White box testing is used more often at the unit testing level than
+at larger levels of granularity. This is because at the unit testing level
+there are fewer combinations of execution paths to consider. It is also
+because white box testing at the unit level makes classes easier to reuse
+and lowers long term software maintenance costs.</UL>
+
+<LI>
+<A NAME="Integration Testing"></A><B>Integration Testing</B></LI>
+
+<BR>Test individually developed classes together for the first time.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#System Testing">System Testing</A></LI>
+
+<BR>Integration testing generally involves testing smaller groups of classes
+than you test during system testing. Integration testing can be considered
+an activity that smooths the transition from not being sufficiently along
+in the development cycle to do system testing to a situation where system
+testing is a productive activity.</UL>
+
+<UL>
+<LI>
+<A HREF="#Unit Testing">Unit Testing</A></LI>
+
+<BR>Unit testing deals with individual classes or very small groups of
+classes. System Testing deals with larger groups of classes.</UL>
+
+<LI>
+<A NAME="System Testing"></A><B>System Testing</B></LI>
+
+<BR>Test a program as a whole entity, in an environment similar to the
+one it is intended to be run in, to ensure that it conforms to its specifications.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#Integration Testing">Integration Testing</A></LI>
+
+<BR>Integration testing ensures that the software being tested is in a
+sufficiently functional state that it is possible to run groups of system
+tests and get meaningful results.</UL>
+
+<UL>
+<LI>
+<A HREF="#Regression Testing">Regression Testing</A></LI>
+
+<BR>Regression testing allows you to use system tests to monitor the progress
+of programmers and to measure the overall readiness of the software to
+meet its requirements and specifications.</UL>
+
+<LI>
+<A NAME="Regression Testing"></A><B>Regression Testing</B></LI>
+
+<BR>Keep track of the outcomes of testing software with a suite of tests
+over time. This allows you to monitor the progress of programmers in completing
+their coding as they make incremental changes. It allows you to determine
+if a change to a program introduced new bugs.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#System Testing">Systems Testing</A></LI>
+
+<BR>Regression testing is commonly used with system testing.
+<BR>&nbsp;
+<LI>
+<A HREF="#Unit Testing">Unit Testing</A></LI>
+
+<BR>Regression testing is sometimes used with unit testing.</UL>
+
+<LI>
+<A NAME="Acceptance Testing"></A><B>Acceptance Testing</B></LI>
+
+<BR>Acceptance testing is testing done to ensure that delivered software
+meets the needs of the customer or organization that the software was developed
+for. Such testing is usually performed by the organization that the software
+was developed for. Acceptance testing is done according to a plan. The
+purpose of an acceptance testing plan is to ensure that software developers
+and the organization that they develop a software system for agree on when
+the software is ready to be delivered by developers.
+
+<P>Related patterns are
+<UL>
+<LI>
+<A HREF="#System Testing">Systems Testing</A></LI>
+
+<BR>System testing is often the final form of testing that a software developer
+performs on software before turning it over to the developer’s customer
+for acceptance testing.</UL>
+
+<LI>
+<A NAME="Clean Room Testing"></A><B>Clean Room Testing</B></LI>
+
+<BR>People designing software should not discuss specifications or their
+implementation with people designing tests for the software.</UL>
+<A HREF="index.html">Return to Mark Grand's home page.</A>
+</BODY>
+</HTML>

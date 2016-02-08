@@ -1,0 +1,4 @@
+This example also shows some interesting features:
+  - inner anonymous classes
+    - an action listener
+    - a change listener

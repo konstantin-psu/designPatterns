@@ -1,0 +1,88 @@
+<HTML>
+<TITLE>Builder</TITLE>
+<BODY>
+
+<H2>Builder</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Allow a client to construct a complex object, the <EM>product</EM>,
+    by specifying only its type and content.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    An interface or abstract class, the <EM>AbstractBuilder</EM>,
+    defines a <B>static</B> method, <EM>getInstance</EM> that takes
+    the product type and return a <EM>Concrete Builder</EM>.
+    A <EM>Director</EM> calls methods of the <EM>Concrete Builder</EM>
+    to build the <EM>product</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    An e-mail gateway transforms messages received in MIME format
+    to specific formats for different e-mail systems. A message
+    is composed of many parts/fields.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>AbstractBuilder</B></TD>
+  <TD>Interface for building product objects.</TD>
+  <TD>has methods "To", "From", etc..</TD>
+  </TR>
+  <TR>
+  <TD><B>ConcreteBuilder</B></TD>
+  <TD>Implements <EM>AbstractBuilder</EM> for a specific e-mail system.</TD>
+  <TD>say, UnixBuilder, Win95Builder</TD>
+  </TR>
+  <TR>
+  <TD><B>Director</B></TD>
+  <TD>Calls methods of <EM>AbstractBuilder</EM> to transform a message.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+  <TD><B>Client</B></TD>
+  <TD>
+      Calls method <EM>getInstance</EM> of <EM>AbstractBuilder</EM>.<BR>
+      Passes result to <EM>Director</EM> to get the <EM>product</EM>.
+  </TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+  <TD><B>Product</B></TD>
+  <TD>
+      Object under construction, subparts are included.
+      <EM>ConcreteBuilder</EM> sets representation and construction.
+  </TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=AbstractFactory.html>AbstractFactory</A><BR>
+    <A HREF=FactoryMethod.html>FactoryMethod</A><BR>
+    <A HREF=Prototype.html>Prototype</A><BR>
+    <A HREF=Creational.html><EM>creational pattern summary</EM><BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

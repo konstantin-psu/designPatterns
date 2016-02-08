@@ -1,0 +1,15 @@
+#!/bin/sh
+# Tue Oct  5 21:19:46 PDT 1999
+
+suffix=`date  | awk '{print $2, $3}' | tr " :" "-"`
+pwd=`pwd`
+dirname=`dirname $pwd`
+prefix=`echo $pwd | sed -e "s#^$dirname/##"`
+archive=$prefix-$suffix
+echo $archive
+
+cd ..
+zip -r $archive $prefix
+zip -d $archive $prefix/doc/\*
+zip -d $archive $prefix/code/todo/\*
+ls -lt $archive.zip

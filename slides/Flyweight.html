@@ -1,0 +1,86 @@
+<HTML>
+<TITLE>Flyweight</TITLE>
+<BODY>
+
+<H2>Flyweight</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Many instances of a class
+    contain unnecessarily duplicated information.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define a single object, the <EM>Flyweight</EM>, 
+    for all the duplicated copies.
+    This instance is shared  by the <EM>Client</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A wordprocessor represents <EM>glyphs</EM> by
+    character code, font, size, color, etc.
+    A paragraph should share equal gliphs,
+    not duplicate them.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>AbstractFlyweight</B></TD>
+  <TD>Superclass or interface of all Flyweight objects.</TD>
+  <TD>glyph</TD>
+  </TR>
+  <TR>
+  <TD><B>SharedConcreteFlyweight</B></TD>
+  <TD>Class of sharable flyweight objects.
+      Stores <EM>intrinsic</EM> state.</TD>
+  <TD>context independent characters</TD>
+  </TR>
+  <TR>
+  <TD><B>UnsharedConcreteFlyweight</B></TD>
+  <TD>Class of unsharable flyweight objects.
+      Stores <EM>extrinsic</EM> state.</TD>
+  <TD>context dependent characters</TD>
+  </TR>
+  <TR>
+  <TD><B>FlyweightFactory</B></TD>
+  <TD>Manager of the flyweight objects.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+  <TD><B>Client</B></TD>
+  <TD>References a flyweight objects.
+      Computes or stores extrinsic state.</TD>
+  <TD>paragraph or document</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Composite.html>Composite</A>
+            (used in conjunction with flyweight objects)<BR>
+    <A HREF=FactoryMethod.html>FactoryMethod</A>
+            (to build flyweight objects)<BR>
+    <A HREF=Immutable.html>Immutable</A> 
+            (implemented by flyweight objects)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

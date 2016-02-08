@@ -1,0 +1,36 @@
+<HTML>
+<HEAD><TITLE>Iterator</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>Iterator (4.2)</H2>
+<BLOCKQUOTE>
+
+This exercise is in two parts.
+<P>
+The first part is about implementing simple classes for <I>binary
+search trees</I>. A binary tree is either a <I>Leaf</I> or a <I>Branch</I>
+consisting of an <I>Element</I> (referred to as the decoration) and two
+binary trees (referred to as the <I>left</I> and <I>right</I> child,
+respectively). A binary search tree is a binary tree with some
+additional properties: there is a total ordering on the
+decorations; the children of a Branch are binary search trees; and
+the decoration of a Branch follows all the decorations of the left
+child and precedes all the decorations of the right child.
+<P>
+The second part of the exercise is about an iterator for a binary
+search tree.  The iterator implements the <I>java.util.Enumeration</I>
+interface, which is intended exactly for iterators.  
+The iterator of many collections is generally obtained
+by invoking a method, conventionally called <I>elements()</I>, of the
+collection, e.g., see <I>java.util.Vector</I> and <I>java.util.Hashtable</I>.
+There are many ways to iterate the elements of a binary tree.
+For ease of testing, code an <I>in-order</I> iterator.
+Recall that that the in-order traversal of a Branch visits
+the left-child before the decoration and the right child after
+the decoration.
+<P>
+Design, code and test a binary (search) tree class and an in-order
+iterator for this class.
+</BLOCKQUOTE>
+</BODY>
+</HTML>

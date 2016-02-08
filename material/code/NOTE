@@ -1,0 +1,20 @@
+IllegalStateException
+EmptyStackException is non-checked too.
+
+The runtime exception classes (RuntimeException and its subclasses) are exempted from compile-time checking because, in the judgment of the
+designers of Java, having to declare such exceptions would not aid significantly in establishing the correctness of Java programs. ...
+Requiring such exception classes to be declared would simply be an irritation to Java programmers. 
+
+§11.2.2.
+
+------------------------------------------------------------------
+
+Class image used for Layered Initialization should be
+documented better for javadoc.
+
+------------------------------------------------------------------
+
+Class ListTest in package pooledlist should be documented.
+
+------------------------------------------------------------------
+

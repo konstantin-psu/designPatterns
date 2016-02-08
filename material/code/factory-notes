@@ -1,0 +1,51 @@
+Creational Patterns
+
+Main points
+
+1. Abstract the instantiation process.
+2. Provide independence of objects creation, composition and representation.
+3. Are useful for systems depending more on composition than inheritance.
+4. Use a small set of fundamental behaviors that can be composed into
+   several more complex behaviors, rather than hardcoding a fixed set
+   of behaviors.
+5. Create objects that require more than simply instantiating a class.
+
+Recurring themes
+
+1. Encapsulate knowledge about concrete classes used by a client.
+2. Hide to the client how objects are created and assembled.
+   Client only knows object interfaces
+3. Control what, who, how and when an object is created.
+4. Allow dynamic and static configuration of a client.
+
+Differences of approach of creational patterns:
+
+A creational pattern creates a family related/dependent objects.
+The concrete classes (or representation of the objects) of a family
+may not need be specified.
+
+An abstract class or interface declares construction methods
+for the related objects of the family.
+
+AbstractFactory
+  - An interface, the abstract factory, defines abstract methods
+    that return product components
+  - The creator uses a different concrete factory per family.
+  - Different objects are created by different virtual functions
+    of the concrete factory.
+Builder
+  - An abstract class, the builder, defines void methods to build a product,
+    one such method calls methods for the product's components.
+  - There is one concrete builder per family of products.
+  - The creator calls a static method of the abstract builder
+    which takes a concrete builder and returns a complete product.
+FactoryMethod
+  - An abstract class, the factory method, defines abstract or
+    near-empty methods that return product components and a
+    final creator method to create a product.
+  - Subclasses override methods that return product components but
+    use the same creator.
+Prototype
+  - A class, the prototype factory, stores prototypes of product components.
+  - To create new components, prototypes are cloned. An initializer is needed.
+  - Instances or subclasses stores different families of prototypes.

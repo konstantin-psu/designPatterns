@@ -1,0 +1,137 @@
+<HTML>
+<TITLE>Visitor</TITLE>
+<BODY>
+
+<H2>Visitor</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To define new operations on the objects of a structure
+    (as in a Composite) without changing the objects.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Each object, say <EM>obj</EM>, of the structure defines a method,
+    conventionally called <EM>accept</EM>, that takes an object
+    conventially called a <EM>visitor</EM>.  The <EM>visitor</EM>, rather
+    than <EM>obj</EM>, implements the new operation.  Method <EM>accept</EM>
+    dispatches the execution of the operation to the <EM>visitor</EM>.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A document for word processing is a Composite whose nodes
+    are paragraphs, lines, images, etc. To create the table of content
+    of a document one can define an operation in each node class. The
+    Visitor pattern allows one to define these operations in a separate,
+    dedicated object.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>AbstractElement</B></TD>
+  <TD>
+      Interface or superclass of all classes in a Composite structure.
+      Defines an <EM>accept</EM> method that takes a <EM>Visitor</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ConcreteElement<SUB>i</SUB></B></TD>
+  <TD>
+      Class implementing <EM>AbstractElement</EM> and overriding
+      the <EM>accept</EM> method.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Visitor</B></TD>
+  <TD>
+      Interface or superclass of all classes that perform an
+      operation on the <EM>AbstractElement</EM>.
+      Defines a family of <EM>visit</EM> methods each taking a
+      <EM>ConcreteElement</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ConcreteVisitor<SUB>i</SUB></B></TD>
+  <TD>
+      Concrete subclass of <EM>Visitor</EM> for a specific operation.
+      Overrides all the <EM>visit</EM> methods.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ObjectStructure</B></TD>
+  <TD>
+      An instance of this class is the object to be "visited".
+      Most often is a Composite.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Composite.html>Composite</A>
+        (often the object to be visited)<BR>
+    <A HREF=LittleLanguage.html>Little Language</A> 
+        (often uses visitors)<BR>
+</TD>
+</TR>
+<TR>
+<TD>Note:</TD>
+<TD>
+    This is a complicated pattern that requires a good understanding
+    of the concepts of <EM>overloading</EM> and <EM>overriding</EM>.
+    The following code sketches the key elements of this pattern.
+<P>
+    Interface of all visitable objects.
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+interface Element { void accept (Visitor v); }
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Visitable classes. The type of "<EM>this</EM>" is bound at compile time.
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+class Element_1 implements Element {
+    public void accept (Visitor v) { v.visit (this); }
+}
+    ...
+class Element_n implements Element {
+    public void accept (Visitor v) { v.visit (this); }
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Interface of all visitors.
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+interface Visitor {
+    void visit (Element_1 e);
+    ...
+    void visit (Element_n e);
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Actual visitor class.  Implements an operation that would
+    otherwise be a member of each <EM>Element_i</EM>.
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+class MyVisitor implements Visitor {
+      public void visit (Element_1 e) { ... }
+      ...
+      public void visit (Element_n e) { ... }
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+  Sometimes methods <EM>accept</EM> and <EM>visit</EM> take one
+  extra argument, an Object, and return a value, an Object.
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

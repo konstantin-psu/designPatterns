@@ -1,0 +1,75 @@
+<HTML>
+<TITLE>Read/Write Lock</TITLE>
+<BODY>
+
+<H2>Read/Write Lock</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Lea 97</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To allow concurrent read access to an object,
+    but exclusive write access.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Use a specialized <EM>Scheduler</EM> whose method
+    <EM>enter</EM> is replaced by two methods:
+    <EM>readLock</EM> and <EM>writeLock</EM>.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    An on-line auction system where remote users get and set bids.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+    In a very simple form, a Read/Write Lock is sketched as follow.
+   <P>
+    Method <EM>readLock</EM> looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+void <FONT COLOR=FFFFFF><B>synchronized</B></FONT> readLock () {
+    while (pendingWriters + activeWriters > 0) <FONT COLOR=FFFFFF><B>wait ()</B></FONT>;
+    activeReaders++:     <FONT COLOR=FF0000>// being reading</FONT>
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Method <EM>writeLock</EM> looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+void <FONT COLOR=FFFFFF><B>synchronized</B></FONT> writeLock () {
+    pendingWriters++;    <FONT COLOR=FF0000>// block readers</FONT>
+    while (activeReaders + activeWriters > 0) <FONT COLOR=FFFFFF><B>wait ()</B></FONT>;
+    pendingWriters--;
+    activeWriters++;     <FONT COLOR=FF0000>// being writing</FONT>
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Method <EM>done</EM> looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+void <FONT COLOR=FFFFFF><B>synchronized</B></FONT> done () {
+    if (activeWriters > 0)  activeWriters--;
+    else if (activeReaders > 0)  activeReaders--;
+    else error ();
+    <FONT COLOR=FFFFFF><B>notifyAll ()</B></FONT>;
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Note that <EM>activeWriters</EM> is either 0 or 1.
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Scheduler.html>Scheduler</A><BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<HTML>
+<TITLE>Marker</TITLE>
+<BODY>
+
+<H2>Marker</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98 (but there are many earlier examples in the Java APIs)</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>A class needs a semantic attribute, but no specific members.</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+Define an empty interface, <EM>M</EM>.
+Say that a class implements interface <EM>M</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+How can one mark a class, <EM>C</EM>,
+whose objects are equal only if they are the same object
+(and, thus, use <EM>==</EM> instead of <EM>equals</EM> for comparison).
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Marker</B></TD>
+  <TD>An interface (trivially) implemented by class <EM>C</EM>.</TD>
+  <TD>e.g., <TT>EqualByIdentity</TT>.</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+Java API interfaces <EM>java.io.Serializable</EM> and
+<EM>java.rmi.Remote</EM> for classic examples.
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,88 @@
+<HTML>
+<TITLE>VirtualProxy</TITLE>
+<BODY>
+
+<H2>VirtualProxy</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Larman 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Delay the instantiation of an object (expensive to instantiated)
+    until the object is needed.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Create an object, the <EM>VirtualProxy</EM>, that allows
+    clients indirect access to the expensive-to-create object,
+    and hides from clients whether the expensive-to-create object
+    exists.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A large applet executes several well-separated components.
+    A typical execution of the applet requires some, but not
+    all, these components.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Client</B></TD>
+  <TD>
+      Class that needs the services of the <EM>Service</EM> class.
+      The <EM>Client</EM> does not access the <EM>Service</EM> class
+      directly, thus it is insensitive to whether the
+      <EM>Service</EM> class is loaded.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Service</B></TD>
+  <TD>
+      Class providing services to the <EM>Client</EM>.
+      Supposedly, the <EM>Service</EM> class is expensive to
+      load and/or instantiate.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ServiceIF</B></TD>
+  <TD>
+      Interface implemented by both the <EM>Service</EM> and the
+      <EM>ServiceProxy</EM> classes.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ServiceProxy</B></TD>
+  <TD>
+      Class that provides services to the <EM>Client</EM>
+      through the <EM>Service</EM> class.  It loads and/or
+      instantiates this class only when needed.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Proxy.html>Proxy</A>
+       (a generalization of this pattern)<BR>
+    <A HREF=DynamicLinkage.html>DynamicLinkage</A>
+       (option for dynamically loading a class) <BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

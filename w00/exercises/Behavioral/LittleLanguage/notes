@@ -1,0 +1,12 @@
+An Interpreter works on an abstract representation of a program in
+a certain language.  A difficult problem is to build the abstract
+representation from the concrete one.  Design, code, and test a
+program based on the Little Language pattern for a little language
+of expressions defined by the following syntax
+
+  expr ::= addend ZERO_OR_MORE (("+" | "-") addend)
+  addend ::= factor ZERO_OR_MORE (("*" | "/") factor)
+  factor ::= number | indentifier | "(" expr ")"
+
+You may re-use the expression classes used for the Interpreter
+pattern exercise.

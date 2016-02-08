@@ -1,0 +1,31 @@
+Consider a very simple graphic editor that only knows how to draw
+a square and to perform a few manipulations on the square: to set
+the square color, to translate the square, and to rotate the
+square.
+
+Define a class, Command, to represent the above commands.  Include
+"metacommands" such as history (to see previous commands), undo
+(to undo previous commands) and redo (to repeat the previous
+command) in you class.  Define a class, CommandManager, to control
+the execution of all these commands.  The number of commands that
+can be seen with "history" and undone with "undo" can be bounded.
+
+Design, code and test a driver that executes a sequence of
+predetermined commands interleaved by a time interval long enough
+to perceive the effect of a command in the graphic editor.
+
+------------------------------------------------------------------
+
+The implementation is inelegant at best.  Metacommand, such as
+"history" and "undo", must work closely with the CommandManager,
+since the latter is in charge, e.g., of storing previously
+executed commands.
+
+In the current design, the CommandManager uses RTTI to detects
+metacommands and executes them instead of dispatching their
+execution.  This is convenient because all metacommands do is to
+manipulate information held by the CommandManager.  The code is
+shorter, but more complicated, since not every command is handled
+in the same way.  A better design should store more information in
+a command, e.g., a reference to the CommandManager and whether the
+CommandManager should store the command in the history.

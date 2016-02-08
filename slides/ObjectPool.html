@@ -1,0 +1,75 @@
+<HTML>
+<TITLE>Object Pool</TITLE>
+<BODY>
+
+<H2>Object Pool</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Allows clients to re-use objects
+    rather than to discard and later re-create them.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define a wrapper class, the <EM>Object Pool</EM>,
+    around the construction of reusable objects.
+    The class accepts from clients returned used objects
+    and returns them to clients instead of new objects.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Database connections may be expensive to create.
+    An <EM>Object Pool</EM> stores used connections when
+    no longer needed and returns them when a new connection is required.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Reusable</B></TD>
+  <TD>Class of the reusable objects managed by the <EM>ReusablePool</EM>.</TD>
+  <TD>Database connection</TD>
+  </TR>
+  <TR>
+  <TD><B>Client</B></TD>
+  <TD>Class that uses the <EM>Reusable</EM> objects.</TD>
+  <TD>Database client</TD>
+  </TR>
+  <TR>
+  <TD><B>ReusablePool</B></TD>
+  <TD>Class that manages the <EM>Reusable</EM> objects.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=CacheManagement.html>CacheManagement</A><BR>
+</TD>
+</TR>
+<TR>
+<TD>Note:</TD>
+<TD>An <EM>ObjectPool</EM> object is generally a
+    <A HREF=Singleton.html>Singleton</A>
+    and manages one type only of objects.
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

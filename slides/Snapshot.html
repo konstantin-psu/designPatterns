@@ -1,0 +1,76 @@
+<HTML>
+<TITLE>Snapshot</TITLE>
+<BODY>
+
+<H2>Snapshot</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98 (see also Memento, GoF 95)</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>To capture and later restore the state of an object.</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define an object responsible for capturing and restoring
+    the state of objects.  These objects should implement a
+    common interface.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A player would like to play a long game in short
+    temporally-separated intervals.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Originator</B></TD>
+  <TD>
+      An object of this class can have its state saved and restored.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>MementoIF</B></TD>
+  <TD>
+      Interface to access <EM>Memento</EM> objects.
+      Must protect the encapsulation of the <EM>Originator</EM>'s state.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Memento</B></TD>
+  <TD>
+      Private static class of <EM>Originator</EM> which
+      implements the <EM>MementoIF</EM> interface.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Caretaker</B></TD>
+  <TD>
+      Maintains one or more <EM>Memento</EM> objects.
+      May hold them in memory or store them on disk.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Command.html>Command</A>
+        (similarly, it allows state changes to be undone)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

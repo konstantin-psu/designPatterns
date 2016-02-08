@@ -1,0 +1,80 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Author" CONTENT="Mark Grand">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <META NAME="KeyWords" CONTENT="Design Patterns">
+   <TITLE>Errata for Patterns in Java, Volume 2</TITLE>
+</HEAD>
+<BODY>
+
+<H1>
+Errata for <U>Patterns in Java, Volume 2</U></H1>
+This page contains a list of errors found in my book, <U>Patterns in Java,
+Volume 2</U>. All of the errors listed here are present in the first printing
+of the book. Some have been fixed in later printings. The publisher does
+not tell me what gets fixed when. As I learn of fixes being included in
+later printing, I will note them on this page.
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER WIDTH="100%" >
+<TR>
+<TD><B>First Found</B>&nbsp;
+<BR><B>in Printing</B></TD>
+
+<TD><B>Page</B></TD>
+
+<TD><B>Description of Error</B></TD>
+
+<TD><B>Fixed in</B>&nbsp;
+<BR><B>Printing</B></TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>241</TD>
+
+<TD>
+<DL>
+<DT>
+There are lines in the code listing that say</DT>
+
+<DT>
+<TT>&nbsp;if (isInitialized()) {</TT></DT>
+
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; synchronized (this) {</TT>&nbsp;
+<DT>
+<TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (isInitialized())
+{</TT></DT>
+
+<DT>
+They should say&nbsp;</DT>
+
+<DT>
+<TT>&nbsp;if (!isInitialized()) {</TT></DT>
+
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp; synchronized (this) {</TT>&nbsp;
+<BR><TT>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (!isInitialized())
+{</TT></DL>
+</TD>
+
+<TD>?</TD>
+</TR>
+
+<TR>
+<TD>1</TD>
+
+<TD>241</TD>
+
+<TD>An implementation section should have been included in the pattern
+description that some pitfalls in implementing the Double-Checked Locking
+pattern. To see the implementation section, <A HREF="double-checked_locking_implementation.html">click
+here.</A></TD>
+
+<TD>?</TD>
+</TR>
+</TABLE>
+&nbsp;
+</BODY>
+</HTML>

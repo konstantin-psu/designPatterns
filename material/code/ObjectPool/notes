@@ -1,0 +1,11 @@
+Design note
+
+Method reset in class Cons should not be public,
+since it give full write access to internal private variables.
+However it is necessary by the pool to manage list nodes.
+For this reason, it is package visible and the pool management
+class is in the list package as well.
+
+An alternative option would be to make the pool an inner class of
+Cons and use a factory to aquire, or construct, and release Cons
+objects.

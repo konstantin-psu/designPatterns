@@ -1,0 +1,80 @@
+34 Run client 0 with time=4576, priority=2, duration=400
+49 Run client 1 with time=4402, priority=1, duration=266
+49 Run client 2 with time=8313, priority=1, duration=523
+50 Run client 3 with time=1587, priority=2, duration=155
+51 Run client 4 with time=4947, priority=2, duration=771
+52 Run client 5 with time=9608, priority=1, duration=128
+53 Run client 6 with time=2814, priority=0, duration=641
+54 Run client 7 with time=9776, priority=1, duration=48
+54 Run client 8 with time=9304, priority=1, duration=776
+55 Run client 9 with time=5764, priority=2, duration=912
+56 Run client 10 with time=7805, priority=2, duration=806
+57 Run client 11 with time=4775, priority=1, duration=92
+58 Run client 12 with time=6251, priority=1, duration=306
+59 Run client 13 with time=2026, priority=2, duration=375
+59 Run client 14 with time=9110, priority=2, duration=836
+60 Run client 15 with time=9914, priority=2, duration=148
+61 Run client 16 with time=3072, priority=1, duration=124
+62 Run client 17 with time=1755, priority=0, duration=463
+63 Run client 18 with time=2882, priority=0, duration=64
+64 Run client 19 with time=7821, priority=2, duration=287
+1600 Req. from client 3  (delay=13), priority=2
+1602 Exec. for client 3  (delay=15)
+Robot waited 155 msec for client 3
+1770 Req. from client 17  (delay=15), priority=0
+1770 Exec. for client 17  (delay=15)
+2030 Req. from client 13  (delay=4), priority=2
+Robot waited 463 msec for client 17
+2234 Exec. for client 13  (delay=208)
+Robot waited 375 msec for client 13
+2830 Req. from client 6  (delay=16), priority=0
+2830 Exec. for client 6  (delay=16)
+2900 Req. from client 18  (delay=18), priority=0
+3090 Req. from client 16  (delay=18), priority=1
+Robot waited 641 msec for client 6
+3471 Exec. for client 16  (delay=399)
+Robot waited 124 msec for client 16
+3595 Exec. for client 18  (delay=713)
+Robot waited 64 msec for client 18
+4410 Req. from client 1  (delay=8), priority=1
+4410 Exec. for client 1  (delay=8)
+4580 Req. from client 0  (delay=4), priority=2
+Robot waited 266 msec for client 1
+4676 Exec. for client 0  (delay=100)
+4780 Req. from client 11  (delay=5), priority=1
+4960 Req. from client 4  (delay=13), priority=2
+Robot waited 400 msec for client 0
+5076 Exec. for client 4  (delay=129)
+5770 Req. from client 9  (delay=6), priority=2
+Robot waited 771 msec for client 4
+5847 Exec. for client 9  (delay=83)
+6260 Req. from client 12  (delay=9), priority=1
+Robot waited 912 msec for client 9
+6759 Exec. for client 11  (delay=1984)
+Robot waited 92 msec for client 11
+6851 Exec. for client 12  (delay=600)
+Robot waited 306 msec for client 12
+7810 Req. from client 10  (delay=5), priority=2
+7810 Exec. for client 10  (delay=5)
+8210 Req. from client 19  (delay=389), priority=2
+8330 Req. from client 2  (delay=17), priority=1
+Robot waited 806 msec for client 10
+8616 Exec. for client 19  (delay=795)
+Robot waited 287 msec for client 19
+8903 Exec. for client 2  (delay=590)
+9120 Req. from client 14  (delay=10), priority=2
+9310 Req. from client 8  (delay=6), priority=1
+Robot waited 523 msec for client 2
+9426 Exec. for client 14  (delay=316)
+9620 Req. from client 5  (delay=12), priority=1
+9790 Req. from client 7  (delay=14), priority=1
+9930 Req. from client 15  (delay=16), priority=2
+Robot waited 836 msec for client 14
+10262 Exec. for client 15  (delay=348)
+Robot waited 148 msec for client 15
+10410 Exec. for client 8  (delay=1106)
+Robot waited 776 msec for client 8
+11186 Exec. for client 5  (delay=1578)
+Robot waited 128 msec for client 5
+11314 Exec. for client 7  (delay=1538)
+Robot waited 48 msec for client 7

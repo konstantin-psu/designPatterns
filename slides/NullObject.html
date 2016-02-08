@@ -1,0 +1,83 @@
+<HTML>
+<TITLE>Null Object</TITLE>
+<BODY>
+
+<H2>Null Object</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Woolf 97</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To represent a null reference (a non-existent object)
+    with an (existing) object to avoid handling special cases.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define a special class generally with no state, but the same
+    methods expected in the object that the <EM>Null Object</EM>
+    stands for.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Objects in a sequence have a reference to the next object.
+    If the last object of the sequence has a null reference,
+    a test is required before invoking a method of the referenced
+    object.  A <EM>Null Object</EM> eliminates the need for a test.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Delegator</B></TD>
+  <TD>
+      This class delegates an operation to objects that
+      normally may not exist.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>AbstractOperation</B></TD>
+  <TD>
+      Superclass or interface of the objects that may be null.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>RealOperation</B></TD>
+  <TD>
+      Implements the operation that the <EM>Delegator</EM>
+      delegates to <EM>AbstractOperation</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>NullOperation</B></TD>
+  <TD>
+      Implements a do-nothing operation that the <EM>Delegator</EM>
+      delegates to <EM>AbstractOperation</EM>.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Singleton.html>Singleton</A>
+        (the null object is often stateless)<BR>
+    <A HREF=Strategy.html>Strategy</A>
+        (the Null Object pattern may ease the
+         design of the Strategy pattern)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

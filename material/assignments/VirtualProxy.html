@@ -1,0 +1,33 @@
+<HTML>
+<HEAD><TITLE>VirtualProxy</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>VirtualProxy (4.7.1)</H2>
+<BLOCKQUOTE>
+
+The previous example, Problem 4.6 - 
+<A HREF="DynamicLinkage.html">Dynamic Linkage</A>, is also an
+example of Virtual Proxy.  Class "GourmetPizzaFactory" is not
+implemented.  Executing the client with command line argument "2"
+generates exception "NoClassDefFoundError".  However, for different
+values of the argument this class is not loaded and the execution of
+the client does not generates this exception.
+
+</BLOCKQUOTE>
+<H2>VirtualProxy (4.7.2)</H2>
+<BLOCKQUOTE>
+
+Dynamic linkage is not necessary for dynamic loading.
+Design and execute a small experiment to verify that a
+class is loaded only when needed.  For instance, the need
+to load a class arises when the class's constructor is executed.
+Hint: Designate a class as "expensive to instantiate".
+Code a program that waits for user input.
+When the user provides this input, a method of the proxy
+executes the constructor of the expensive-to-instantiate
+class.  Remove this class from the file system and execute
+the program.
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

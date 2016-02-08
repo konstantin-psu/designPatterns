@@ -1,0 +1,911 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="description" CONTENT="Overview of MIME, the message format used to pass e-mail through the internet">
+   <META NAME="keywords" CONTENT="MIME, e-mail, rfc 1521, rfc1521, Multipurpose Internet Mail Extensions">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.05 [en] (Win95; I) [Netscape]">
+   <TITLE>MIME Overview</TITLE>
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>
+MIME Overview</H1></CENTER>
+
+<CENTER>
+<H2>
+by Mark Grand <A HREF="mailto:mgrand@mindspring.com">mgrand@mindspring.com</A></H2></CENTER>
+
+<CENTER>
+<H2>
+Revised October 26, 1993</H2></CENTER>
+
+<HR>
+
+<P>Internet e-mail allows mail messages to be exchanged between users of
+computers around the world and occasionally beyond: to space shuttles.
+One of the main reasons that Internet e-mail has achieved such wide use
+is because it provides a standard mechanism for messages to be exchanged
+between over 10,000,000 computers connected to the Internet.
+
+<P>The standards that are the basis for Internet e-mail were established
+in 1982. Though they were state of the art in 1982, in the intervening
+years they have begun to show their age. The 1982 standards allow for mail
+messages that contain a single human readable message with the restrictions
+that:
+<UL>
+<LI>
+the message contains only ASCII characters.</LI>
+
+<LI>
+the message contains no lines longer than 1000 characters.</LI>
+
+<LI>
+the message does not exceed a certain length</LI>
+</UL>
+The 1982 standards do not allow EDI to be reliably transmitted through
+Internet e-mail, since EDI messages can violate all of these restrictions.
+There are a number of other types of messages and services that have are
+supported by other more recently designed e-mail standards. A new Internet
+mail standard was approved in June of 1992. The new standard is called
+MIME.
+
+<P>MIME is an acronym for Multipurpose Internet Mail Extensions. It builds
+on the older standard by standardizing additional fields for mail message
+headers that describe new types of content and organization for messages.
+
+<P>MIME allows mail messages to contain:
+<UL>
+<LI>
+Multiple objects in a single message.</LI>
+
+<LI>
+Text having unlimited line length or overall length.</LI>
+
+<LI>
+Character sets other than ASCII, allowing non-English language messages.</LI>
+
+<LI>
+Multi-font messages.</LI>
+
+<LI>
+Binary or application specific files.</LI>
+
+<LI>
+Images, Audio, Video and multi-media messages.</LI>
+</UL>
+MIME defines the following new header fields:
+<OL>
+<LI>
+The <TT>MIME-Version</TT> header field, which uses a version number to
+declare that a message conforms to the MIME standard.</LI>
+
+<LI>
+The <TT>Content-Type</TT> header field, which can be used to specify the
+type and subtype of data in the body of a message and to fully specify
+the encoding of such data.</LI>
+
+<OL continue type=a>
+<LI>
+The <TT>Content-Type</TT> value <TT>Text</TT>, which can be used to represent
+textual information in a number of character sets and formatted text description
+languages in a standardized manner.</LI>
+
+<LI>
+The <TT>Content-Type</TT> value <TT>Multipart</TT>, which can be used to
+combine several body parts, possibly of differing types of data, into a
+single message.</LI>
+
+<LI>
+The <TT>Content-Type</TT> value <TT>Application</TT>, which can be used
+to transmit application data or binary data.</LI>
+
+<LI>
+The <TT>Content-Type</TT> value <TT>Message</TT>, for encapsulating a mail
+message.</LI>
+
+<LI>
+The <TT>Content-Type</TT> value <TT>Image</TT>, for transmitting still
+image (picture) data.</LI>
+
+<LI>
+The <TT>Content-Type</TT> value <TT>Audio</TT>, for transmitting audio
+or voice data.</LI>
+
+<LI>
+The <TT>Content-Type</TT> value <TT>Video</TT>, for transmitting video
+or moving image data, possibly with audio as part of the composite video
+data format.</LI>
+</OL>
+
+<LI>
+The <TT>Content-Transfer-Encoding</TT> header field, that specifies how
+the data is encoded to allow it to pass through mail transports having
+data or character set limitations.</LI>
+
+<LI>
+Two header fields that can be used to further identify and describe the
+data in a message body: the <TT>Content-ID</TT> and <TT>Content-Description</TT>
+header fields.</LI>
+</OL>
+MIME is an extensible mechanism. It is expected that the set of <TT>content-type/subtype</TT>
+pairs and their associated parameters will grow with time. Several other
+MIME fields, such as character set names, are likely to have new values
+defined over time. To ensure that the set of such values develops in an
+orderly, and public manner, MIME defines a registration process that uses
+the Internet Assigned Numbers Authority (IANA) as a central registry for
+such values.
+
+<P>To promote interoperability between implementations, the MIME standard
+document specifies a minimal subset of the above mechanisms that are required
+for an implementation to claim to conform to the MIME standard.
+<H3>
+MIME Technical Summary</H3>
+MIME is defined by an Internet standard document called <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1521.txt">RFC</A><A HREF="http://ds.internic.net/rfc/rfc1521.txt">1521</A>.
+This document summarizes the contents of <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1521.txt">RFC1521</A>.
+Sufficient detail is presented here to understand the capabilities of MIME.
+For sufficient detail to implement MIME please read <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc1521.txt">RFC1521</A>.
+
+<P>MIME allows messages to contain multiple objects. When multiple objects
+are in a MIME message, they are represented in a form called a body part.
+A body part has a header and a body, so it makes sense to speak about the
+body of a body part. Also, body parts can be nested in bodies that contain
+one or multiple body parts.
+
+<P>The <TT>Content-Type</TT> values, subtypes, and parameter names defined
+in the MIME standard are case-insensitive. However, many parameter values
+are case sensitive
+
+<P>The MIME standard is written to allow MIME to be extended in certain
+ways, without having to revise the standard. MIME specifies sets of values
+that are allowed for various fields and parameters. The provides a procedure
+for extending these sets of values by registering them with an entity called
+the Internet Assigned Numbers Authority (IANA).
+<H3>
+The MIME-Version Header Field</H3>
+MIME is designed to be compatible with older Internet mail standards. In
+particular, it is compatible with <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>.
+If a mail reading program receives a message that is a MIME message then
+it will likely perform additional processing for the MIME message that
+it would not perform for non-MIME messages. To allow mail reading programs
+to recognize MIME messages, MIME messages are required to contain a MIME-Version
+header field. The MIME-Version header field specifies the version of the
+MIME standard that the message conforms to.
+
+<P>As of this writing, there is only version (1.0) of the MIME standard.
+Messages that comply with the standard must include a header field, with
+the following verbatim text:
+
+<P><TT>MIME-Version: 1.0</TT>
+
+<P>The <TT>MIME-Version</TT> header field is required at the top level
+of a message. It is not required for each body part of a multipart entity.
+It is required for the embedded headers of a body of type Message if and
+only if the embedded message is claimed to be MIME-compliant.
+<H3>
+The Content-Type Header Field</H3>
+The <TT>Content-Type</TT> field describes the data contained in a body
+fully enough that the mail reader can pick an appropriate mechanism to
+present the data to the user, or otherwise deal with the data appropriately.
+
+<P>The <TT>Content-Type</TT> header field is used to specify the nature
+of data in the body or body part, by giving type and subtype identifiers,
+and by providing parameters that may be needed for certain types. After
+the type and subtype names, the remainder of the header field is a set
+of parameters, specified in an attribute=value notation. The set of meaningful
+parameters differs for different types. The order of parameters is not
+significant. Comments are allowed (in accordance with <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+rules) in structured header fields by placing them in parentheses.
+
+<P>The top-level <TT>Content-Type</TT> is used to declare the general type
+of data, while the subtype specifies a specific format for that type of
+data. Thus, a <TT>Content-Type</TT> of <TT>Image/xyz</TT> is enough to
+tell a mail reader that the data is an image, even if the mail reader has
+no knowledge of the specific image format xyz. Such information can be
+used, to decide whether or not to show a user the raw data from an unrecognized
+subtype: such an action might be reasonable for unrecognized subtypes of
+<TT>Text</TT>, but not for unrecognized subtypes of <TT>Image</TT> or <TT>Audio</TT>.
+For this reason, registered subtypes of <TT>Audio</TT>, <TT>Image</TT>,
+<TT>Text</TT>, and <TT>Video</TT>, should not contain embedded information
+that is really of a different type. Such compound types are usually represented
+using the <TT>Multipart</TT> or <TT>Application</TT> types.
+
+<P>Parameters are modifiers of the content-subtype. Although most parameters
+make sense only with certain content-types, others are "global" in the
+sense that they might apply to any subtype. For example, the <TT>Boundary</TT>
+parameter, which is used to indicate how body parts are separated from
+each other, makes sense only for the <TT>Multipart</TT> content-type. The
+<TT>Charset</TT> parameter might make sense with several content-types.
+
+<P>The MIME standard defines seven content-types. The authors of the MIME
+standard state that the set of seven types is "substantially complete".
+They expect additional supported types to be accommodated by creating new
+subtypes of the seven initial top-level types. The MIME standard, functioning
+as a constitution for the MIME community, states that new standard content
+types can be defined only by revising the standard (as opposed to the registration
+procedure for other types of extensions). However, MIME does provide for
+the use of non-standard content types. Non-standard content-types can be
+used, but must be given names starting with <TT>X-</TT>. Future standard
+content type names will not begin with <TT>X-</TT>.
+
+<P>The syntax for the content type header field is
+<PRE>&nbsp;&nbsp;&nbsp;&nbsp; Content-Type := type "/" subtype [";" parameter]_</PRE>
+The defined content types are:
+<DL>
+<DT>
+<TT>Application</TT></DT>
+
+<DD>
+indicates data that does not fit into any of the other categories, such
+as uninterpreted binary data or information to be processed by a mail-based
+application. In addition to the following subtypes, it is likely that additional
+subtypes will be defined for applications such as mail-based scheduling
+systems, spreadsheets and EDI.</DD>
+
+<DL><TT>Application/Octet-Stream</TT>
+<DD>
+indicates uninterpreted binary data, which a mail reading program may simply
+offer to write the information into a file. Possible parameters for <TT>Application/Octet-Stream</TT>
+include:</DD>
+
+<DL>
+<DT>
+<TT>Name</TT></DT>
+
+<DD>
+a suggested name for the binary data if stored as a file.</DD>
+
+<DT>
+<TT>Type</TT></DT>
+
+<DD>
+the general type or category of binary data. This is intended for human
+recipients rather than for automated processing.</DD>
+
+<DT>
+<TT>Padding</TT></DT>
+
+<DD>
+the number of bits of padding that were appended to the bit stream comprising
+the actual contents to produce the enclosed byte-oriented data. This is
+useful for enclosing a bit stream in a body when the total number of bits
+is not a multiple of the byte size.</DD>
+</DL>
+
+<DT>
+<TT>Application/PostScript</TT></DT>
+
+<DD>
+indicates a body containing a postscript document.</DD>
+</DL>
+
+<DT>
+<TT>Audio</TT></DT>
+
+<DD>
+Indicates audio data. Audio requires an audio output device (such as a
+speaker or a telephone) to "display" the contents.</DD>
+
+<DL>
+<DT>
+<TT>Audio/Basic</TT></DT>
+
+<DD>
+The content of the Audio/Basic subtype is audio encoded using 8-bit ISDN
+u-law. When this subtype is present, a sample rate of 8000 Hz and a single
+channel is assumed.</DD>
+</DL>
+
+<DT>
+<TT>Image</TT></DT>
+
+<DD>
+Image data. Image requires a display device (such as a graphical display,
+a printer, or a FAX machine) to view the information.</DD>
+
+<DL>
+<DT>
+<TT>Image/Jpeg</TT></DT>
+
+<DD>
+indicates an image in JPEG format.</DD>
+
+<DD>
+&nbsp;</DD>
+
+<DT>
+<TT>Image/Gif</TT></DT>
+
+<DT>
+&nbsp;</DT>
+
+<DD>
+indicates an image in GIF format.</DD>
+</DL>
+
+<DT>
+<TT>Message</TT></DT>
+
+<DD>
+indicates an encapsulated message.</DD>
+
+<DL>
+<DT>
+<TT>Message/RFC822</TT></DT>
+
+<DD>
+indicates that the body contains an encapsulated message, with the syntax
+of an <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+message. This is useful when forwarding a message or transmitting a digest
+of messages, because it makes the beginning and end of such messages explicit.</DD>
+
+<DT>
+<TT>Message/Partial</TT></DT>
+
+<DD>
+indicates a partial message, allowing fragmented transmission of bodies
+too large to be passed through mail transport facilities. <TT>Message/Partial</TT>
+indicates that the body contains a fragment of a larger message.</DD>
+
+
+<P>Three parameters are required in a Content-Type field of type <TT>Message/Partial</TT>:
+The first, <TT>Id</TT>, is a unique identifier, as close to world-unique
+as possible, used to match the parts together. The second, <TT>Number</TT>,
+an integer, is the part number indicating where this part fits into the
+sequence of fragments. The third, <TT>Total</TT>, another integer, is the
+total number of parts. <TT>Total</TT> is required on the final part, and
+optional on earlier parts.
+<DT>
+<TT>Message/External-Body</TT></DT>
+
+<DD>
+indicates that the actual body data are not included, but only referenced.
+In this case, parameters describe a mechanism for accessing the external
+data.</DD>
+
+
+<P>When a body or body part is of type <TT>Message/External-Body</TT>,
+it consists of a header, a blank line, and the message header for the encapsulated
+message. If another blank line appears, this ends the message header for
+the encapsulated message. However, since the encapsulated message's body
+is itself external, it does not appear in the area that follows. For example,
+consider this message:
+<PRE>Content-type: message/external-body;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; access-type=local-file;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name="/u/nsb/Me.gif"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Content-type:&nbsp; image/gif
+Content-ID:&nbsp;<id42@guppylake.bellcore.com>
+Content-Transfer-Encoding: binary
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+THIS IS NOT REALLY THE BODY!</PRE>
+The area at the end, which constitutes a phantom body, is ignored for most
+external-body messages. However, it may be used to contain auxiliary information
+for a "mail-server".
+
+<P>The only parameter of <TT>Message/External-Body</TT> that is always
+mandatory is <TT>AccessType</TT>. Its other parameters are mandatory or
+optional depending on the value of Access-Type. The values defined for
+the AccessType parameter are <TT>FTP</TT>, <TT>ANON-FTP</TT>, <TT>TFTP</TT>,
+<TT>AFS</TT>, <TT>LOCAL-FILE</TT>, and <TT>MAIL-SERVER</TT>. Except for
+values beginning with <TT>X-</TT>, all other values must be registered
+with IANA.
+
+<P>The standard specifies additional parameters for use in conjunction
+with the various access types.
+
+<P>In addition to access-type specific parameters, the standard defines
+the following parameters that are optional for all access types:
+<UL>
+<LI>
+The Expiration parameter specifies a date after which the existence of
+the external data is not guaranteed.</LI>
+
+<LI>
+The Size parameter specifies the size of the data.</LI>
+</UL>
+The encapsulated headers in all <TT>Message/External-Body</TT> entities
+must include a <TT>Content-ID</TT> header field to give a unique identifier
+by which to reference the data.</DL>
+
+<DT>
+<TT>Multipart</TT></DT>
+
+<DD>
+indicates data consisting of multiple body parts, each having its own data
+type. It is possible to tell where each body part begins and ends because
+each body part is preceded by a special string called an encapsulation
+boundary; the last body part is followed by a closing boundary.</DD>
+
+
+<P>The mandatory parameter <TT>Boundary</TT> specifies the boundary strings
+used. The encapsulation boundary is an end of line followed by two hyphens
+followed by the boundary parameter value of the <TT>Content-Type</TT> header
+field. The closing boundary is the same as the encapsulation boundary with
+the addition of two hyphens at the end of the line.
+
+<P>The encapsulation boundary must not appear inside any of the encapsulated
+parts. It is crucial that the composing user agent be able to choose and
+specify the unique boundary that will separate the body parts. Encapsulation
+boundaries may be no longer than 70 characters, not counting the blank
+line and leading hyphens.
+
+<P>Thus, a typical multipart <TT>Content-Type</TT> header field might look
+like:
+
+<P><TT>Content-Type: multipart/mixed; boundary=gc0y0pkb9ex</TT>
+
+<P>This indicates a body consisting of several body parts, each having
+a structure syntactically identical to an <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+message, except that the header area may be completely empty, and each
+part is preceded by the line
+
+<P><TT>--gc0y0pkb9ex</TT>
+
+<P>The closing boundary following the last body part indicates that no
+further body parts will follow. It is identical to the preceding encapsulation
+boundaries, with the addition of two more hyphens at the end of the line:
+
+<P><TT>--gc0y0pkb9ex--</TT>
+
+<P>There is room for additional information before the first encapsulation
+boundary and following the final boundary. These areas are often blank.
+Anything appearing before the first or after the last boundary is ignored.
+
+<P>As a simple example, the following multipart message has two parts,
+both plain text, one explicitly typed and one implicitly typed:
+<PRE>From: Nathaniel Borenstein&nbsp;<nsb@bellcore.com>
+To: Ned Freed&nbsp;<ned@innosoft.com>
+Subject: Sample message
+MIME-Version: 1.0
+Content-type: multipart/mixed;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boundary="simple boundary"
+
+This is the preamble.&nbsp; It is to be ignored, though it is
+a handy place for mail composers to include an
+explanatory note to non-MIME compliant readers.
+--simple boundary
+
+This is implicitly typed plain ASCII text.
+--simple boundary
+Content-type: text/plain; charset=us-ascii
+
+This is explicitly typed plain ASCII text. It DOES end
+with a line break.
+--simple boundary--
+This is the epilogue.&nbsp; It is also to be ignored.</PRE>
+The use of a <TT>Content-Type</TT> of multipart in a body part within another
+multipart entity is explicitly allowed. In such cases, care must be taken
+to ensure that each nested multipart entity uses a different boundary delimiter.
+
+<P>The use of the multipart <TT>Content-Type</TT> with only a single body
+part may be useful in certain contexts, and is explicitly permitted.
+<DL>
+<DT>
+<TT>Multipart/Mixed</TT></DT>
+
+<DD>
+indicates multiple independent body parts to be viewed serially.</DD>
+
+<DT>
+<TT>Multipart/Alternative</TT></DT>
+
+<DD>
+is syntactically identical to <TT>Multipart/Mixed</TT>. Each part is an
+"alternative" version of the same information. Mail readers should recognize
+that the content of the parts is interchangeable. The mail reader should
+either choose the "best" type based on the user's environment and preferences,
+or offer the user the available alternatives. Generally, choosing the best
+type means displaying only the last part that can be displayed. This may
+be used, for example, to send mail in a fancy text format in such a way
+that it can easily be displayed anywhere:</DD>
+
+<PRE>From:&nbsp; Nathaniel Borenstein&nbsp;<nsb@bellcore.com>
+To: Ned Freed&nbsp;<ned@innosoft.com>
+Subject: Formatted text mail
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boundary=boundary42
+
+--boundary42
+Content-Type: text/plain; charset=us-ascii
+
+... plain text version of message goes here ...
+
+--boundary42
+Content-Type: text/richtext
+
+... richtext version of same message goes here...
+--boundary42
+Content-Type: text/x-whatever
+
+... fanciest formatted version of same message goes
+here
+...
+--boundary42--</PRE>
+In this example, users whose mail system understood <TT>text/x-whatever</TT>
+format would see only the fancy version, while other users would see only
+the richtext or plain text version, depending on the capabilities of their
+system.
+
+<P>Some mail reading programs that recognize more than one of the formats
+will offer the user a choice of which format to view. This makes sense
+if mail includes both a nicely formatted image version and an easily edited
+text version. Multiple versions of the same data should not be not be automatically
+shown. The user should wither be shown the last recognized version or explicitly
+given the choice.
+<DT>
+<TT>Multipart/Parallel</TT></DT>
+
+<DD>
+is syntactically identical to <TT>Multipart/Mixed</TT>. However, in a parallel
+body, all the body parts are intended to be presented simultaneously on
+hardware and software that are capable of doing so. Composing agents should
+be aware that many mail readers will lack this capability and will show
+the parts serially in any event.</DD>
+
+
+<P><TT>Multipart/Parallel</TT> is likely be used for multimedia messages
+that combine such message types as text, audio and/or video.
+<DT>
+<TT>Multipart/Digest</TT></DT>
+
+<DD>
+Indicates that each of the body parts is an <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+mail message. <TT>Multipart/Digest</TT> is syntactically identical to <TT>Multipart/Mixed</TT>,
+except that the default <TT>Content-Type</TT> value for a body part is
+changed from <TT>Text/Plain</TT> to <TT>Message/Rfc822</TT>.</DD>
+</DL>
+
+<DT>
+<TT>Text</TT></DT>
+
+<DD>
+The <TT>text</TT> <TT>Content-Type</TT> is for sending material that is
+principally textual in form. It is the default <TT>Content-Type</TT>. The
+character set of the text can be indicated by using the <TT>Charset</TT>
+parameter. The default <TT>Content-Type</TT> for Internet mail is</DD>
+
+
+<P>Content-Type: text/plain; Charset=US-ASCII.
+
+<P>The value of the Charset parameter is not case sensitive. Allowable
+values are US-ASCII, ISO-8859-1, ISO-8859-2, ... and ISO8859-9. The default
+value for Charset is US-ASCII.
+<DL>
+<DT>
+<TT>Text/Plain</TT></DT>
+
+<DD>
+indicates plain (unformatted) text. No special software is required to
+get the full meaning of the text, aside from support for the indicated
+character set. Other subtypes should be used for enriched text in forms
+where application software may enhance the appearance of the text, but
+such software must not be required in order to get the general idea of
+the content. Possible future subtypes include any readable word processor
+format.</DD>
+
+<DT>
+<TT>Text/Richtext</TT></DT>
+
+<DD>
+indicates a simple portable word processing format that is defined by the
+MIME standard. It is a very small subset of SGML. Mail readers that implement
+Richtext may implement only a subset of it.</DD>
+
+
+<P>When a mail composing program is given a file in a word processing format
+and there is no standardized subtype for that format, then the program
+may reformat the file into richtext format which will preserve more of
+the original formatting information than reformatting the file to plain
+ASCII.</DL>
+
+<DT>
+<TT>Video</TT></DT>
+
+<DD>
+indicates that the body contains a time-varying-picture image, possibly
+with color and coordinated sound. The term Video is used very generically
+and does not refer to any particular technology or format. It is not meant
+to preclude subtypes such as animated drawings encoded compactly.</DD>
+
+<DL>
+<DT>
+<TT>Video/Mpeg</TT></DT>
+
+<DD>
+indicates video coded according to the MPEG standard.</DD>
+</DL>
+
+<DT>
+<TT>X-<I>TypeName</I></TT></DT>
+
+<DD>
+This is any type name that begins with <TT>X-</TT>. A <TT>Content-Type</TT>
+value beginning with <TT>X-</TT> is a private value, to be used by consenting
+mail systems by mutual agreement. The standard specifies no subtypes.</DD>
+</DL>
+No type may be specified without a subtype.
+
+<P>The standard allows the use of additional sub-types without having to
+change the standard. However, it is important to insure that sub-types
+used by different user communities of MIME do not conflict. It would be
+confusing if <TT>ContentType: application/foobar</TT> meant two different
+things. The standard specifies two mechanisms for defining new <TT>Content-Type</TT>
+subtypes:
+
+<P>1. Private values (starting with <TT>X-</TT>) may be defined between
+cooperating mail composing and reading programs without outside registration.
+Use of this mechanism requires knowing that the reader of the message will
+not mistake the content type for something other than originally intended.
+
+<P>2. New standard values must be registered with IANA. Where intended
+for public use, the formats they refer to must also be defined by a published
+specification.
+
+<P>Messages that do not have a <TT>Content-Type</TT> field in their header
+are displayed by user agents as if
+<BR><TT>Content-Type: Text/plain; Charset=US-ASCII</TT>
+<BR>had been specified.
+
+<P>When a mail reader finds mail with an unknown <TT>Content-Type</TT>
+value, it will generally treat it as equivalent to <TT>application/octet-stream</TT>.
+<H3>
+The Content-Transfer-Encoding Header Field</H3>
+Many Content-Types that could usefully be transported by e-mail are represented,
+in their "natural" format, as 8-bit character or binary data. Such data
+cannot be transmitted over some transport protocols. For example, SMTP
+(Simple Mail Transfer Protocol is an Internet standard for transporting
+e-mail defined by a document called <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC821</A>)
+restricts mail messages to 7-bit ASCII data with lines no longer than 1000
+characters.
+
+<P>MIME provides two mechanisms for re-encoding such data into a 7-bit
+short-line format. The Content-Transfer-Encoding header field indicates
+the mechanism used to perform such an encoding.
+
+<P>The possible values for the Content-Transfer-Encoding field are:
+<UL>
+<LI>
+<TT>BASE64</TT></LI>
+
+<LI>
+<TT>QUOTED-PRINTABLE</TT></LI>
+
+<LI>
+<TT>8BIT</TT></LI>
+
+<LI>
+<TT>7BIT</TT></LI>
+
+<LI>
+<TT>BINARY</TT></LI>
+
+<LI>
+<TT>x-EncodingName</TT></LI>
+</UL>
+These values are not case sensitive: <TT>Base64</TT>, <TT>BASE64</TT> and
+<TT>bAsE64</TT> are all equivalent. An encoding type of <TT>7BIT</TT> requires
+that the body is already in a 7-bit mail-ready representation. That is
+the default value:
+<BR><TT>Content-Transfer-Encoding: 7BIT</TT>
+<BR>is assumed if the <TT>Content-Transfer-Encoding</TT> header field is
+not present.
+
+<P>Both <TT>BASE64</TT> and the <TT>QUOTED-PRINTABLE</TT> imply an encoding
+that consists of lines no longer than 76 ASCII characters. In other respects
+the two encoding schemes are very different.
+
+<P>The encoding scheme implied by <TT>QUOTED-PRINTABLE</TT> is most appropriate
+for data that consists primarily of printable ASCII characters. Using this
+encoding method, printable ASCII characters are represented as themselves.
+The equals sign (=) serves as an escape character. Any character that is
+not a printable or white space ASCII character is represented as an equals
+sign followed by two hexadecimal digits. An equals sign in the message
+is also represented in this way. Lines that are longer than 76 characters
+are cut off after the 75th character and the line ends with an equals sign.
+
+<P>The advantages of using the <TT>QUOTED-PRINTABLE</TT> encoding for message
+that are mostly printable ASCII characters are:
+<UL>
+<LI>
+Few additional characters are required.</LI>
+
+<LI>
+The message can be read by human beings who to not have a MIME aware mail
+reading program.</LI>
+</UL>
+As an example, here is an EDI interchange in <TT>QUOTED-PRINTABLE</TT>
+encoding:
+<PRE>ISA*00*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *00*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *01*987654321&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *12*8005551234&nbsp;&nbsp;&nbsp; *910=
+607*0111*U*00200*110000777*0*T*>
+GS*PO*987654321*8005551234*920501*2032*7721*X*002003
+ST*850*000000001
+BEG*00*NE*MS1112**920501**CONTRACT#
+REF*IT*8128827763
+N1*ST*MAVERICK SYSTEMS
+N3*3312 NEW HAMPSHIRE STREET
+N4*SAN JOSE*CA*94811
+PO1*1*25*EA***VC*TP8MM*CB*TAPE8MM
+PO1*2*30*EA***VC*TP1/4*CB*TAPE1/4INCH
+PO1*3*125*EA***VC*DSK31/2*CB*DISK35
+CTT*3
+SE*11*000000001
+GE*1&nbsp;&nbsp;&nbsp; *7721
+IEA*1*110000777</PRE>
+Except for the ISA segment having been wrapped onto two lines, the <TT>QUOTED-PRINTABLE</TT>
+encoding of the interchange is identical to its <TT>7BIT</TT> representation.
+
+<P>The <TT>BASE64</TT> encoding mechanism is well suited for representing
+binary files. It represents any sequence of three bytes as four printable
+ASCII characters. The same interchange as shown above but using the BASE64
+encoding would look like:
+<PRE>SVNBKjAwKiAgICAgICAgICAqMDAqICAgICAgICAgICowMSo5ODc2NTQzMjEgICAgICAqMTIq
+ODAwNTU1MTIzNCAgICAgKjkxMDYwNyowMTExKlUqMDAyMDAqMTEwMDAwNzc3KjAqVCo+CkdT
+KlBPKjk4NzY1NDMyMSo4MDA1NTUxMjM0KjkyMDUwMSoyMDMyKjc3MjEqWCowMDIwMDMKU1Qq
+ODUwKjAwMDAwMDAwMQpCRUcqMDAqTkUqTVMxMTEyKio5MjA1MDEqKkNPTlRSQUNUIwpSRUYq
+SVQqODEyODgyNzc2MwpOMSpTVCpNQVZFUklDSyBTWVNURU1TCk4zKjMzMTIgTkVXIEhBTVBT
+SElSRSBTVFJFRVQKTjQqU0FOIEpPU0UqQ0EqOTQ4MTEKUE8xKjEqMjUqRUEqKipWQypUUDhN
+TSpDQipUQVBFOE1NClBPMSoyKjMwKkVBKioqVkMqVFAxLzQqQ0IqVEFQRTEvNElOQ0gKUE8x
+KjMqMTI1KkVBKioqVkMqRFNLMzEvMipDQipESVNLMzUKQ1RUKjMKU0UqMTEqMDAwMDAwMDAx
+CkdFKjEqNzcyMQpJRUEqMSoxMTAwMDA3NzcK</PRE>
+<TT>BASE64</TT> bears some resemblance to uuencode in both appearance and
+function. However, uuencode uses characters that may not be processed properly
+by an EBCDIC gateway.
+
+<P>The values <TT>8bit</TT>, <TT>7bit</TT> and <TT>binary</TT> all imply
+that no encoding has been performed. They are useful to indicate of the
+kind of data contained in the object, and therefore of the kind of encoding
+that might need to be performed for transmission in a given transport system.
+<TT>7bit</TT> means that the data is all represented as short lines of
+ASCII data. <TT>8bit</TT> means that the lines are short, but there may
+be non-ASCII characters. <TT>Binary</TT> means that not only may non-ASCII
+characters be present, but also that the lines are not necessarily short
+enough for SMTP transport.
+
+<P>The difference between <TT>8bit</TT> and <TT>binary</TT> is that <TT>binary</TT>
+does not require adherence to any limits on line length. <TT>8bit</TT>
+and <TT>binary</TT> are intended for compatibility with future Internet
+e-mail transport standards and with gateways to non-Internet environments.
+As of this writing, there are no standardized Internet e-mail transports
+for which it is legitimate to include unencoded <TT>8-bit</TT> or <TT>binary</TT>
+data in mail bodies.
+
+<P>Note that the five values defined for the <TT>Content-Transfer-Encoding</TT>
+field imply nothing about the <TT>Content-Type</TT> other than the algorithm
+by which it was encoded or the transport system requirements if unencoded.
+
+<P>Some implementations may support additional <TT>Content-Transfer-Encoding</TT>
+values (it is permitted but strongly discouraged by the standard). Any
+such additional values must have names that begin with <TT>X-</TT> to indicate
+its non-standard status For example:
+
+<P><TT>Content-Transfer-Encoding: x-my-new-encoding.</TT>
+
+<P>If a <TT>Content-Transfer-Encoding</TT> header field appears as part
+of a message header, it applies to the entire body of that message. If
+a <TT>Content-Transfer-Encoding</TT> header field appears as part of a
+body part's headers, it applies only to the body of that body part. If
+a message or body part is of type <TT>Multipart</TT> or <TT>Message</TT>,
+the <TT>Content-Transfer-Encoding</TT> must be <TT>7bit</TT>, <TT>8bit</TT>
+or <TT>Binary</TT>.
+
+<P>The encoding mechanisms defined here explicitly encode all data in ASCII.
+Thus, for example, suppose a message or body part has header fields such
+as:
+<PRE>Content-Type: text/plain; charset=ISO-8859-1
+Content-transfer-encoding: base64</PRE>
+This should be interpreted to mean that the body is a Base64 ASCII encoding
+of data that was originally in ISO-8859-1, and will be in that character
+set again after decoding.
+<H3>
+Optional Content-ID Header Field</H3>
+It may be desirable to allow one body to reference another. Accordingly,
+bodies may be labeled using the <TT>Content-ID</TT> header field, which
+is syntactically identical to the <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+<TT>Message-ID</TT> header field. <TT>Content-ID</TT> values should be
+as unique as possible.
+
+<P>Although the <TT>Content-ID</TT> header is generally optional, its use
+is mandatory in headers embedded in a body of type <TT>Message/External-Body</TT>.
+<H3>
+Optional Content-Description Header Field</H3>
+The ability to associate descriptive information with a body is often desirable.
+For example, it may be useful to mark an Image body as "a picture of the
+Space Shuttle Endeavor." Such text may be placed in the <TT>Content-Description</TT>
+header field.
+<H3>
+Sumary</H3>
+Using <TT>MIME-Version</TT>, <TT>Content-Type</TT>, and <TT>Content-Transfer-Encoding</TT>
+header fields, it is possible to include arbitrary types of data objects
+in <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+conformant mail messages. No restrictions imposed by <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+or <A HREF="http://info.internet.isi.edu:80/in-notes/rfc/files/rfc822.txt">RFC822</A>
+are violated. MIME has been designed to avoid problems caused by additional
+restrictions imposed by some Internet mail transport mechanisms. The <TT>Multipart</TT>
+and <TT>Message</TT> content types allow mixing and hierarchical structuring
+of objects of different types in a single message. Further content types
+provide a mechanism for tagging messages or body parts as audio, image,
+or other kinds of data. A parameter syntax allows further specification
+of data format details, particularly the specification of alternate character
+sets. Additional optional header fields provide mechanisms for certain
+extensions deemed desirable by many implementors. Finally, a number of
+useful content types are defined for general use by consenting user agents,
+notably <TT>Text/Richtext</TT>, <TT>Message/Partial</TT>, and <TT>Message/External-Body</TT>.
+
+<P>To promote interoperability between user agents, the MIME standard specifies
+a minimal subset of MIME features a user agent must support to be considered
+MIME conformant.
+<H3>
+A Complex Multipart Example</H3>
+The outline of a complex multipart message follows. This message has five
+parts to be displayed serially: two introductory plain text parts, an embedded
+multipart message, a richtext part, and a closing encapsulated text message
+in a non-ASCII character set. The embedded multipart message has two parts
+to be displayed in parallel, a picture and an audio fragment.
+<PRE>MIME-Version: 1.0
+From: Nathaniel Borenstein&nbsp;<nsb@bellcore.com>
+Subject: A multipart example
+Content-Type: multipart/mixed;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; boundary=unique-boundary-1
+
+This is the preamble area of a multipart message.&nbsp; Mail readers
+that understand multipart format should ignore this preamble.
+
+If you are reading this text, you might want to consider
+changing to a mail reader that understands how to properly
+display multipart messages.
+--unique-boundary-1
+
+Some text appears here...
+[Note that the preceding blank line means
+no header fields were given and this is text,
+with charset US ASCII.&nbsp; It could have been
+done with explicit typing as in the next part.]
+--unique-boundary-1
+Content-type: text/plain; charset=US-ASCII
+
+This could have been part of the previous part, but illustrates
+explicit versus implicit typing of body parts.
+
+--unique-boundary-1
+Content-Type: multipart/parallel; boundary=unique-boundary-2
+
+--unique-boundary-2
+Content-Type: audio/basic
+Content-Transfer-Encoding: base64
+
+... base64-encoded 8000 Hz single-channel u-law-format audio data
+goes here ...
+
+--unique-boundary-2
+Content-Type: image/gif
+Content-Transfer-Encoding: Base64
+
+... base64-encoded image data goes here ...
+
+--unique-boundary-2--
+
+--unique-boundary-1
+Content-type: text/richtext
+
+This is&nbsp;<bold><italic>richtext.</italic></bold><nl><nl>Isn't it
+<bigger><bigger>cool?</bigger></bigger>
+
+--unique-boundary-1
+Content-Type: message/rfc822
+
+From: (name in US-ASCII)
+Subject: (subject in US-ASCII)
+Content-Type: Text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: Quoted-printable
+
+... Additional text in ISO-8859-1 goes here ...
+
+--unique-boundary-1--</PRE>
+
+<HR>
+
+<P>Return to the <A HREF="index.html">Java Consultant's home page</A>
+</BODY>
+</HTML>

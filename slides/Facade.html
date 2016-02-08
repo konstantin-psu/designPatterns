@@ -1,0 +1,74 @@
+<HTML>
+<TITLE>Facade</TITLE>
+<BODY>
+
+<H2>Facade</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Access a set of related objects through a single
+    object or interface.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define a class, the <EM>Facade</EM>,
+    that accesses a set of related objects.
+    Allow clients to access the set of related objects only
+    through the <EM>Facade</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Mail messages have components such as <EM>Body</EM>,
+    <EM>Header</EM>, <EM>Sender</EM>, etc.
+    Define a class <EM>MessageCreator</EM> that deals with the
+    above components.
+    Clients that create mail messages interact with
+    <EM>MessageCreator</EM> only.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Facade</B></TD>
+  <TD>Class that accesses <EM>Related<SUB>i</SUB></EM>.</TD>
+  <TD>MessageCreator</TD>
+  </TR>
+  <TR>
+  <TD><B>Related<SUB>i</SUB></B></TD>
+  <TD>Group of related objects that provide a service.</TD>
+  <TD>Body, Header, etc.</TD>
+  </TR>
+  <TR>
+  <TD><B>Client</B></TD>
+  <TD>Class that accesses <EM>Facade</EM> to get
+      the services of <EM>Related<SUB>i</SUB></EM>.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Interface.html>Interface</A><BR>
+    <A HREF=Proxy.html>Proxy</A><BR>
+    <A HREF=Adapter.html>Adapter</A><BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

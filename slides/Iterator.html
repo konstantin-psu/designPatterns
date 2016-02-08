@@ -1,0 +1,76 @@
+<HTML>
+<TITLE>Iterator</TITLE>
+<BODY>
+
+<H2>Iterator</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To sequentially access all the objects of a collection
+    without exposing the collection's interface and/or representation.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define an interface with methods
+    to produce a sequence of objects.
+    Make the interface independent of the object's container.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+     An <EM>InventoryBrowser</EM> displays <EM>InventoryItems</EM>
+     encapsulated in an <EM>InventoryCollection</EM>.
+     The <EM>InventoryBrowser</EM> does not access the
+     <EM>InventoryCollection</EM>, but an object that
+     implements the <EM>InventoryIterator</EM> interface.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Collection</B></TD>
+  <TD>Class that encapsulates a collection of objects.</TD>
+  </TR>
+  <TR>
+  <TD><B>IteratorIF</B></TD>
+  <TD>
+      Interface that defines the methods to sequentially access
+      the objects in a <EM>Collection</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Iterator</B></TD>
+  <TD>Implementation of <EM>IteratorIF</EM>.</TD>
+  </TR>
+  <TR>
+  <TD><B>CollectionIF</B></TD>
+  <TD>
+      Common interface to <EM>Collections</EM>.
+      Provides method(s) to create <EM>Iterators</EM>.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+     <A HREF=Adapter.html>Adapter</A> (Iterator is a specialized Adapter)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

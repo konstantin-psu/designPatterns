@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>A Simple Example of a SecurityManager</title>
+<body>
+<h1>A Simple Example of a SecurityManager</h1>
+Here is a simple example of a <a href="shell/NoExitSecurityManager.java">
+security manager</a>.
+<br>It is intended for
+use by a program that hosts other programs, such as a batch processing
+shell.  The security policy that it implments is to prevent hosted
+programms from sucessfully calling <code>System.exit</code>, while
+still allowing the hosting program to do so.
+<p>
+The way that it distinguishes between methods in the hosting program
+and hosted methods is that it expects the hosting program to invoke
+the hosted program using a class called <a href="shell/Invoker.java">
+<code>Invoker</code></a>.
+<p>
+I also have a simple example that uses these classes.  It consists of
+an <a href="shell/NoExit.java">application that installs the security
+manager</a> and then uses the <code>Invoker</code> class to invoke 
+<a href="shell/Exit.java">a class that just calls 
+<code>System.exit</code></a>
+<hr>
+<a href="../index.html">Return to Mark Grand's home page.</a>
+</address>
+</html>

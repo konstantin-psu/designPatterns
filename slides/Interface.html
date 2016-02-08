@@ -1,0 +1,64 @@
+<HTML>
+<TITLE>Interface</TITLE>
+<BODY>
+
+<H2>Interface</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>A class needs to be independent of services provided by another class.</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+Abstract a class <EM>C</EM> by writing an interface <EM>IF</EM>.
+Clients access class <EM>C</EM> through interface <EM>IF</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+A business application uses an <EM>Address</EM> class in a variety
+of objects, e.g., <EM>Vendors</EM>, <EM>Clients</EM>,
+<EM>Freight companies</EM>, etc.
+To make these objects less dependent of the details
+of the <EM>Address</EM> class, the objects should rather use
+an interface, <EM>AddressIF</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Service</B></TD>
+  <TD>A class that provides data and/or methods to the <EM>Client</EM>.</TD>
+  <TD>Address</TD>
+  </TR>
+  <TR>
+  <TD><B>Client</B></TD>
+  <TD>A class that uses the services of class <EM>Service</EM>.</TD>
+  <TD>Vendor, Client, etc.</TD>
+  </TR>
+  <TR>
+  <TD><B>ServiceIF</B></TD>
+  <TD>Interface of class <EM>Service</EM>.</TD>
+  <TD>AddressIF</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>&nbsp;</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

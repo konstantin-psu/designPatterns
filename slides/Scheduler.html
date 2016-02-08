@@ -1,0 +1,135 @@
+<HTML>
+<TITLE>Scheduler</TITLE>
+<BODY>
+
+<H2>Scheduler</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Lea 97</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To implement a general purpose thread scheduling policy.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Use two classes: a general <EM>Scheduler</EM>, which assign
+    a resource to a thread, and a specialized <EM>ScheduleOrdering</EM>,
+    which selects one thread among many to execute.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Entries to log are queued while waiting to be printed.
+    Queueing minimizes the chance of printing entries in
+    the wrong termporal order.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Request</B></TD>
+  <TD>
+      This class implements <EM>SchedulingOrdering</EM>.
+      Objects encapsulate a request for a <EM>Processor</EM>
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Processor</B></TD>
+  <TD>
+      This class performs the computation abstracted by a <EM>Request</EM>.
+      It asks the <EM>Scheduler</EM> the ok to process.
+      It informs the scheduler when the process is completed.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Scheduler</B></TD>
+  <TD>
+    This class schedules <EM>Requests</EM> to the <EM>Processor</EM>.
+    It relies on interface <EM>ScheduleOrdering</EM>, implemented by
+    each <EM>Request</EM>, for the ordering.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ScheduleOrdering</B></TD>
+  <TD>
+      Interface used to decide the order in which <EM>Requests</EM>
+      a processed. Keeps the <EM>Scheduler</EM> independend of the
+      details of a <EM>Request</EM>.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=ReadWriteLock.html>ReadWriteLock</A>
+        (is a specialized form of Scheduler)<BR>
+</TD>
+</TR>
+<TR>
+<TD>Note:</TD>
+<TD>
+    In its simplest form, the key method of <EM>Processor</EM> looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+void process (Request r) {
+    scheduler.<FONT COLOR=FFFFFF><B>enter</B></FONT> (r);
+    ... <FONT COLOR=FF9876>// process this request</FONT>
+    scheduler.<FONT COLOR=FFFFFF><B>done</B></FONT> ();
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    The <EM>Scheduler</EM> defines a variable shared by its
+    <EM>enter</EM> and <EM>done</EM> methods
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+Thread runningThread;
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    The <EM>Scheduler</EM>'s enter method looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+void enter (Request r) {
+    Thread thisThread = Thread.currentThread ();
+    <FONT COLOR=FFFFFF><B>synchronized (this)</B></FONT> {
+        if (runningThread == null) {    <FONT COLOR=FF9876>// processor is free</FONT>
+            runningThread = thisThread;
+            return;
+        }
+        <FONT COLOR=FF9876>... // place thisThread in a waiting list</FONT>;
+    }
+    <FONT COLOR=FFFFFF><B>synchronized (thisThread)</B></FONT> {
+        while (<FONT COLOR=FF9876>thisThread != runningThread</FONT>)
+            thisThread.wait();
+    }
+    <FONT COLOR=FFFFFF><B>synchronized (this)</B></FONT> {
+        <FONT COLOR=FF9876>remove thisThread from the waiting list</FONT>;
+    }
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    The <EM>Scheduler</EM>'s done method looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+void done () {
+    <FONT COLOR=FFFFFF><B>synchronized (this)</B></FONT> {
+        if (<FONT COLOR=FF9876>there are no waiting threads</FONT>) {
+            runningThread = null;
+            return;
+        }
+        runningThread = <FONT COLOR=FF9876>first thread in waiting list</FONT>;
+    }
+    <FONT COLOR=FFFFFF><B>synchronized (runningThread)</B></FONT> {
+        runningThread.notifyAll ();
+    }
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

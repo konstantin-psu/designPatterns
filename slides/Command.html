@@ -1,0 +1,81 @@
+<HTML>
+<TITLE>Command</TITLE>
+<BODY>
+
+<H2>Command</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To allow operations on commands such as sequencing and undoing.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Represent commands as encapsulated objects.
+    Provide a command manager to execute commands.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A word processing program should be able to <EM>undo</EM> and
+    <EM>redo</EM> previously executed commands.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>AbstractCommand</B></TD>
+  <TD>
+      Interface for executing a command.
+      Has abstract methods such as <EM>doit</EM> and <EM>undoit</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ConcretCommand</B></TD>
+  <TD>
+      Implement a specific command.
+      Constructor has required parameters.
+      Specializes <EM>doit</EM> and <EM>undoit</EM> methods.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Invoker</B></TD>
+  <TD>
+      Asks a command to do its job.
+      May create the command.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>CommandManager</B></TD>
+  <TD>
+      Manages a collection of commands to support "history" requests.
+      Can be quite general.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Snapshot.html>Snapshot</A>
+       (coarser alternative to undo)<BR>
+    <A HREF=LittleLanguage.html>Little Language</A>
+       (may use this pattern)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

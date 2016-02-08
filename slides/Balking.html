@@ -1,0 +1,61 @@
+<HTML>
+<TITLE>Balking</TITLE>
+<BODY>
+
+<H2>Balking</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Lea 97</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Disregard the call to a method of an object, if the state
+    of the object is not appropriate to execute the call.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Test the object's state, in a <EM>synchronized</EM> block
+    for thread safety, and return if the state is inappropriate.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A toilet with an automatic flusher should not begin a flush
+    cycle when another cycle is in progress.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+    In its simplest form, the potentially balking method looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+void balkingMethod () {
+    <FONT COLOR=FFFFFF><B>synchronized</B></FONT> (this) {
+        if (! some_condition) return;
+        else 
+            ... <FONT COLOR=FF0000>// code possibly changing some_condition</FONT>
+    }
+    ... <FONT COLOR=FF0000>// do whatever</FONT>
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    The <EM>synchronized</EM> block ensures thread safety. 
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=GuardedSuspension.html>Guarded Suspension</A>
+        (is similar to <EM>balkingMethod</EM>,
+         but it waits rather than returning)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

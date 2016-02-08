@@ -1,0 +1,5 @@
+#!/bin/sh
+# Tue Oct 26 10:10:32 PDT 1999
+
+rm -f `find . -name "*~"`
+rm -f `find . -name "*.class"`

@@ -1,0 +1,479 @@
+<html><head>
+
+<title>&lt;b&gt;Industrial Strength Pluggable Factories&lt;/b&gt; - C++ Report - ADTmag.com</title><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="crarticle.asp_files/adt2.css"> 
+<script language="JavaScript"> 
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_reloadPage(init) {  //Updated by PVII. Reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//--> 
+</script></head>
+
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" onload="MM_preloadImages('/images/tabs/comp_on.gif','/images/tabs/datam_on.gif','/images/tabs/integ_on.gif','/images/tabs/opin_on.gif','/images/tabs/spec_on.gif','/images/tabs/tech_on.gif','/images/tabs/java_on.gif','/images/tabs/joop_on.gif','/images/tabs/jobs_on.gif','/images/tabs/adt_on.gif')"><table width="780" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody><tr> 
+    <td align="left" width="122"><a href="http://www.101com.com/"><img src="crarticle.asp_files/101com_red.gif" width="100" height="30" border="0" alt="101communications"></a></td>
+    <td align="right" valign="top" width="658"><nobr><p class="textr"><a href="http://subscribe.101com.com/adt/" class="bread">Subscribe</a> 
+		| <a href="http://lists.101com.com/nls/pages/main.asp?NL=adt" class="bread">Newsletters</a> 
+		| <a href="http://www.adtmag.com/archive.asp" class="bread">Archives</a> 
+		<!--| <a href="/bg.asp" class="bread">Buyers Guide</a--> 
+		| <a href="http://www.adtmag.com/section.asp?section=news" class="bread">News</a> 
+		| <a href="http://www.xmlconference.com/" target="_blanks" class="bread">Conferences</a> 
+		<!--| <a href="/relatedpubs.asp" class="bread">Related Publications</a--> 
+		| <a href="http://www.adtmag.com/about.asp" class="bread">About Us</a> 
+		| <a href="http://www.adtmag.com/contact.asp" class="bread">Contact Us</a></p></nobr></td>
+  </tr>
+</tbody></table>
+<table width="781" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff">
+  <tbody><tr> 
+    <td width="20" valign="top" align="left"><img src="crarticle.asp_files/crn_toplft.gif" width="19" height="15" border="0" alt="  " name="lcorner"></td>
+    <td rowspan="2" width="153"><a href="http://www.adtmag.com/index.asp"><img src="crarticle.asp_files/adtlogo5.gif" width="153" height="50" border="0" alt="ADTmag.com" align="top" name="ADTmag"></a></td>
+    <td width="225"> </td>
+    <td width="65"> </td>
+    <td width="65"> </td>
+    <td width="234"><img src="crarticle.asp_files/adt_sm.gif" alt="Application Development Trends" width="127" height="23" name="adtsmall" border="0" align="right"></td>
+    <td width="19" valign="top" align="right"><img src="crarticle.asp_files/crn_toprit.gif" width="19" height="15" border="0" alt=" " name="rcorner"></td>
+  </tr>
+  <tr> 
+    <td width="20"> </td>
+    <td width="225"><img src="crarticle.asp_files/clear.gif" alt=" " width="225" height="16"></td>
+    <td width="65" valign="bottom"><a href="http://www.adtmag.com/java/index.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('java1','','/images/tabs/java_on.gif',1)"><img src="crarticle.asp_files/java_off.gif" alt="Java Report" width="65" height="21" border="0" name="java1"></a></td>
+    <td width="65" valign="bottom"><a href="http://www.adtmag.com/joop/index.asp"><img name="joop" border="0" src="crarticle.asp_files/joop_on.gif" width="65" height="21" alt="Journal of Object Oriented Programming"></a></td>
+    <td width="234"> </td>
+    <td width="19"> </td>
+  </tr>
+</tbody></table>
+<table width="780" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff">
+  <tbody><tr bgcolor="#ffffff"> 
+    <td width="68" height="21"><a href="http://www.adtmag.com/index.asp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('home','','/images/tabs/adt_on.gif',1)"><img name="home" border="0" src="crarticle.asp_files/adt_off.gif" width="68" height="21"></a></td>
+    <td width="73" height="21"><a href="http://www.adtmag.com/section.asp?section=integration" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('integration','','/images/tabs/integ_on.gif',1)"><img name="integration" border="0" src="crarticle.asp_files/integ_off.gif" width="73" height="21"></a></td>
+    <td width="78" height="21"><a href="http://www.adtmag.com/section.asp?section=components" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('components','','/images/tabs/comp_on.gif',1)"><img name="components" border="0" src="crarticle.asp_files/comp_off.gif" width="78" height="21"></a></td>
+    <td width="112" height="21"><a href="http://www.adtmag.com/section.asp?section=tools" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('tech','','/images/tabs/tech_on.gif',1)"><img name="tech" border="0" src="crarticle.asp_files/tech_off.gif" width="112" height="21"></a></td>
+    <td width="109" height="21"><a href="http://www.adtmag.com/section.asp?section=data" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('datamanag','','/images/tabs/datam_on.gif',1)"><img name="datamanag" border="0" src="crarticle.asp_files/datam_off.gif" width="109" height="21"></a></td>
+    <td width="56" height="21"><a href="http://www.adtmag.com/section.asp?section=opinion" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('opinion','','/images/tabs/opin_on.gif',1)"><img name="opinion" border="0" src="crarticle.asp_files/opin_off.gif" width="56" height="21"></a></td>
+    <td width="98" height="21"><a href="http://www.adtmag.com/section.asp?section=special" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('specials','','/images/tabs/spec_on.gif',1)"><img name="specials" border="0" src="crarticle.asp_files/spec_off.gif" width="99" height="21"></a></td>
+    <td width="73" height="21"><a href="http://seeker.dice.com/seeker.epl?rel_code=21" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('jobsearch','','/images/tabs/jobs_on.gif',1)"><img name="jobsearch" border="0" src="crarticle.asp_files/jobs_off.gif" width="73" height="21"></a></td>
+    <td width="113" height="21"><img src="crarticle.asp_files/right.gif" alt=" " border="0" width="113" height="21"></td>
+  </tr>
+  <tr bgcolor="#990000"> 
+    <td colspan="9" height="14" bgcolor="#990000"><img src="crarticle.asp_files/topred.gif" width="780" height="14" border="0" alt=" "></td>
+  </tr>
+</tbody></table>
+
+ 
+<table width="780" border="0" cellspacing="0" cellpadding="0" align="center" bgcolor="#ffffff">
+  <tbody><tr height="1"> <!--row 1 --> 
+    <td width="1" bgcolor="#000000" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td bgcolor="#000000" width="132" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td bgcolor="#000000" width="6" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td bgcolor="#000000" width="342" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td bgcolor="#000000" width="150" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td width="1" bgcolor="#000000" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td width="147" bgcolor="#000000" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td width="1" bgcolor="#000000" height="1"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+  </tr>
+  <tr><!--row 2 --> 
+    <td rowspan="9" width="1" bgcolor="#000000"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0"></td>
+    <td rowspan="9" align="center" valign="top" width="132"><a href="http://subscribe.101com.com/adt/"><img src="crarticle.asp_files/subscription.gif" width="131" height="28" border="0"></a><br clear="all">
+<img src="crarticle.asp_files/clear.gif" width="125" height="4" align="middle"><br clear="all">
+<nolayer>
+<iframe src="crarticle.asp_files/_001.html" width="125" height="125" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
+&lt;a&gt;&lt;img&gt;&lt;/a&gt;
+</iframe>
+</nolayer>
+<ilayer id="layer1" visibility="hidden" width="125" height="125"></ilayer>
+<br clear="all"><br></td>
+    <td rowspan="9" width="6" background="/images/colors/doto.gif"><img src="crarticle.asp_files/clear.gif" width="6" height="1" border="0" alt=" "></td>
+    <td colspan="2" align="center"><nolayer>
+<iframe src="crarticle.asp_files/_002.html" width="468" height="60" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no">
+&lt;a&gt;&lt;img&gt;&lt;/a&gt;
+</iframe>
+</nolayer>
+<ilayer id="layer2" visibility="hidden" width="468" height="60"></ilayer>
+<br clear="all">
+</td>
+    <td rowspan="9" valign="top" width="1" bgcolor="#000000"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0" alt=" "></td>
+    <td rowspan="9" valign="top" width="142" background="/images/colors/grey_texture.gif"> 
+      <!-- SITE SEARCH --> 
+<table width="100%" border="0" cellspacing="0" cellpadding="0" background="/images/colors/grey_texture.gif">
+  <tbody><tr align="center" background="/images/colors/grey_texture.gif"> 
+      <td><div align="left" class="textsm"><b>Search ADT</b></div>
+        <form method="get" action="http://search.atomz.com/search/">
+        <nobr>
+		<input name="sp-q" type="text" size="10" maxlength="30" class="textsm">
+		<input type="hidden" name="sp-a" value="00033bfa-sp00000007">
+		<input type="image" name="Submit" value="Search" src="crarticle.asp_files/go_off.gif" border="0">
+		</nobr>
+        <!--<p class="textsm"><b><a href="#" class="brink">Advanced Search</a></b></p>-->
+        </form>
+      </td>
+    </tr>
+   <tr background="/images/colors/blk.gif"> 
+    <td height="1" bgcolor="#000000" background="/images/colors/blk.gif"><img src="crarticle.asp_files/blk.gif" width="1" height="1" border="0" alt=" "></td>
+   </tr>
+</tbody></table>
+<div align="center"><br>
+  <!-- END SITE SEARCH -->
+  
+  <br>
+</div>
+</td>
+    <td rowspan="9" valign="top" width="1" bgcolor="#000000"><img src="crarticle.asp_files/clear.gif" width="1" height="1" border="0"></td>
+  </tr>
+  <tr height="7"><!--row 3 --> 
+    <td colspan="2" height="7"><img src="crarticle.asp_files/clear.gif" width="1" height="7" border="0" alt=" "><img src="crarticle.asp_files/dotop.gif" width="490" height="7" border="0"></td>
+  </tr>
+  <tr> <!--row 4 --> 
+    <td width="342" align="left" class="texthd">C++ Report</td>
+    <td align="right" width="150">   <nobr><script language="JavaScript">
+		<!-- // Array of day names
+		var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"
+);
+		// Array of month Namesvar
+		monthNames = new
+Array("January","February","March","April","May","June","July","August","September","October","November","December");
+		var now = new Date();
+		document.write("&nbsp;&nbsp;<span class=blktitle>" + dayNames[now.getDay()] + ", " + monthNames[now.getMonth()] + " "+ now.getDate() + ", 2002</span>" );
+		// -->
+
+</script>  <span class="blktitle">Thursday, October 24, 2002</span></nobr></td>
+  </tr>
+  <tr> <!--row 5 --> 
+    <td align="left" valign="top" colspan="2"><br>
+<p><b>Industrial Strength Pluggable Factories</b><br>Timothy R. Culp</p><p><!-- Begin Content -->
+<table width="474" border="0" cellspacing="0" cellpadding="2" bgcolor="#ffffff">
+<tbody><tr>
+<td width="5" align="left" valign="top"><font color="#ffffff">.</font></td>
+<td align="left" valign="top">
+
+
+
+<!--- <BR><IMG SRC="../../images/from_pages/fs_tit.gif" width=320 height=21 border=0 alt="feature"><BR><BR>
+<FONT FACE="arial,helvetica" Size=2>
+<FONT FACE="arial,helvetica" SIZE=3 color="#333399">
+<B>Industrial Strength Pluggable Factories</B></font>
+
+<BR>
+<BR>
+<I>by Timothy R. Culp</I><BR>
+<BR> --->
+
+<font face="arial,helvetica" size="1"> Timothy Culp is the Chief Software
+Architect for the Harris Corporation ORIGIN Laboratory and an Instructor
+at Rollins College. He can be contacted at <a href="mailto:timothy.culp@computer.org">timothy.culp@computer.org</a>.</font>
+<br>
+<hr noshade="noshade">
+<br>
+
+<font face="arial,helvetica" size="2">
+THE PLUGGABLE FACTORIES pattern discussed in John Vlissides' Patterns Hatching column earlier this 
+year<sup><font size="1">1</font></sup> is indeed a real pattern used in industry and is a powerful 
+tool for designing extensible, object-oriented software. Harris Corporation accepts Mr. Vlissides 
+challenge to document its use by providing a short history of our experiences in this area. We have 
+found that Pluggable Factories not only provides a way to separate code developed under different 
+funding but also provides a way for projects to "plug-in" new features and functionality to existing 
+applications without having to modify common code.
+</font><p>
+<font face="arial,helvetica" size="2">Factories are a means of abstracting away the details of virtual construction,<sup><font size="1">2</font></sup> 
+and our team has used them extensively throughout our image-processing software baseline. At first, we hard 
+coded factories into a few key components, such as data import, radiometric conversions, and elevation surfaces. 
+Over time, we generalized the commonality between the factories into a single template class 
+called <font face="courier" size="2">Maker</font>. 
+</font></p><p>
+<font face="arial,helvetica" size="2">The <font face="courier" size="2">Maker</font> template is a powerful creational pattern, but our original 
+design did not address the variety of creational needs for all our projects. We found, however, that by 
+combining several patterns we were able to satisfy each of the creational problems encountered. These 
+compound patterns<sup><font size="1">3</font></sup> have since been named 
+<font face="courier" size="2">StreamMaker, ChainMaker, PriorityMaker</font>, 
+and <font face="courier" size="2">SingletonMaker</font> and are all just special derivatives of 
+Pluggable Factories.
+</font></p><p>
+<font face="arial,helvetica" size="2"><b>FACTORIES FOR PERSISTENCE</b>  Factories are an excellent mechanism for properly constructing a subtype 
+from persistent storage. Consider the construction of a polymorphic shape from a stream. We have a 
+<font face="courier" size="2">shape.txt</font> file with the following data:
+</font></p><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">  Circle {
+      radius  3.14159
+}</font></font></pre>
+<font face="arial,helvetica" size="2">While creating the stream was a straightforward task, reconstructing the proper subtype from the stream 
+turned out to be problematic.
+</font><p>
+<font face="arial,helvetica" size="2"><b>Simple Factory</b>  We could have examined the contents of the stream at the application level to 
+determine which subtype to create, but we chose to localize object creation<sup><font size="1">4</font></sup> by 
+deferring construction to a factory. Our first approach was to create a static factory method within the 
+<font face="courier" size="2">Shape</font> class that knew the right subtype to construct with a given 
+stream. This method switched on a unique piece of the data within the stream, such as class name, and 
+then passed the remainder of the stream to the proper <font face="courier" size="2">Shape</font> 
+constructor:</font></p><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">class Shape {
+public:
+	static Shape* newShape(istream&amp;);
+};
+Shape* Shape::newShape(istream&amp; params) {
+string className;
+    params &gt;&gt; className;
+    if (className == "Circle")
+         return new Circle(params);
+    else if (className == "Triangle") 
+         return new Triangle(params);
+    else&#8230;
+}
+</font></font></pre>
+<font face="arial,helvetica" size="2"><b>Problems with the Simple Factory</b>  Although this mechanism was very clean and simple, it meant 
+the <font face="courier" size="2">Shape</font> base class was aware of all the subtypes derived from 
+<font face="courier" size="2">Shape.</font> It also required a modification to the 
+<font face="courier" size="2">newShape</font> factory method every time a new shape was added to the system. 
+This violated two important principles in object-oriented design: The first was the Dependency Inversion 
+Principle,<sup><font size="1">5</font></sup> which states that high level modules should not depend on 
+lower level modules/details. The second was Bertrand Meyer's Open-Closed Principle,
+<sup><font size="1">6,7</font></sup> which states that a framework is open to extension but closed to 
+modification for building maintainable code.
+</font><p>
+<font face="arial,helvetica" size="2">Was a one-line modification to previously delivered code really that much of a maintenance nightmare? 
+Consider the situation when the base class source code isn't available for modification. In our Object 
+Reuse In Geospatial INformation (ORIGIN) Laboratory, we are responsible for managing a common reuse 
+repository of useful geospatial components for a large product line. The ORIGIN baseline is released 
+as a set of header files and shared libraries for a variety of platform configurations. ORIGIN is 
+maintained as a separate project so that changes to common code can be monitored and controlled, 
+keeping the architecture focused and the interfaces stable. This is critical for successful reuse within 
+a large organization. ORIGIN must provide the ability for other projects to extend base class 
+functionality without modifying common code. While it did not seem like a maintenance nightmare, a one-line 
+code change for ORIGIN was one line too many.
+</font></p><p>
+<font face="arial,helvetica" size="2"><b>PLUGGABLE FACTORIES</b>  Because modifying previous code was not an option, we needed a dynamic 
+mechanism for adding new subtypes to existing class hierarchies. We chose to build an associative 
+container where each value in the container was a factory object, or a <i>maker</i> object, that knew 
+how to create exactly one subtype from an abstract hierarchy. We formatted our streams so that the first 
+thing present in the stream was the class name of the object followed by the parameters needed for 
+construction. The name was stripped from the stream and used as a keyword for looking up the proper 
+maker. The remainder of the stream was then passed to the maker to construct a new object. This was 
+a simple permutation of the Prototype pattern,<sup><font size="1">8</font></sup> except instead of 
+storing prototypes of objects in a list, we were storing prototypes of factories in a map.
+</font></p><p>
+<font face="arial,helvetica" size="2"><b>Prototype Factory Compound Pattern</b>  Using the FactoryMethod, we created an abstract 
+<font face="courier" size="2">ShapeMaker</font> class with a single public method called 
+<font face="courier" size="2">newShape</font> and a concrete <font face="courier" size="2">CircleMaker</font> 
+that knew how to create circles from a stream:</font></p><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">class ShapeMaker {
+public:
+   static Shape* newShape(istream&amp;);
+protected:
+   typedef map&lt;string,ShapeMaker*&gt; MakerMap;
+   virtual Shape* makeShape(istream&amp;) const=0;
+   static MakerMap registry;
+};
+class CircleMaker : public ShapeMaker {
+private:
+   Shape* makeShape(istream&amp; params) const { 
+      return new Circle(params); 
+	}
+};
+</font></font></pre>
+<font face="arial,helvetica" size="2">In addition to <font face="courier" size="2">CircleMaker</font>, we then made other concrete makers for 
+shapes such as <font face="courier" size="2">TriangleMaker</font> and 
+<font face="courier" size="2">RectangleMaker.</font> An instance of each of these concrete 
+<font face="courier" size="2">ShapeMaker</font> factories was stored in a map container in the 
+<font face="courier" size="2">ShapeMaker</font> base class that associated a class name with a 
+specific maker. When constructing from a stream, the <font face="courier" size="2">ShapeMaker</font> map 
+was used to find the maker associated with the class name stored in the stream. The maker was then used 
+to create the right type of <font face="courier" size="2">Shape</font> using the rest of the 
+stream:</font><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">Shape* ShapeMaker::newShape(istream&amp; is) {
+    string className;
+    is &gt;&gt; className;
+    ShapeMaker* maker = 
+       (*registry.find(className)).second;
+    return maker-&gt;makeShape(is);
+}
+</font></font></pre>
+<font face="arial,helvetica" size="2">As a result, we had a much more general factory method that did not require modification when new shapes were 
+added to the system.
+</font><p>
+<font face="arial,helvetica" size="2"><b>Registering Factories Using Prototype</b>  All of this hinged on the fact that a mapping existed between 
+class names and their associated makers. The Prototype pattern provided a means to dynamically register 
+makers into our map.
+</font></p><p>
+<font face="arial,helvetica" size="2">Every concrete maker type owned a static instance of itself that got constructed during static initialization. 
+The only purpose of this static instance was to register this maker with the static maker 
+map:</font></p><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">class CircleMaker : public ShapeMaker {
+private:
+    CircleMaker() : ShapeMaker("Circle") {}
+    static const CircleMaker registerThis;
+};
+ShapeMaker::ShapeMaker(string className) {
+   registry.insert( make_pair(className, this) );
+}
+</font></font></pre>
+<font face="arial,helvetica" size="2">When applications need to create a shape object from a persistent store, the stream is passed to 
+<font face="courier" size="2">ShapeMaker</font> and the right subtype is 
+created:</font><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">fstream params("shapes.txt");
+Shape* shape =ShapeMaker::newShape(params);
+</font></font></pre>
+<font face="arial,helvetica" size="2"><b>Plugging in with Prototype Factory</b>  The combination of the Prototype and Factory Method as our 
+Pluggable Factory pattern allowed projects to extend the types of shapes that 
+<font face="courier" size="2">ShapeMaker</font> could create by providing a shared library with their 
+own project specific shapes and shape makers. These plug-in libraries are loaded at runtime 
+(using <font face="courier" size="2">dlopen</font> for UNIX or <font face="courier" size="2">LoadLibrary</font> 
+for Windows) to extend the shape hierarchy dynamically without modifying the 
+<font face="courier" size="2">Shape</font> class.
+</font><p>
+<font face="arial,helvetica" size="2">The <font face="courier" size="2">ShapeMaker</font> and its collaborating classes represent a Prototype 
+Factory compound pattern. The Factory Method supplies a means to create new shapes and the Prototype 
+pattern provides a means to dynamically register factories at runtime. The participating classes are 
+shown in Figure 1.
+</font></p><p>
+<font face="arial,helvetica" size="2"><img src="crarticle.asp_files/culpfig1.html" width="340" height="213" border="0"></font></p><p>
+<font face="arial,helvetica" size="2"><b>Figure 1. Prototype Factory static view.</b>
+</font></p><p>
+<font face="arial,helvetica" size="2"><b>GENERIC FACTORIES</b>  As we started the design of other Prototype Factory patterns, we quickly saw that 
+the algorithm was independent of the data type being constructed. A natural progression was to create a 
+template class parameterized on the type of object being made. For historical reasons within our 
+organization, the template that captured the design of the Prototype Factory compound pattern was 
+called <font face="courier" size="2">Maker.</font> </font></p><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">template 
+&lt;class Object&gt; class Maker {
+public:
+   virtual ~Maker();
+   static Object* newObject(istream&amp;);
+protected:
+   Maker(const string&amp; className);
+   virtual Object* makeObject(istream&amp;) const=0;
+private:
+   typedef Maker&lt;Object&gt;* MakerPtr; 
+   typedef map&lt;string,MakerPtr&gt; MakerMap;	
+   static MakerMap registry;
+};
+</font></font></pre>
+<font face="arial,helvetica" size="2"><b>Making Makers</b>  With the <font face="courier" size="2">Maker</font> template in place, <font face="courier" size="2">ShapeMaker</font> was rewritten to be a derivation of the Maker template parameterized on <font face="courier" size="2">Shape</font>:</font><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">class ShapeMaker : public Maker&lt;Shape&gt; {
+protected:
+   ShapeMaker(const string&amp; className)
+      : Maker&lt;Shape&gt;(className) {}
+};
+class CircleMaker : public ShapeMaker { 
+private:
+   CircleMaker () : ShapeMaker ("Circle") {}
+    Shape* makeObject(istream&amp; params) const { 
+      return new Circle(params); }
+    static const CircleMaker registerThis;
+};
+</font></font></pre>
+<font face="arial,helvetica" size="2">To create <font face="courier" size="2">Maker</font> factories for other abstract class hierarchies, we made 
+new subclasses derived from the <font face="courier" size="2">Maker</font> template as needed: 
+</font><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">class CoordSysMaker
+    : public Maker&lt;CoordSys&gt;{&#8230;};
+class XyzMaker : public CoordSysMaker{&#8230;};
+class RasterMaker : public CoordSysMaker{&#8230;};
+</font></font></pre>
+<font face="arial,helvetica" size="2"><b>LEGACY FILE FORMATS</b>  One problem with generic programming is that templates must make assumptions 
+about the data types they are operating on. If our assumptions are too specific, then we limit the usefulness 
+of the template by over-specifying what types of classes can be used. Our team encountered problems where 
+our template was too assumptive when we tried to apply our <font face="courier" size="2">Maker</font> template 
+to existing legacy file formats. 
+</font><p>
+<font face="arial,helvetica" size="2"><b>Problems with the Maker Prototype Factory</b>  The first assumption we made was that the objects could be 
+reconstructed from a stream. Legacy classes sometimes use <font face="courier" size="2">stdio</font> instead 
+of <font face="courier" size="2">IOStreams.</font> Entire sections of code could have been rewritten to 
+change <font face="courier" size="2">FILE*</font> to <font face="courier" size="2">istreams</font>, but this 
+was a costly approach that resulted in very little return.
+</font></p><p>
+<font face="arial,helvetica" size="2">Our second assumption was that the stream format was a class name identifying the type of object being stored 
+followed by the data parameters required to restore the object to its previous state. This assumption was fine 
+for classes written after the <font face="courier" size="2">Maker</font> pattern was developed. Legacy formats 
+or proprietary formats did not follow this convention. 
+</font></p><p>
+<font face="arial,helvetica" size="2"><b>Making Objects from Files</b>  Rather than coming up with a separate <font face="courier" size="2">Maker</font> 
+mechanism to address these existing file formats, we chose to generalize our existing template so that it 
+supported both persistent and legacy formats. In other words, we needed to address the assumptions that 
+were overspecified to see if they could be expressed in another way. For instance, the assumption that 
+the construction parameters that were embedded in a stream could be fixed simply by adding a new template 
+parameter that allowed the user to specify the data type of the construction parameters at 
+runtime:</font></p><pre><font face="arial,helvetica" size="2"><font face="courier" size="2">template &lt;class Object, class Params&gt; 
+class Maker {
+public:
+   static Object* newObject(Params);
+protected:
+   typedef Maker&lt;Object,Params&gt;* MakerPtr;
+   virtual Object* makeObject(Params) const=0;
+};
+</font></font></pre>
+
+<font face="arial,helvetica" size="2"><br clear="all">
+</font><p align="center"><font face="arial,helvetica" size="2">This article originally appeared in the<br>
+October 1999 issue of <i><a href="http://www.adtmag.com/joop/index.asp#creport">Journal of C++ Report</a></i>.</font></p>
+<font face="arial,helvetica" size="2">	<br>
+    </font></td>
+  </tr>
+  <tr><!--row 8 --> 
+    <td colspan="2" align="center" valign="top"><br><br></td>
+  </tr>
+  <tr><!--row 9 --> 
+    <td colspan="2" align="center" valign="bottom">  <nobr> 
+      
+<div align="center" class="textinc">
+	<a href="http://www.adtmag.com/index.asp" class="brink">Home</a> 
+  | <a href="http://www.adtmag.com/section.asp?section=integration" class="brink">Integration</a> 
+  | <a href="http://www.adtmag.com/section.asp?section=components" class="brink">Components</a> 
+  | <a href="http://www.adtmag.com/section.asp?section=tools" class="brink">Tools &amp; Technologies</a><br>
+  <a href="http://www.adtmag.com/section.asp?section=data" class="brink">Data Management</a> 
+  | <a href="http://www.adtmag.com/section.asp?section=opinion" class="brink">Opinion</a> 
+  | <a href="http://www.adtmag.com/section.asp?section=special" class="brink">Special Reports</a>  
+  <!--| <a href="/events.asp" class="brink">Events Calendar</a>-->
+<br>
+  <a href="http://www.adtmag.com/joop/index.asp" class="brink">Journal of Object-Oriented Programming</a> 
+  | <a href="http://www.adtmag.com/java/index.asp" class="brink">Java Report</a>
+</div>
+      </nobr> 
+      <div align="center" class="textinc"><img src="crarticle.asp_files/dots.gif" width="35" height="7" border="0" alt=" "></div> </td>
+  </tr>
+</tbody></table>
+<table width="780" border="0" cellspacing="0" cellpadding="0" height="30" align="center">
+  <tbody><tr bgcolor="#000000" height="30"> 
+    <td width="25" height="30" align="left"><img src="crarticle.asp_files/crn_botlft.gif" width="25" height="30" border="0"></td>
+    <td width="730" height="30" align="center"> 
+      <div class="copyright">Copyright 2002 <a href="http://www.101com.com/" target="_blank" onfocus="if(this.blur)this.blur()" class="bread">101communications 
+        LLC.</a> See our <a href="http://www.101com.com/privacy.asp" target="_blank" onfocus="if(this.blur)this.blur()" class="bread">Privacy 
+        Policy</a>.</div>
+    </td>
+    <td width="25" height="30" align="right" bgcolor="#000000"><img src="crarticle.asp_files/crn_botrit.gif" width="25" height="30"></td>
+  </tr>
+</tbody></table>
+<table width="780" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tbody><tr> 
+    <td><nobr> 
+      <p class="textr"><a href="http://subscribe.101com.com/adt/" class="bread">Subscribe</a> 
+		| <a href="http://lists.101com.com/nls/pages/main.asp?NL=adt" class="bread">Newsletters</a> 
+		| <a href="http://www.adtmag.com/archive.asp" class="bread">Archives</a> 
+		<!--| <a href="/bg.asp" class="bread">Buyers Guide</a--> 
+		| <a href="http://www.adtmag.com/section.asp?section=news" class="bread">News</a> 
+		| <a href="http://www.xmlconference.com/" target="_blanks" class="bread">Conferences</a>  
+		<!--| <a href="/relatedpubs.asp" class="bread">Related Publications</a--> 
+		| <a href="http://www.adtmag.com/about.asp" class="bread">About Us</a> 
+		| <a href="http://www.adtmag.com/contact.asp" class="bread">Contact Us</a></p>
+      </nobr></td>
+  </tr>
+</tbody></table>
+
+</p><layer src="http://ad.doubleclick.net/adl/joopmag.dart/;pos=l01;sz=125x125;tile=1;ord=20021024928431E63?" width="125" height="125" visibility="hidden" onload="moveToAbsolute(layer1.pageX,layer1.pageY);clip.height=125;clip.width=125; visibility='show';"></layer>
+
+<layer src="http://ad.doubleclick.net/adl/joopmag.dart/;pos=m01;sz=468x60;tile=2;ord=20021024928431E63?" width="468" height="60" visibility="hidden" onload="moveToAbsolute(layer2.pageX,layer2.pageY);clip.height=60;clip.width=468; visibility='show';"></layer>
+</td></tr></tbody></table></body></html>

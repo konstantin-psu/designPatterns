@@ -1,0 +1,65 @@
+<HTML>
+<TITLE>Guarded Suspension</TITLE>
+<BODY>
+
+<H2>Guarded Suspension</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Lea 97</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    A method should wait to execute until a precondition holds.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Use an object's methods <EM>wait</EM> and <EM>notify</EM>.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A queue is used by two threads to exchange objects.
+    A thread can take an object from the queue only if the
+    queue contains elements. 
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+    In its simplest form, the method guarded by a precondition
+    looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+<FONT COLOR=FFFFFF><B>synchronized</B></FONT> void guardedMethod () {
+    while (! precondition) { <FONT COLOR=FFFFFF><B>wait ()</B></FONT>; }
+        ... <FONT COLOR=FF0000>// code requiring precondition</FONT>
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Any method that might change the precondition
+    looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+<FONT COLOR=FFFFFF><B>synchronized</B></FONT> void stateChangingMethod () {
+    ... <FONT COLOR=FF0000>// code possibly changing precondition</FONT>
+    <FONT COLOR=FFFFFF><B>notify ()</B></FONT>;
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Both methods are <EM>synchronized</EM> on the same object.
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Balking.html>Balking</A>
+        (is similar to <EM>guardedMethod</EM>,
+         but it returns rather than waiting)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

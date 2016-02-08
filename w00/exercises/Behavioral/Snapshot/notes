@@ -1,0 +1,11 @@
+Extend the program of the Mediator example with a Snapshot pattern
+mechanism.  The object to be preserved is (a state of) the Board.
+It is important not to violate the information hidden by the Board.
+
+For the purpose of this exercise, add two buttons to the
+interface: one to make the snapshot and the other to restore the
+board from the snapshot.  Consider two separate implementations:
+one where the snapshot is held in memory, another where the
+snapshot is stored on disk.
+
+The Snapshot pattern is also called Memento.

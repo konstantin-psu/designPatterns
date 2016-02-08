@@ -1,0 +1,100 @@
+<HTML>
+<TITLE>FactoryMethod</TITLE>
+<BODY>
+
+<H2>FactoryMethod</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Provide an interface for creating an object, but let subclasses
+    decide which class to instantiate (aka virtual constructor).
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    An abstract class, the <EM>FactoryMethod</EM>, defines abstract or
+    near-empty methods that return product components and a
+    <B>final</B> creator method to create an entire product.
+    Subclasses override methods that return product components but
+    use the same creator.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    An office productivity program manages two classes:
+    <EM>Document</EM>, e.g., texts, images, sounds, etc.,
+    and <EM>Application</EM> to create or open documents.
+    The <EM>Application</EM> class does not know which
+    specific <EM>Document</EM> class to instantiate.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Product</B></TD>
+  <TD>Interface of objects the factory method creates.</TD>
+  <TD>Abstract document</TD>
+  </TR>
+  <TR>
+  <TD><B>ConcreteProduct</B></TD>
+  <TD>Implements <EM>Product</EM> for a specific document.</TD>
+  <TD>Text or image or sound, etc., document.</TD>
+  </TR>
+  <TR>
+  <TD><B>Creation Requestor</B></TD>
+  <TD>
+      Application-independent class that creates
+      (indirectly via a factory class)
+      application-specific objects.
+  </TD>
+  <TD>&nbsp;</TD>
+  </TR>
+
+  <TR>
+  <TD><B>Factory IF</B></TD>
+  <TD>
+      Declares the factory method that returns a <EM>Product</EM>.
+  </TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+  <TD><B>Factory Class</B></TD>
+  <TD>
+      Application-specific class with method to create <EM>Concrete
+      Products</EM>. Implements <EM>Factory IF</EM>.
+  </TD>
+  <TD>DocumentFactory, ImageFactory</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=AbstractFactory.html>AbstractFactory</A><BR>
+    <A HREF=Builder.html>Builder</A><BR>
+    <A HREF=Prototype.html>Prototype</A><BR>
+    <A HREF=Creational.html><EM>creational pattern summary</EM><BR>
+</TD>
+<TR>
+<TD>Special:</TD>
+<TD>
+    All the concrete product classes are known in advance.<BR>
+    There is a variable or large number of product classes.<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,3 @@
+interface ReusableIF {
+    void reset();
+}

@@ -1,0 +1,2 @@
+class GreekFaucet implements Faucets {
+}

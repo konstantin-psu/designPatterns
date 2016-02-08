@@ -1,0 +1,36 @@
+<HTML>
+<HEAD><TITLE>Little Language</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>Little Language (5.3.1)</H2>
+<BLOCKQUOTE>
+
+Design, code and test an interpreter for the "while" language
+used in the 
+<A HREF="Flyweight.html">Flyweight</A> pattern.  Add a new Statement to
+output the result of the execution of a program.
+<P>
+Discuss how your implementation would change if variables were not
+shared in a program.
+<P>
+Some authors call this pattern Interpreter.
+
+</BLOCKQUOTE>
+<H2>Little Language (5.3.2)</H2>
+<BLOCKQUOTE>
+
+An Interpreter works on an abstract representation of a program in
+a certain language.  A difficult problem is to build the abstract
+representation from the concrete one.  Design, code, and test a
+program based on the Little Language pattern for a little language
+of expressions defined by the following syntax
+<PRE>
+    expr ::= addend ZERO_OR_MORE (("+" | "-") addend)
+    addend ::= factor ZERO_OR_MORE (("*" | "/") factor)
+    factor ::= number | indentifier | "(" expr ")"
+</PRE>
+You may re-use the expression classes used for exercise 5.3.1.
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

@@ -1,0 +1,9 @@
+Revisit the exercise about the Iterator pattern.  Provide a facade that
+combines the tree class and its iterator.  Keep in mind that there
+could exist additional iterators for additional traversal policies.
+
+The implementation has characteristics of Delegation (the class
+delegates most operations to class BinaryTree), Adapter (the class
+modifies the signature of some methods of class BinaryTree), and
+Proxy (the class performs similarly to BinaryTree, but hides some
+of its operations).

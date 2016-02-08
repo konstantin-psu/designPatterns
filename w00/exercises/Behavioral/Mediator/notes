@@ -1,0 +1,10 @@
+Consider a board for the game of Othello.  The problem of deciding
+whether a player can occupy a position on the board can be
+delegated to the position itself or to an object that implements a
+Mediator pattern.  The mediator encapsulates how the positions
+interact in a move of the game.  Hence it should implement the
+move as well.
+
+Design, code and test such an object.  In addition, discuss the
+design of a program that does not use a mediator, but lets the
+positions interact with each other.

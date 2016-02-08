@@ -1,0 +1,19 @@
+#!/bin/sh
+
+pwd=`pwd`
+docdir=`echo $pwd | sed -e "s#/code/#/doc/#"`
+
+if [ "$#" = "0" ]; then
+    echo "need argument \"compile\", \"execute\" or \"doc\""
+fi
+
+CLASSPATH="$pwd/..:$pwd/."
+
+case $1 in
+    compile) cd $pwd; javac -classpath $CLASSPATH *.java ;;
+    execute) java -classpath $CLASSPATH Main ;;
+    doc) rm -r -f $docdir;
+	 mkdir -m 755 -p $docdir;
+	 javadoc -d $docdir -classpath $CLASSPATH -private *.java ;;
+esac
+

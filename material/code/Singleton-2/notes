@@ -1,0 +1,41 @@
+http://java.sun.com/developer/JDCTechTips/2006/tt0113.html#1
+
+   public class MySingleton {
+     private static final MySingleton INSTANCE = 
+       new MySingleton();
+
+     private MySingleton() {
+     }
+
+     public static final MySingleton getInstance() {
+       return INSTANCE;
+     }
+   }
+
+Theoretically, you don't need the getInstance() method because the
+INSTANCE variable could be public. However, the getInstance()
+method does provide flexibility in case of future system
+changes. Good virtual machine implementations should inline the
+call to the static getInstance() method.
+
+That's not quite all there is to creating a Singleton. If you need
+to make your Singleton class Serializable, you must provide a
+readResolve() method:
+
+  /**
+   * Ensure Singleton class
+   */
+  private Object readResolve() throws ObjectStreamException {
+    return INSTANCE;
+  }
+
+With the readResolve() method in place, deserialization results in
+the one (and only one) object -- the same object as produced by
+calls to the getInstance() method. If you don't provide a
+readResolve() method, an instance of the object is created each
+time you deserialize the object.
+
+Note that Singletons are only guaranteed to be unique within a
+given class loader. If you use the same class across multiple
+distinct enterprise containers, you'll get one instance for each
+container.

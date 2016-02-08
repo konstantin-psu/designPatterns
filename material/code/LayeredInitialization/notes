@@ -1,0 +1,31 @@
+Problem:
+  One needs multiple implementations of an abstraction.
+  In this example, the abstraction is a class "Image"
+  that reads a file and constructs an image object.
+  The class is one, but the implementation depends on
+  the file's format, e.g., gif, pbm, pnf, etc.
+
+Solution:
+  Define a class to encapsulate common logic
+  and subclasses to encapsulate specialized logic.
+  In this example, the common logic is an image reader.
+  The specialized logic is an image reader for a
+  specific format,  e.g., gif, pbm, pnf, etc.
+
+  The constructor of class Image determines the format
+  of an image from the extension of the filename of the
+  file containing the image.  Depending on the format,
+  it constructs a specialized ImageReader object that
+  reads the file. The specialized ImageReader object
+  is constructed by a factory.
+
+Limitation: 
+  The above scheme does not work when common logic is
+  used to determine which specialized class to instantiate.
+
+Fix:
+  Encapsulate both common and specialized logics
+  to create the object in a specialized object (a factory).
+  With respect to the solution outlined earlier,
+  the factory is moved up one level (instead of layered
+  inside the Image class).

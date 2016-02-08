@@ -1,0 +1,29 @@
+Envision a computer simulator for driving a car.  The simulator
+provides various road conditions such as "regular", gravel, wet,
+ice, etc.  The response to the car's controls, steering, braking,
+etc., varies with the road conditions.  Use a State pattern to react
+to the driver's use of the car controls.
+
+For the purpose of this exercise, design a small GUI with four
+buttons (labeled left, accel, right and brake), a choice of
+conditions (labeled regular, gravel, wet and ice), and a feedback
+textfield showing the effect (in an arbitrary scale) of pressing a
+button in a given road condition as follows:
+
+               Regular   Gravel    Wet     Ice
+       accel      9        7        9       3
+        left      5        3        4       1
+       right      5        3        4       1
+       brake      8        6        7       2
+
+Hint: Obviously, one does not need to use the State pattern to
+manage such a trivial state.  Pretend that the behavior of the car
+in various conditions is determinted by the simulator using
+complicated independent algorithms that are better encapsulated in
+various states.
+
+This exercise also shows:
+  -  the MVC pattern
+  -  a non-trivial layout
+  -  inner anonymous classes
+  -  a subtle point on scoping (see comments in Controller.java)

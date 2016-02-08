@@ -1,0 +1,7 @@
+Design, code and test an interpreter for the "while" language
+used in the Flyweight pattern.  Add a new Statement for the
+output of variables (or expressions) values.
+
+Discuss how your implementation would change is variables were not
+shared in a program.
+

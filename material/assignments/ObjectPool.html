@@ -1,0 +1,32 @@
+<HTML>
+<HEAD><TITLE>Object Pool</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<FONT COLOR="FF000000"> Revised July 3, 2007</FONT><P>
+
+<H2>Object Pool (2.3)</H2>
+<BLOCKQUOTE>
+
+The goal of this exercise is to experiment with an object pool.
+<P>
+The first step is to implement a simple data type <I>List</I>. 
+A List is either <I>Nil</I> or is a <I>Cons</I> holding an object and a List.
+Conses are also called list cells.
+This is exactly the abstract data type <I>"linked list"</I> that you
+should have learned in CS162 or equivalent.
+<P>
+The second step is to design and implement a pool for the list cells.
+Obviously, the pool must both accept list cells released to the pool
+and must supply a list cell upon request.
+The requested list cell is either fetched from the pool, if any
+is available, or constructed from scratch if none is available in the pool.
+The pool should keep track of how many list cells are
+constructed, recycled, and held into the pool.
+<P>
+The last step is to code a test harness for your pool.
+The harness makes a number of randomly chosen calls to the pool.
+A call either requests a cell from the pool
+or release a cell to the pool, if any is available to the harness.
+</BLOCKQUOTE>
+</BODY>
+</HTML>

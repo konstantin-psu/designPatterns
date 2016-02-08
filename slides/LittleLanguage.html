@@ -1,0 +1,80 @@
+<HTML>
+<TITLE>Little Language</TITLE>
+<BODY>
+
+<H2>Little Language</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98 (see also <I>Interpreter</I> Gof 95)</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To provide text-based interaction with a program. 
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Parse, compile, and/or interpret a formal language.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    To search records in a data structure keywords that occur
+    in a record are combined by logical connectives such as
+    <B>and</B>, <B>not</B>, etc.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Lexer</B></TD>
+  <TD>
+      The class or set of classes that produces a stream of
+      <EM>Tokens</EM> from the source code.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Parser</B></TD>
+  <TD>
+      The class or set of classes that builds the <EM>AST</EM>
+      from the stream of <EM>Tokens</EM>.
+  </TD>
+  <TR>
+  <TD><B>Token</B></TD>
+  <TD>
+      An abstract class and a set of concrete classes that
+      provide an <I>internal</I> representation of the lexical
+      components of the source code.      
+  </TD>
+  <TR>
+  <TD><B>AST</B></TD>
+  <TD>
+      An abstract class and a set of concrete classes that
+      provide an <I>internal</I> representation of the structure
+     of the source code.      
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Composite.html>Composite</A>
+       (an <EM>AST</EM> is often a Composite object)<BR>
+    <A HREF=Visitor.html>Visitor</A>
+       (used to process the <EM>AST</EM>)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+<HTML>
+<TITLE>Template Method</TITLE>
+<BODY>
+
+<H2>Template Method</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To allow subclasses of a common class to vary
+    portions or steps of a general algorithm.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    A general algorithm implemented by a base class
+    calls abstract methods for some steps.
+    Subclasses of the base class specialize these methods.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Consider the process of logging in and authenticating a user
+    for an application.
+    Some steps of the process, e.g., prompting the user are application
+    independent.
+    Other steps, e.g., authenticating the user, are
+    application dependent.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>AbstractTemplate</B></TD>
+  <TD>
+      This class defines a method, the <EM>templateMethod</EM>,
+      that implements the general logic of an algorithm.
+      The <EM>templateMethod</EM> calls other methods that
+      are overriden by <EM>ConcreteTemplate</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>ConcreteTemplate</B></TD>
+  <TD>
+      This class overrides methods that are called by
+      the <EM>templateMethod</EM>.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Strategy.html>Strategy</A>
+        (modifies logic for individual objects rather than classes)<BR>
+    <A HREF=FactoryMethod.html>Factory Method</A>
+        (specializes the construction of an object rather
+         than the execution of an algorithm)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,77 @@
+<HTML>
+<TITLE>Adapter</TITLE>
+<BODY>
+
+<H2>Adapter</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    A client needs the service of an object, <EM>Obj</EM>,
+    through an interface, <EM>IF</EM>, but <EM>Obj</EM>
+    does not implement <EM>IF</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define a class, the <EM>Adapter</EM>, that implements
+    interface <EM>IF</EM> and provides the service via <EM>Obj</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A method copies arrays filtering out some elements.
+    The criterion to filter out an element is defined by an interface,
+    <EM>CopyFilterIF</EM>.
+    Array elements that have the information for the filtering
+    criterion may not implement <EM>CopyFilterIF</EM>.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Client</B></TD>
+  <TD>Class that needs a service through interface <EM>TargetIF</EM>.</TD>
+  </TR>
+  <TR>
+  <TD><B>TargetIF</B></TD>
+  <TD>Interface expected by <EM>Client</EM> to obtain a service.</TD>
+  </TR>
+  <TR>
+  <TD><B>Adapter</B></TD>
+  <TD>
+      Class that implements <EM>TargetIF</EM> and provides
+      the service using <EM>Adaptee</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Adaptee</B></TD>
+  <TD>
+      Class that does not implement <EM>TargetIF</EM> and provides
+      the service.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Proxy.html>Proxy</A><BR>
+    <A HREF=Facade.html>Facade</A><BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,80 @@
+<HTML>
+<TITLE>Cache Management</TITLE>
+<BODY>
+
+<H2>Cache Management</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Allow fast or efficient access to objects that are
+    slow or expensive to obtain.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Retain for later access a reference to a slow or expensive to obtain
+    object once it has been constructed.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A program allows users to retrieve information about a product.
+    The information about the product comes from a variety of
+    sources that are slow to access.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>ObjectKey</B></TD>
+  <TD>
+      Identifies an object to be fetched from the <EM>Cache</EM>.
+  </TD>
+  <TD>Product ID</TD>
+  </TR>
+  <TR>
+  <TD><B>CacheManager</B></TD>
+  <TD>
+      Objects are stored into and retrieved from the <EM>Cache</EM>
+      by this class.
+  </TD>
+  <TD>&nbsp;</TD>
+  <TR>
+  <TD><B>ObjectCreator</B></TD>
+  <TD>
+      Class(es) responsible for creating objects not in the <EM>Cache</EM>.
+  </TD>
+  <TD>&nbsp;</TD>
+  <TR>
+  <TD><B>Cache</B></TD>
+  <TD>
+      Container for cached objects.
+      Has methods to insert, retrieve, and remove objects.
+  </TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=ObjectPool.html>ObjectPool</A>
+       (a CacheManagement without IDs)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

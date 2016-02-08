@@ -1,0 +1,29 @@
+Define a simple class, say Position, that holds three numbers,
+e.g., representing the coordinates of an airplane in the sky.
+Define a method to set a position and methods to get its
+coordinates.  Set up two threads, say Reader and Writer, that
+respectively get (read) and set (write) a position.
+
+Since the threads may read and write a position concurrently,
+without some care, it may be possible to get positions that were
+never set.  To verify this possibility, design the writer
+thread so that the three coordinates of a position are the same.
+In the reader thread, if after reading a position the coordinates
+are not the same, issue a message.
+
+You can fix the problem, by synchronizing read and write accesses
+to a position.  An object with synchronized read/write access is
+called a Protected Variable.
+
+This implementation also shows:
+  - how to synchronize accesses that span more than one method call
+
+------------------------------------------------------------------
+
+On the instructor's system, the message the coordinates of a
+position are not the same occurs only early in the execution of
+the program and only if some tracing messages (which widen the
+critical regions) are printed during execution.
+
+Writing and reading a more complex structure instead of a few
+numbers should make the problem more conspicuous.

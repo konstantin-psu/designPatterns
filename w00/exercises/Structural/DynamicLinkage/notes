@@ -1,0 +1,29 @@
+Design and code a program that constructs a pizza from its
+components: crust, sauce, cheese, toppings etc.  Pizzas come in
+various styles: light, regular, gourmet, etc.  Different styles of
+pizza are made with different styles of components.
+
+Use an abstract factory for the creation of the pizza's components
+according to a selected style.  The style is selected using a
+command line arguments of a main program that is the client of the
+factory.  Define a concrete factory for the construction of each
+style of pizza.  Code a client that selects a pizza style from
+a command argument, dynamically loads a concrete pizza factory
+for the selected style, and construct the required pizza.
+
+==================================================================
+
+Participants
+
+AbstractFactory (AbstractPizzaFactory)
+  - declares an interface for operations that create abstract product objects
+ConcreteFactory (LightPizzaFactory, RegularPizzaFactory)
+  - implements operations that create concrete product objects
+AbstractProduct (AbstractCrust, AbstractCheese)
+  - declares an interface for a type of product object
+ConcreteProduct (Crust, Cheese (in concrete factories))
+  - defines a product object to be created by the corresponding concrete
+    factory; implements the AbstractProduct interface
+Client (Client)
+  - uses only interfaces declared by AbstractFactory and AbstractProduct
+

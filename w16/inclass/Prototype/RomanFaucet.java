@@ -1,0 +1,2 @@
+class RomanFaucet extends Faucet {
+}

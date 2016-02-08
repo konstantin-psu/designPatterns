@@ -1,0 +1,112 @@
+<HTML>
+<TITLE>Producer-Consumer</TITLE>
+<BODY>
+
+<H2>Producer-Consumer</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>unknown</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To coordinate the asynchronous production and consumption
+    of information.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Producers and consumers exchange information via a queue.
+    The code to pull information from the queue is guarded.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A trouble-ticket dispatching system receives tickets from
+    clients.  Dispatchers pull tickets and forward them to
+    the appropriate troubleshooter.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Producer</B></TD>
+  <TD>
+      Thic class supplies objects representing the information
+      used by the <EM>Consumer</EM> and places them in the <EM>Queue</EM>.
+      Production and consumption of objects are asynchronous.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Queue</B></TD>
+  <TD>
+      This class holds produced objects that cannot be consumed
+      immediately.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Consumer</B></TD>
+  <TD>
+    This class pulls from the <EM>Queue</EM> and uses
+    the object produced by the <EM>Producer</EM>.
+    If the <EM>Queue</EM> is empty it waits.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=GuardedSuspension.html>GuardedSuspension</A>
+        (it is used by this pattern)<BR>
+    <A HREF=Filter.html>Filter</A>
+        (it is a simple form of this pattern)<BR>
+    <A HREF=Scheduler.html>Scheduler</A>
+        (this pattern is a special case of scheduling)<BR>
+</TD>
+</TR>
+<TR>
+<TD>Note:</TD>
+<TD>
+    The coordination of producers and consumers can be
+    managed by the <EM>queue</EM> or by the producers and
+    consumers themselves.
+    The following code sketches the latter.
+<P>
+    The <EM>producer</EM> is a thread whose run methods looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+public void run () {
+    for (;;) {
+        Object object = ... <FONT COLOR=FF0000>// produce an object</FONT>
+        <FONT COLOR=FFFFFF><B>synchronized (queue)</B></FONT> {
+            queue.enqueue (object);
+            <FONT COLOR=FFFFFF><B>queue.notify ()</B></FONT>;
+        }
+    }
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    The <EM>consumer</EM> is a thread whose run methods looks like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+public void run () {
+    for (;;) {
+        <FONT COLOR=FFFFFF><B>synchronized (queue)</B></FONT> {
+	    while (queue.isEmpty ()) { <FONT COLOR=FFFFFF><B>queue.wait ()</B></FONT>; }
+            Object object = queue.dequeue ();
+        }
+        ... <FONT COLOR=FF0000>// consume the object</FONT>
+    }
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

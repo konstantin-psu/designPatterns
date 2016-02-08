@@ -1,0 +1,27 @@
+This exercise extends the exercise about the Decorator pattern.
+The extension concerns a cache of the values of expressions.
+The cache is quite simple and is entirely provided within
+the base (abstract) class of all expressions.
+
+The base class defines two interdependent method:
+
+  eval() -          evaluate an expression by looking at the cache
+  uncachedEval () - evaluate an expression without looking at the cache
+
+If the cache manager, when called by eval, cannot find a cached
+value for an expression, it call uncachedEval.
+
+It is intended that subclasses override either of these methods,
+but generally not both.  If a subclass does not override eval,
+then it must override uncachedEval, since a call to the base eval
+results in a call to uncachedEval.  However, if a subclass
+overrides eval, e.g., to return the value of an expression from
+its internal state because this seems more efficient, then there
+is no need to override uncachedEval, since uncachedEval will never
+be called.
+
+Concerning the effect of caching the values of expressions, it is
+interesting to observe that for the expression of the driver
+program the evalution time is reduced by a factor of more than one
+hundred.
+

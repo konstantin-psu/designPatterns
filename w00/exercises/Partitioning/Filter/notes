@@ -1,0 +1,7 @@
+Classes in this pattern are divided into
+  - data sources
+  - data sinks
+  - data filters
+There are two basic forms of this pattern
+  - sink object calls method in source object
+  - source object calls method in sink object

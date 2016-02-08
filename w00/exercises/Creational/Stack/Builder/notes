@@ -1,0 +1,24 @@
+Intent:
+  Separate the construction of a complex object from its representation
+  so that the same construction process can create different representations.
+
+Participants:
+  - Builder
+  - ConcreteBuilder
+  - Director
+  - Product
+
+Code:
+  The Director is the main program.  It creates a stack.  The stack
+  is unbound when the command line has no arguments.  Otherwise, the
+  stack has bounded size and the size is specified by the first
+  argument of the command line.  No other argument is used.
+
+  The Director executes push, pop, and top operations of the stack.
+  During execution, the stack reaches the maximum size of 31 elements.
+  When the Director selects a bounded stack whose size is less than
+  31, an exception is thrown and the program terminates.
+
+  A builder generally builds several components of a complex object.
+  In this example, for simplicity, only a single object, a stack,
+  is generated.

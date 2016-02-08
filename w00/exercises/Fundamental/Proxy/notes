@@ -1,0 +1,22 @@
+Interface CalculatorIF extends interface Remote because interface
+Remote serves to identify interfaces whose methods may be invoked
+from a non-local virtual machine.  Without extending Remote, rmic
+complains that Stubs are only needed for classes that directly
+implement an interface that extends Remote.
+
+The constructor of class Calculator must be defined explicitly in
+order to throw RemoteException.  This is necessary because the
+constructor of its superclass, UnicastRemoteObject, throws it.
+
+Implementations of method add in Client and Proxy are public
+because the access modifier cannot be made more restrictive.
+All members of interfaces are implicitly public (§6.6.1.).
+
+Methods of interface CalculatorIF must throw RemoteException.  If
+they don't, rmic complains that CalculatorIF is not a valid remote
+interface when it tries to create Stub and Skel.
+
+Methods of class Proxy do not throw RemoteException, contrary to
+methods of class Calculator, although they implement methods of
+interface CalculatorIF that throw RemoteException.  This is
+accepted by the language (§8.4.4).

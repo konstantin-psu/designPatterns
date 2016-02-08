@@ -1,0 +1,23 @@
+A significant part of this exercise is the implementation
+of the structure to be iterated --- a binary search tree.
+
+A binary tree is either a Leaf or a Branch consisting of an Object
+(referred to as the decoration) and two binary trees (referred to
+as the left and right child). A binary search tree is a binary
+tree with some additional properties: there is a total ordering on
+the decorations; the children of a Branch are binary search trees;
+and the decoration of a Branch follows (according to some total
+ordering) all the decorations of the left child and precedes all
+the decorations of the right child; there are no duplicate
+decorations in a tree.
+
+The iterator of a binary search tree implements the
+java.util.Enumeration interface, which is intended exactly for
+iterators.  The iterator of many collections is generally obtained
+by invoking a method, conventionally called elements, of the
+collection.  In this example, for pedagogical reasons, the binary
+search tree is unaware of the iterator.  The implementation
+assumes that the tree being iterated will not change during an
+iteration of its elements.
+
+

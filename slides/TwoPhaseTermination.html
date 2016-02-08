@@ -1,0 +1,59 @@
+<HTML>
+<TITLE>Two-Phase Termination</TITLE>
+<BODY>
+
+<H2>Two-Phase Termination</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To orderly shutdown a thread.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Set a latch that a thread checks at strategic points of its execution.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A server that assigns a thread to each client
+    must handle requests to terminate a client's thread
+    or its own execution.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+    The typical <EM>run</EM> method of a thread should look like
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+public void run () {
+    initialize ();
+    while (! isInterrupted ()) {
+        ... <FONT COLOR=FF0000>// whatever execution</FONT>
+    }
+    shutdown ();
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    Method <EM>isInterrupted</EM> tests the interrupted status of a thread.
+    The interrupted status is set when a thread's method
+    <EM>interrupt</EM> is called and is cleared in various situations.
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+&nbsp;
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

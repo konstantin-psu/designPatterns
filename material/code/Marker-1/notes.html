@@ -1,0 +1,31 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en] (X11; U; Linux 2.2.12-20 i686) [Netscape]">
+</head>
+<body>
+
+<h3>
+Notes</h3>
+This example assumes a rudimentary knowledge of the Java approach to <i>RMI</i>
+(remote method invocation).&nbsp; Students without any knowledge of <i>RMI</i>
+may prefer to study the proposed solution and perhaps extend it with a
+new operation, e.g., subtraction or multiplication. The steps required
+for executing the remote calculator are contained in the <i>Perl</i> script
+<tt><a href="cmd.pl">cmd.pl</a></tt>
+in this directory. The security setting for executing the remote calculator
+are defined in file <tt><a href="java.policy">java.policy</a></tt> in this
+directory.
+<p>The proposed interface <i>CalculatorIF</i> implements/extends <i>Remote</i>,
+an empty interface or marker, defined in the <b><tt>java.rmi</tt></b> package.&nbsp;
+Why is this&nbsp; marker needed?&nbsp; If <i>CalculatorIF</i> does not
+implement/extend <i>Remote</i>, then, when the "<b><tt>rmic</tt></b>"
+utility is executed on <i>Calculator</i>, the class that implements interface
+<i>CalculatorIF</i>, the following error is reported:
+<blockquote><tt>error: Stubs are only needed for classes that directly
+implement an interface that extends java.rmi.Remote; class Calculator does
+not directly implement a remote interface.</tt></blockquote>
+
+</body>
+</html>

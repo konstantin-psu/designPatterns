@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.78 [en] (X11; U; Linux 2.4.7-10 i686) [Netscape]">
+</head>
+<body bgcolor="#cccccc">
+<h3>
+Notes</h3>
+The members of the <i>Immutable</i> interface have no explicit
+modifiers.
+The following paragraphs, taken verbatim from "The Java Language
+Specification"
+justify this choice.
+<br>
+&nbsp;
+<ol>
+  <li>All interface members are implicitly <b><tt>public</tt></b>
+&sect;9.1.5.</li>
+  <li>Every method declaration in the body of an interface is
+implicitly <b><tt>abstract</tt></b>,
+so its body is always represented by a semicolon, not a block. For
+compatibility
+with older versions of Java, it is permitted but discouraged, as a
+matter
+of style, to redundantly specify the <b><tt>abstract</tt></b> modifier
+for methods declared in interfaces &sect;9.4.</li>
+  <li>Every method declaration in the body of an interface is
+implicitly <b><tt>public</tt></b>.
+It is permitted, but strongly discouraged as a matter of style, to
+redundantly
+specify the <b><tt>public</tt></b> modifier for interface methods
+&sect;9.4.</li>
+</ol>
+See also &sect;8.3.1.2 <span
+ style="font-style: italic; font-weight: bold;">(</span><span
+ style="font-style: italic;"></span><span
+ style="font-style: italic; font-weight: bold;"></span>Fields in
+classes).
+<blockquote>A field can be declared <span style="font-style: italic;">final</span><span
+ style="font-style: italic;"></span><span
+ style="font-style: italic; font-weight: bold;"> </span>
+(&sect;4.5.4).
+Both class and instance variables (static and non-static fields) may be
+declared <span style="font-style: italic;">final</span><span
+ style="font-style: italic;"></span><span
+ style="font-style: italic; font-weight: bold;"> </span>.</blockquote>
+<p>&nbsp;See also &sect;4.5.4 <span style="font-weight: bold;">(</span><span
+ style="font-style: italic;">final</span><span
+ style="font-style: italic;"></span><span
+ style="font-style: italic; font-weight: bold;"> </span>
+Variables).<br>
+</p>
+<ol>
+  <li>A <span style="font-style: italic;">blank final</span> is a
+final variable whose declaration lacks an initializer.</li>
+  <li>A <span style="font-style: italic;">blank final</span>
+instance variable must be definitely assigned
+(&sect;16.8) at the end of every constructor (&sect;8.8) of the
+class in which it is declared; otherwise a compile-time error
+occurs. </li>
+  <li>It is a compile-time error if a <span style="font-style: italic;">blank
+final</span> (&sect;4.5.4) class
+variable is not definitely assigned (&sect;16.7) by a static
+initializer (&sect;8.7) of the class in which it is declared. </li>
+</ol>
+</body>
+</html>

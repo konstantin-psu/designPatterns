@@ -1,0 +1,17 @@
+The code in this directory shows the iteration
+of the elements of a container in a functional style
+popularized by languages such as Python and Ruby.
+
+This functional style is completely different from
+the classic Design Pattern approach to iteration.
+The use of the word <i>iterator</i> is justified by the fact
+that the two approaches have the same intent and each
+can be replaced by the other in many situations.
+
+The iteration is executed by a traversal of a container.
+The traversal method takes as an argument a consumer of the 
+elements of the container being iterated.
+Conceptually, the consumer is a function to be applied
+to an element of the container.  In this Java implementation,
+the consumer is an instance of an interface declaring the method to
+apply to an element.

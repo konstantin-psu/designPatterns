@@ -1,0 +1,19 @@
+interface SimpleSensorImpl is standalone.
+The constructor of class SimpleSensor takes a SimpleSensorImpl as argument.
+The class delegates all operations to this argument.
+
+class StreamingSensor extends SimpleSensor.
+interface StreamingSensorImpl extends SimpleSensorImpl.
+The constructor of class StreamingSensor takes a StreamingSensorImpl as argument.
+
+class AveragingSensor extends SimpleSensor
+interface AveragingSensorImpl extends SimpleSensorImpl
+
+class HawkSimpleSensor implements SimpleSensorImpl.
+class HawkStreamingSensor extends HawkSimpleSensor implements StreamingSensorImpl
+
+------------------------------------------------------------------
+
+Inheritance binds an implementation to the abstraction permanently,
+which makes it difficult to modify, extend, and reuse abstractions
+and implementation independently [GoF p.151].

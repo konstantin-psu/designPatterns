@@ -1,0 +1,78 @@
+<HTML>
+<TITLE>Strategy</TITLE>
+<BODY>
+
+<H2>Strategy</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To allow the selection of an algorithm to vary by object and
+    over time.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Encapsulate related algorithms in classes that are subclasses
+    of a common class.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Consider a program that generates a calendar.
+    Holidays displayed by the calendar must vary
+    by nation and/or religious group.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Client</TD>
+  <TD>
+      This class delegates an operation to an abstract class
+      or interface, the <EM>AbstractStrategy</EM>. 
+      It does not know the actual object that
+      will execute the operation. 
+  </TD>
+  <TD>Calendar printer.</TD>
+  </TR>
+  <TR>
+  <TD><B>AbstractStrategy</B></TD>
+  <TD>
+      Abstract class or interface that abstracts the operation
+      provided by all its subclasses, the <EM>ConcreteStrategies</EM>.
+  </TD>
+  <TD>Defines method, <EM>isHoliday</EM>, that takes a day of the year.</TD>
+  </TR>
+  <TR>
+  <TD><B>ConcreteStrategy<SUB>i</SUB></B></TD>
+  <TD>
+      There are many classes that provide different implementations
+      of the operation specified by <EM>AbstractStrategy</EM>.
+  </TD>
+  <TD>Specilizes method <EM>isHoliday</EM> for a specific country.</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=TemplateMethod.html>Template Method</A> and
+    <A HREF=FactoryMethod.html>Factory Method</A>
+        (structurally similar)<BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

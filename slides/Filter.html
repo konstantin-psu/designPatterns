@@ -1,0 +1,87 @@
+<HTML>
+<TITLE>Filter</TITLE>
+<BODY>
+
+<H2>Filter</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>BMRSS 96</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Perform composable transformations and computations on streams.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Define a <EM>composable</EM>
+    interface common to all transformations and computations.
+    Make implementations of the interface independent of their contexts.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A class that counts the number of bytes and/or lines of a stream.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Source</B></TD>
+  <TD>
+      There is both an interface and one or more concrete classes
+      that abstract a stream that produces data.
+      Has method to <EM>get data</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>SourceFilter</B></TD>
+  <TD>
+      There is both an interface and one or more concrete classes
+      that abstract filtering a <EM>Source</EM>.
+      Has method to <EM>set the source</EM> and <EM>get data</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>SinkFilter</B></TD>
+  <TD>
+      There is both an interface and one or more concrete classes
+      that abstract filtering a <EM>Sink</EM>.
+      Has method to <EM>set the sink</EM> and <EM>put data</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>Sink</B></TD>
+  <TD>
+      There is both an interface and one or more concrete classes
+      that abstract a stream that consumes data.
+      Has method to <EM>put data</EM>.</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=Decorator.html>Decorator</A>
+</TD>
+</TR>
+<TR>
+<TD>Alternatives:</TD>
+<TD>
+    Producer <EM>puts data</EM> to SinkFilter that puts data to Sink.<BR>
+    Consumer <EM>gets data</EM> from SourceFilter that gets data from Source.
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

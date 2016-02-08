@@ -1,0 +1,9 @@
+Interface CalculatorIF implements/extends Remote, an empty interface.
+If CalculatorIF does not implements/extends Remote, then, when
+the "rmic" utility is executed on Calculator, the class that
+implements interface CalculatorIF, the following error is reported:
+
+  error: Stubs are only needed for classes that directly implement
+  an interface that extends java.rmi.Remote; class Calculator does
+  not directly implement a remote interface.
+

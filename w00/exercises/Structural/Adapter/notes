@@ -1,0 +1,38 @@
+A matrix manipulation package provides operations such as addition
+and subtraction of matrices.  These operations are static which
+introduce an interesting twist to the problem.  For example, one
+cannot introduce an interface or abstract class to define
+matrices.  Interfaces and abstract classes cannot define static
+methods.  The class is like:
+
+  public class Matrix {
+      protected Matrix (Matrix m) {...}          // shallow copy
+      public Matrix (double [] [] entry) {...}
+      public static Matrix plus (Matrix l, Matrix r) {...}
+      public static Matrix minus (Matrix l, Matrix r) {...}
+  }
+
+A client expects operations with a different name, e.g.:
+
+      public static Matrix add (Matrix l, Matrix r) {...}
+      public static Matrix sub (Matrix l, Matrix r) {...}
+
+The matrix manipulation package cannot be modified.
+
+Design:
+  - The adapter extends Matrix, so many Matrix operations can be reused.
+  - The adapter	is in a new package, so there is no need to change names.
+  - It is necessary to convert instances of the old class Matrix
+    to the new class Matrix.  Use the shallow copy constructor for this.
+
+    public static Matrix add (Matrix l, Matrix r) {
+	return new Matrix (Matrix.plus (l, r));
+    }
+
+==================================================================
+
+Differences between similar patterns:
+  - Delegation: when not to use inheritance
+  - Proxy: hide one object from another
+  - Adapter: keep one class independent of another
+  - Facade: single interface to several classes

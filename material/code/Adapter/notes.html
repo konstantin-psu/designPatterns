@@ -1,0 +1,74 @@
+<HTML>
+<HEAD><TITLE>Adapter notes</TITLE></HEAD>
+
+<BODY BGCOLOR=#CCCCCC>
+
+<H3>Adapter notes</H3>
+
+<H4>The problem</H4>
+
+A matrix manipulation package provides operations such as addition
+and subtraction of matrices.  These operations are static which
+introduce an interesting twist to the problem.  For example, one
+cannot introduce an interface or abstract class to define
+matrices.  Interfaces and abstract classes cannot define static
+methods.  The class is like:
+
+<PRE>
+  public class Matrix {
+      protected Matrix (Matrix m) {...}          // shallow copy
+      public Matrix (double [] [] entry) {...}
+      public static Matrix plus (Matrix l, Matrix r) {...}
+      public static Matrix minus (Matrix l, Matrix r) {...}
+  }
+</PRE>
+
+A client expects operations with a different identifier (name), e.g.,
+<EM>add</EM> instead of <EM>plus</EM>.
+
+<PRE>
+      public static Matrix add (Matrix l, Matrix r) {...}
+      public static Matrix sub (Matrix l, Matrix r) {...}
+</PRE>
+
+<H4>The twist</H4>
+
+The matrix manipulation package is given and it should not be modified.
+The client should be modified as little as possible.
+Observe that the matrix operations are static.
+This makes sense.  Adding two matrices together should not modify
+either addend.
+
+<H4>The solution</H4>
+
+<UL>
+<LI>
+The adapter extends class Matrix, so any Matrix operation that does
+not require adaptation can be accessed directly.
+This is not typical of an adapter.
+<LI>
+The adapter is in a new package.
+This allows to preserve the identifier <EM>Matrix</EM> in the client,
+though the referenced class may change by changing the imported
+package(s).
+<LI>
+The solution requires converting instances of the old (original)
+class Matrix to the new class Matrix.
+This is easily and efficiently provided by a shallow copy constructor.
+The adaptation proper looks like:
+<PRE>
+    public static Matrix add (Matrix l, Matrix r) {
+	return new Matrix (Matrix.plus (l, r));
+    }
+</PRE>
+</UL>
+
+<H4>Related patterns</H4>
+
+  - Delegation: when not to use inheritance<BR>
+  - Proxy: hide one object from another<BR>
+  - Adapter: keep one class independent of another<BR>
+  - Facade: single interface to several classes<BR>
+
+</BODY>
+</HTML>

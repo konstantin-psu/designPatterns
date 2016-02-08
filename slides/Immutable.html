@@ -1,0 +1,48 @@
+<HTML>
+<TITLE>Immutable</TITLE>
+<BODY>
+
+<H2>Immutable</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>An object's state should never change.</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+Set the state of an object at construction time.
+Do not define non-final variables or state-changing methods.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+An application deals with the <EM>positions</EM> of objects.
+<EM>Positions</EM> are not allowed to change.
+When an object moves, a new <EM>position</EM> for the object
+is constructed.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+There are no specific classes.
+Constructors set all the state variables
+(the coordinates of a <EM>position</EM>).
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD><A HREF=Singleton.html>Singleton</A><BR></TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

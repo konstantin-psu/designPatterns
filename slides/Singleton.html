@@ -1,0 +1,60 @@
+<HTML>
+<TITLE>Singleton</TITLE>
+<BODY>
+
+<H2>Singleton</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Gof 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>Ensure that at most one instance of a certain class is created.</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+Define a class with a <B>private</B> constructor
+and a public <B>static</B> <EM>getInstance</EM> method
+that always return the same instance.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+An applet class that ensures that no more than one audioclip
+is played at a time.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Singleton</B></TD>
+  <TD>A class of which there is at most one instance.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+<A HREF=Immutable.html>Immutable</A><BR>
+</TD>
+</TR>
+<TR>
+<TD>Note:</TD>
+<TD>
+Java serialization, concurrency, and garbage collection make this a <I>"weak"</I>
+pattern.
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

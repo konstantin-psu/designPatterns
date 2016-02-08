@@ -1,0 +1,9 @@
+#!/bin/sh
+
+OLD="</TITLE>"
+NEW="</TITLE></HEAD>"
+
+for i in `find . -name "*.html"`; do
+  echo Editing $i
+  (echo "1,\$s%$OLD%$NEW%";echo "w") | ed $i
+done

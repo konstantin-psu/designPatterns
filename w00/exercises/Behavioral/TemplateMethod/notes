@@ -1,0 +1,14 @@
+Intent [liberally from GoF 325]
+
+Define the skeleton of an algorithm deferring some steps to
+subclasses.  Subclasses redefine certain steps of the algorithm
+without changing the algorithm's structure.
+
+Related patterns
+
+- Factory Methods are often called by Template Methods
+- Template Methods use inheritance to vary parts of an algorithm
+- Strategies use delegation to vary the entire algorithm
+
+------------------------------------------------------------------
+

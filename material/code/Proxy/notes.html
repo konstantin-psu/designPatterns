@@ -1,0 +1,30 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en] (X11; U; Linux 2.2.12-20 i686) [Netscape]">
+</head>
+<body>
+
+<h3>
+Notes</h3>
+Interface <i>CalculatorIF</i> extends interface <i>Remote</i> because interface
+<i>Remote</i> serves to identify interfaces whose methods may be invoked
+from a non-local virtual machine. Without extending <i>Remote,</i> <b><tt>rmic</tt></b>
+complains that Stubs are only needed for classes that directly implement
+an interface that extends <i>Remote</i>.
+<p>The constructor of class <i>Calculator</i> must be defined explicitly
+in order to throw <i>RemoteException</i>. This is necessary because the
+constructor of its superclass, <i>UnicastRemoteObject</i>, throws it.
+<p>Implementations of method <i>add</i> in <i>Client</i> and <i>Proxy</i>
+are public because the access modifier cannot be made more restrictive.
+All members of interfaces are implicitly public (&sect;6.6.1.).
+<p>Methods of interface <i>CalculatorIF</i> must throw <i>RemoteException</i>.
+If they don't, rmic complains that <i>CalculatorIF</i> is not a valid remote
+interface when it tries to create Stub and Skel.
+<p>Methods of class <i>Proxy</i> do not throw <i>RemoteException</i>, contrary
+to methods of class <i>Calculator</i>, although they implement methods
+of interface <i>CalculatorIF</i> that throw <i>RemoteException</i>. This
+is accepted by the language (&sect;8.4.4).
+</body>
+</html>

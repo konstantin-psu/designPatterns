@@ -1,0 +1,31 @@
+<HTML>
+<HEAD><TITLE>Adapter</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>Adapter (4.1)</H2>
+<BLOCKQUOTE>
+
+Suppose you have a matrix manipulation package with operations
+as follows:
+
+<PRE>
+    public class Matrix {
+        public Matrix (double [] [] entry) {...}
+        public static Matrix plus (Matrix l, Matrix r) {...}
+        public static Matrix minus (Matrix l, Matrix r) {...}
+    }
+</PRE>
+
+Suppose also that a client expects matrix operations with a
+different name, e.g.,:
+
+<PRE>
+    public static Matrix add (Matrix l, Matrix r) {...}
+    public static Matrix sub (Matrix l, Matrix r) {...}
+</PRE>
+
+Design, code and execute an adapter for this problem.
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

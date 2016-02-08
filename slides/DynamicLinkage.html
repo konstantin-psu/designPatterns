@@ -1,0 +1,69 @@
+<HTML>
+<TITLE>DynamicLinkage</TITLE>
+<BODY>
+
+<H2>DynamicLinkage</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Decide at run-time which particular class, implementing a specified
+    interface, to load and use.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Use Java's <EM>URLClassloader</EM> or <EM>Class</EM> classes
+    to load a class on demand.
+</TD>
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A food processor with a very large number of programs
+    loads these programs dynamically from a mass storage device.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>Environment</B></TD>
+  <TD>
+      There is both an interface and a concrete class.
+      It load the <EM>LoadableClass</EM> which in turn
+      may call methods of the <EM>Environment</EM>.
+  </TD>
+  </TR>
+  <TR>
+  <TD><B>LoadableClass</B></TD>
+  <TD>
+      There is both an interface and one or more concrete classes.
+      It has methods to set the <EM>Environment</EM> and
+      start the execution.
+  </TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=VirtualProxy.html>VirtualProxy</A>
+       (to hide that loading is dynamic) <BR>
+    <A HREF=AbstractFactory.html>AbstractFactory</A>
+       (for the selection of the concrete loadable class) <BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

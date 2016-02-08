@@ -1,0 +1,30 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body bgcolor="#CCCCCC">
+
+<h3>Notes</h3>
+
+<blockquote>
+The <I>Object</I> class defines a protected <I>clone()</I> method.
+Since the <I>clone()</I> method is <B>protected</B>,
+an object of a class <I>C</I> cannot call the
+<I>clone()</I> method of an object of an unrelated class <I>C'</I>.
+If this is desired, class <I>C'</I> must override the 
+<I>clone()</I> with public access.
+
+<P>
+
+If you want to clone an object of a class <I>C</I>,
+the class <I>C</I> must implement the <I>Cloneable</I> interface.
+This interface is a <B>Marker</B>.
+If the class does not implement the <I>Cloneable</I> interface,
+when the <I>clone()</I> method executes it throws the
+<I>CloneNotSupportedException</I> exception.
+</blockquote>
+
+</body>
+</html>
+

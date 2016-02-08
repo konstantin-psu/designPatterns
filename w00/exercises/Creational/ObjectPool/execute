@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Execute a program in this directory
+# Sergio Antoy, Wed Aug  2 13:54:00 PDT 2000
+
+export CLASSPATH=.:`pwd`:/home/antoy/local/junit/junit.jar
+
+java "$@"

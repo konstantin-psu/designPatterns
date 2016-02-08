@@ -1,0 +1,877 @@
+<HTML>
+<TITLE>Patterns assignments</TITLE>
+<BODY>
+<ul>
+
+<!--
+</ul><table border=0 bgcolor="#000000" cellspacing=0 cellpadding=0><tr><td><table bgcolor="#ffcccc" border=0 cellspacing=1 cellpadding=4><tr><td align=center valign=middle><font size=+2><b>
+Fundamental Patterns
+</b></font></td></tr></table></td></tr></table><ul>
+-->
+
+</ul><H3>Fundamental Patterns<BR>
+<FONT SIZE=-1>Revision Feb 9, 2000</FONT>
+</H3><ul>
+<BR>
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Delegation (1.1)
+</strong></font></td></tr></table><br><ul>
+
+The section on "Delegation" in chapt. 4, page 53, discusses a
+situation, related to an airline reservation system, where
+delegation seems more appropriate than inheritance.  Many details
+of the problem are unspecified, thus there is great freedom of
+interpretation.  Make reasonable assumptions for the unspecified
+details of the problem and sketch its implementation in a style
+similar to the Delegation code provided in the textbook's CD (also
+available on-line from the instructor's web pages).
+<P>
+Hint: you could define a "ReservationSystemPerson" class that
+abstracts a person processed by the airline reservetion system. An
+object of this class can assume roles, such as "CrewMember",
+"Passenger", etc., dynamically and simultaneously.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Interface (1.2)
+</strong></font></td></tr></table><br><ul>
+
+The section on "Interface" in chapt. 4, page 61, presents an
+example of use of the Interface pattern.  There is an opportunity
+to use the Delegation pattern in this example.  Show where (revise
+the example code provided in the textbook's CD) and discuss any
+advantage and disadvantage of using delegation.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Immutable (1.3)
+</strong></font></td></tr></table><br><ul>
+
+The section on "Immutable" in chapt. 4, page 67, sketches how one
+could use a mutable object as if it were immutable.  Consider the
+class Position.java (in the textbook's CD). First, update the code
+of this class so that positions become mutable, e.g., add setter
+methods for x and y.  Then, adopting the technique discussed in
+the textbook, code a test program that declares two "positions",
+one mutable and one immutable.  Within the test program, code
+instructions that (attempt to) change both the mutable and the
+immutable positions.  Verify that the compiler reports an error
+for the latter.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Marker (1.4.1)
+</strong></font></td></tr></table><br><ul>
+
+Interface java.rmi.Remote is a Marker used in programs that
+execute remote method invocation.  Code a simple class that
+performs arithmetic operations that can be invoked remotely.
+Where do you use interface java.rmi.Remote?  What happens
+if your code forgets to implement/extend it?
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Marker (1.4.2)
+</strong></font></td></tr></table><br><ul>
+
+The section on "Marker" in chapt. 4, page 73, defines class
+LinkedList.  Objects of this class stores sequences of objects
+that can be compared according two different criteria of equality,
+== or equals.  The selection of one or the other criterion is set
+at compile time using a Marker.  Modify class LinkedList so that
+the criterion of equality is selected at run time depending on the
+type of the objects to be compared.  Discuss advantages and
+disadvantages of your implementation with respect to the textbook's
+implementation.  Hint: use dynamic polymorphims to select the
+equality criterion to apply to objects.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Proxy (1.5)
+</strong></font></td></tr></table><br><ul>
+
+The section on "Proxy" in chapt. 4, page 79, suggests that a proxy,
+referred to as "remote proxy" creates the illusion that an object
+that exists on a different machine is an ordinary local object.
+Modify your solution of the client in Problem 1.4.1 to use a proxy
+for the remote calculator.  What are the advantage of your
+solution with respect to the solution of Problem 1.4.1.
+
+</ul><H3>Creational Patterns</H3><ul>
+
+Four creational patterns (AbstractFactory, Builder, FactoryMethod,
+and Prototype) deal with the construction of complex objects.
+They are useful when the objects come in different flavors, or
+families, of related components.  For the purpose of the following
+exercises, the complex object is a stack initialized with a few
+elements. (This is hardly complex, but the focus is only on the
+structure of the patterns.)
+<P>
+<B>Problem (2.1)</B>
+The complex objects of this problem come in two flavors referred to as
+"low-quality" and "high-quality".  In the low-quality family, the
+stack has a bounded (though parametric) size and the stack
+elements hold an '<TT>int</TT>' value.
+In the high-quality family, the stack is unbounded and the stack
+elements hold two '<TT>int</TT>' values.
+In both cases, when an object (a stack) is created, 30 stack
+elements are pushed on it.  It is consequently possible (and
+desirable for testing) that a program execution with a low-quality
+object might generate a stack overflow.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+AbstractFactory (2.1.1)
+</strong></font></td></tr></table><br><ul>
+
+Design and code a program for problem 2.1 based on the
+AbstractFactory pattern.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Builder (2.1.2)
+</strong></font></td></tr></table><br><ul>
+
+Design and code a program for problem 2.1 based on the
+Builder pattern.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+FactoryMethod (2.1.3)
+</strong></font></td></tr></table><br><ul>
+
+Design and code a program for problem 2.1 based on the
+FactoryMethod pattern.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Prototype (2.1.4)
+</strong></font></td></tr></table><br><ul>
+
+Design and code a program for problem 2.1 based on the
+Prototype pattern.  Hint: an interesting variation of
+cloning, available in Java but not in C++, can be obtained
+as in Problem 3.1.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Singleton (2.2.1)
+</strong></font></td></tr></table><br><ul>
+
+The section on "Singleton" in chapt. 5, page 127, shows an
+incomplete code example.  This code has some problems.  Try to
+discover the problems by coding and executing a main program 
+that exercises the pattern.  Hint: you do not have to play
+audioclips to detect the problems.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Singleton (2.2.2)
+</strong></font></td></tr></table><br><ul>
+
+Design, code and test a class, caller a logger, to log messages to
+a file.  Only one instance of this class should exist in an entire
+program.  The key method of the class, log, takes a string and
+appends it to a file.  Parameterize the logger with the name of
+the log file and an integer verbosity level (the higher the level
+the more verbose the log).  Code a driver program to test the
+logger.  Obviously, you will use the Singleton pattern for your
+implementation.  Would there be any advantage or disadvantage in
+advoiding the creation of an object and using only static methods?
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Singleton (2.2.3)
+</strong></font></td></tr></table><br><ul>
+
+The textbook, at page 129, discusses the problems of subclassing a
+Singleton class.  Would the use of the Delegation pattern yield
+better code in this situation?
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+ObjectPool (2.3)
+</strong></font></td></tr></table><br><ul>
+
+The goal of this exercise is to experiment with an object pool.
+First, design and code a simple datatype List.
+A List is either Nil or is a Cons holding an object and a List.
+Conses are also called list cells.
+Then, design a pool for the list cells.
+The pool must both accept list cells released to the pool
+and must supply a list cell upon request.
+The requested list cell is either fetched from the pool or
+constructed from scratch if none is available in the pool.
+The pool should keep track of how many list cells are
+constructed, recycled, and held into the pool.
+Finally, code a test harness for your pool and get a feeling
+of the savings of list cell construction that the pool provides.
+
+</ul><H3>Partitioning Patterns</H3><ul>
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+LayeredInitialization (3.1)
+</strong></font></td></tr></table><br><ul>
+
+Design, code and test a hypothetical class, Image, that constructs an
+image from a file.  Images come in many types or formats, e.g.,
+gif, jpeg, png, etc.  While Image is the only concrete class to
+represent images, the portion of code that reads an image's pixels
+depends on the image type or format.  Define an abstract class or
+interface, ImageReader, for this purpose and a factory-like class
+that instantiates the appropriate image reader for a specific image file.
+Use a LayeredInitialization pattern and code a simple driver to
+test your design and implementation.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Filter (3.2)
+</strong></font></td></tr></table><br><ul>
+
+The goal of this exercise is to extend and provide a driver to the
+Filter pattern example contained in the CD ROM that comes with the
+textbook.  The driver takes one argument from the command line.
+This argument is the name of the file. The driver counts the
+number of both words and characters in the file.  A filter to
+count the number of characters (bytes) is included in the example.
+Add a similar filter to count the number of word.  Hint: check the
+correctness of your programs using the unix "wc" utility.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Composite (3.3)
+</strong></font></td></tr></table><br><ul>
+
+The syntax of a simple "while" language is shown below:
+
+<PRE>
+    Statement   ::= Assignment | Conditional | While | Compound
+    Assignment  ::= Var = Expr
+    Conditional ::= if Expr then Statement else Statement
+    While       ::= while Expr do Statement
+    Compound    ::= begin Statement; ...; Statement end
+</PRE>
+
+Define classes, using the Composite pattern, for representing
+programs in this language.  For example, the following factorial
+program
+
+<PRE>
+    begin
+      fact := 1;
+      while (n > 1) do
+        begin
+          fact := fact * n;
+          n := n - 1
+        end
+    end
+</PRE>
+
+is constructed, using the classes you are expected to define,
+by this Java declaration and initialization
+
+<PRE>
+    Statement factorial = new Compound (
+        new Assignment ("fact", new Expr ()),
+        new While (new Expr (), new Compound (
+            new Assignment ("fact", new Expr ()),
+            new Assignment ("n", new Expr ()))));
+</PRE>
+
+To simplify the code, expressions are represented by a trivial
+placeholder.  Include in your classes methods to pretty print
+a program.  The expected output when object "factorial" is printed
+is
+
+<PRE>
+    begin
+      fact := expression;
+      while expression do
+        begin
+          fact := expression;
+          n := expression
+        end
+    end
+</PRE>
+
+</ul><H3>Structural Patterns</H3><ul>
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Adapter (4.1)
+</strong></font></td></tr></table><br><ul>
+
+
+Suppose you have a matrix manipulation package with operations
+as follows:
+
+<PRE>
+    public class Matrix {
+        protected Matrix (Matrix m) {...}          // shallow copy
+        public Matrix (double [] [] entry) {...}
+        public static Matrix plus (Matrix l, Matrix r) {...}
+        public static Matrix minus (Matrix l, Matrix r) {...}
+    }
+</PRE>
+
+Suppose also that a client expects matrix operations with a
+different name, e.g.,:
+
+<PRE>
+    public static Matrix add (Matrix l, Matrix r) {...}
+    public static Matrix sub (Matrix l, Matrix r) {...}
+</PRE>
+
+Assume that the matrix manipulation package cannot be modified and
+that changing all the names of the calls in the client is not
+convenient.  Design, code and execute an adapter for this problem.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Iterator (4.2)
+</strong></font></td></tr></table><br><ul>
+
+
+This exercise is in two parts.
+<P>
+The first part is about imlementing simple classes for binary
+search trees. A binary tree is either a Leaf or a Branch
+consisting of an Object (referred to as the decoration) and two
+binary trees (referred to as the left and right child). A binary
+search tree is a binary tree with some additional properties:
+there is a total ordering on the decorations; the children of a
+Branch are binary search trees; and the decoration of a Branch
+follows all the decorations of the left child and precedes all the
+decorations of the right child.
+<P>
+The second part of the exercise is about an iterator for a binary
+search tree.  The iterator implements the java.util.Enumeration
+interface, which is intended exactly for iterators.  An iterator
+for a binary tree could be internal or external.  An internal
+iterator is coded inside the binary tree class and is returned by
+a method, often conventionally called elements (see
+java.util.Vector and java.util.Hashtable).  An external iterator is
+an independed class.  It is generally constructed using the object
+whose elements is expected to enumerate.
+<P>
+For this exercise, an external iterator seems more appropriate,
+since the elements of a tree can be enumerated in various ways,
+e.g., preorder, inorder, and postorder.  The ways choosen in this
+exercise is inorder.  It is assumed that a tree will not change
+during an iteration of its elements.
+<P>
+Design, code and test a binary (search) tree class and an inorder
+iterator for this class.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Bridge (4.3.1)
+</strong></font></td></tr></table><br><ul>
+
+Design and execute a simple driver for the Bridge pattern classes
+provided in the CD accompanying the textbook. Two classes need a
+trivial modification to compile (set an arbitrary value for a
+variable).  The driver should create three sensors: a
+StreamingSensor, a SimpleSensor, and an AveragingSensor.
+Periodically, it should get a measurement from each sensor and
+store it in a structure.  After a fixed number of measures have been
+taken, the structure should processed, e.g., printed.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Bridge (4.3.2)
+</strong></font></td></tr></table><br><ul>
+
+A use of the Bridge pattern is to dynamically change the
+implementation of an object.  Design, code and test a stack with
+the following characteristics.  Initially, a stack is implemented
+by an array and, consequently, has a fixed size.  If there is a
+need to push an element on a full fixed-size stack, the
+implementation of stack is replaced by a linked list and, consequently,
+the stack becomes unbounded.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Facade (4.4)
+</strong></font></td></tr></table><br><ul>
+
+Design, code and test a program that provides a facade to class
+BinaryTree and its InOrder iterator.  This should enforce the
+"searchness" of trees, which is not ensured by class BinaryTree
+and consider the possibility of new iterators for a tree, e.g.,
+preorder or postorder iterators.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Flyweight (4.5)
+</strong></font></td></tr></table><br><ul>
+
+Revisit problem 3.3 (exercise about the Composite pattern).
+Extend the implementation of the "while" language with
+expressions, which were left empty.  The abstract syntax of
+expressions is
+
+<PRE>
+    Expr := Variable | Operation Expr Expr
+</PRE>
+
+where "Variable" is an identifier or a literal and "Operation" is
+a familiar infix operation, such as add, sub, mul, etc.
+<P>
+Design, code and test two programs: one in which the objects
+representing variables (and literals) are not shared and another
+which adopts the Flyweight pattern and shares all occurences of
+the same variable (or literal).
+<P>
+As in the original problem, it suffices to contruct the
+representation of a program and print it.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+DynamicLinkage (4.6)
+</strong></font></td></tr></table><br><ul>
+
+Design and code a program that constructs a pizza from its
+components: crust, sauce, cheese, toppings etc.  Pizzas come in
+various styles: light, regular, gourmet, etc.  Different styles of
+pizza are made with different styles of components.
+Use an abstract factory for the creation of the pizza's components
+according to a selected style.  The style is selected using a
+command line arguments of a main program that is the client of the
+factory.  Define a concrete factory for the construction of each
+style of pizza.  Code a client that selects a pizza style from
+a command argument, dynamically loads a concrete pizza factory
+for the selected style, and constructs the required pizza.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Virtual Proxy (4.7.1)
+</strong></font></td></tr></table><br><ul>
+
+The previous example, Problem 4.6 - DynamicLinkage, is also an
+example of Virtual Proxy.  Class "GourmetPizzaFactory" is not
+implemented.  Executing the client with command line argument "2"
+generates exception "NoClassDefFoundError".  However, for different
+values of the argument this class is not loaded and the execution of
+the client does not generates this exception.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Virtual Proxy (4.7.2)
+</strong></font></td></tr></table><br><ul>
+
+Dynamic linkage is not necessary for dynamic loading.
+Design and execute a small experiment to verify that a
+class is loaded only when needed.  For instance, the need
+to load a class arises when the class's constructor is executed.
+Hint: Designate a class as "expensive to instantiate".
+Code a program that waits for user input.
+When the user provides this input, a method of the proxy
+executes the constructor of the expensive-to-instantiate
+class.  Remove this class from the file system and execute
+the program.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Decorator (4.8)
+</strong></font></td></tr></table><br><ul>
+
+Define classes to represent and evaluate simple integer
+expressions such as, e.g., "3+2-1".  Then, consider the problem of
+measuring the time it takes to evaluate an expression, e.g., for
+profiling or billing purposes. One obvious possibility is to
+extend (subclass) some classes used to represent expressions with
+the new functionality.  Another option is to decorate (i.e., use
+the Decorator pattern) existing classes.
+<P>
+Choosing decoration requires a bit more design, but a bit less
+code and offers more flexibility.  Concerning design, one needs an
+interface defining the classes that may be decorated.  Concerning
+code, one can have a single decorator rather than many subclasses.
+Note that the interface required by the decorator would in many
+cases be already in place.
+<P>
+To test your implementation, a driver or test harness should
+construct a relatively complicated expression.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Cache Management (4.9)
+</strong></font></td></tr></table><br><ul>
+
+Provide a cache management facility for the values of the
+expressions used in the previous exercise and measure the effect
+of the cache on the evaluation time of some expressions.  Hint: a
+cache is useful when the same expressions are repeatedly
+evaluated.  If every expression is evaluated only once, using
+a cache would actually slow down the execution.
+
+</ul><H3>Behavioral Patterns</H3><ul>
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Chain of Responsibility (5.1)
+</strong></font></td></tr></table><br><ul>
+
+The Event Delegation Model of Java 1.0 adopts the Chain of
+Responsibility pattern to dispatch events to event handlers.
+Design, code and test an applet base on Java 1.0 which contains
+two Buttons and a TextField.  Label "On" and "Off" the buttons.
+When button "On" is pressed, output the string
+"Pressed On button", and likewise for the "Off" button.
+You can accomplish this easily by overriding the action method
+of class Button.  Test this version of your applet.
+<P>
+Now, augment the functionality of your applet.  When button "On"
+is pressed, set the text of the TextField to "The On button
+has been pressed", and likewise for the "Off" button.  You can
+achieve this result either by making the button aware of the
+TextField or by giving the responsibility to the applet.  Discuss
+pros and cons of each choice.  The Event Delegation Model of Java
+1.0 makes the chaining responsabilities an easy and natural
+choice.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Command (5.2)
+</strong></font></td></tr></table><br><ul>
+
+Consider a very simple graphic editor that only knows how to draw
+a square and to perform a few manipulations on the square: to set
+the square color, to translate the square, and to rotate the
+square.
+<P>
+Define a class, Command, to represent the above commands.  Include
+"metacommands" such as history (to see previous commands), undo
+(to undo previous commands) and redo (to repeat the previous
+command) in you class.  Define a class, CommandManager, to control
+the execution of all these commands.  The number of commands that
+can be seen with "history" and undone with "undo" can be bounded.
+<P>
+Design, code and test a driver that executes a sequence of
+predetermined commands interleaved by a time interval long enough
+to perceive the effect of a command in the graphic editor.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Little Language (5.3.1)
+</strong></font></td></tr></table><br><ul>
+
+Design, code and test an interpreter for the "while" language
+used in the Flyweight pattern.  Add a new Statement to
+output the result of the execution of a program.
+<P>
+Discuss how your implementation would change if variables were not
+shared in a program.
+<P>
+Some authors call this pattern Interpreter.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Little Language (5.3.2)
+</strong></font></td></tr></table><br><ul>
+
+An Interpreter works on an abstract representation of a program in
+a certain language.  A difficult problem is to build the abstract
+representation from the concrete one.  Design, code, and test a
+program based on the Little Language pattern for a little language
+of expressions defined by the following syntax
+<PRE>
+    expr ::= addend ZERO_OR_MORE (("+" | "-") addend)
+    addend ::= factor ZERO_OR_MORE (("*" | "/") factor)
+    factor ::= number | indentifier | "(" expr ")"
+</PRE>
+You may re-use the expression classes used for exercise 5.3.1.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Mediator (5.4)
+</strong></font></td></tr></table><br><ul>
+
+Consider a board for the game of Othello.  The problem of deciding
+whether a player can occupy a position on the board can be
+delegated to the position itself or to an object that implements
+a Mediator pattern.  
+The mediator encapsulates how the positions interact in a move of the game.
+Hence it should implement the move as well.
+<P>
+Design, code and test such an object.
+In addition, discuss the design of a program that does not use a mediator,
+but lets the positions interact with each other.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Snapshot (5.5.1)
+</strong></font></td></tr></table><br><ul>
+
+Extend the program of the example 5.5 with a Snapshot pattern
+mechanism.  The object to be preserved is (a state of) the Board.
+It is desirable not to violate the information hidden by the Board.
+<P>
+For the purpose of this exercise, add two buttons to the
+interface: one to make the snapshot and the other to restore the
+board from the snapshot.  Keep the snapshot of the board
+in memory.  
+<P>
+Some authors call the Snapshot pattern Memento.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Snapshot (5.5.2)
+</strong></font></td></tr></table><br><ul>
+
+Modify the program of example 5.5.1 to save a snapshot on disk.
+Place a timestamp in the snapshot so that when a state of the game
+of Othello is restored the program reports the timestamp of the
+snapshot.  
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Observer (5.6)
+</strong></font></td></tr></table><br><ul>
+
+Design, code and test an applet with two components as follows.
+Each component represents an integer value in the same range,
+e.g., a slider in the range 0 to 100 and a textfield that only
+takes an integer in the same range.  Connect the two components so
+that they always show the same value. When the value of one component
+is changed by a user action the value of the other component is
+changed by the program so that the two values remain equal.
+<P>
+The problem can be solved by making the two components aware of
+each other, but this makes them hardly reusable.  Or the problem
+can be solved using an observer.  The observer looks for changes
+in the value of each component and when the value of one component
+changes and tells the other component to change value accordingly.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+State (5.7)
+</strong></font></td></tr></table><br><ul>
+
+Envision a multilevel computer game that simulates driving a car.
+In the initial level, the road's condition is "regular".  As the
+player moves to higher levels, new conditions of the road appear,
+e.g., gravel, wet, ice.  The response to the car's controls,
+steering, braking, etc., varies with the road conditions.  The game
+employs a State pattern to react to the player's use of the car controls.
+<P>
+For the purpose of this exercise, design a small GUI with four
+buttons (labeled left, accel, right and brake), a choice of
+conditions (labeled regular, gravel, wet and ice), and a feedback
+textfield showing the effect (in an arbitrary scale) of pressing a
+button in a given road ondition as follows:
+<PRE>
+               Regular   Gravel    Wet     Ice
+        left      5        3        4       1
+       accel      9        7        9       3
+       right      5        3        4       1
+       brake      8        6        7       2
+</PRE>
+Hint: One does not need to use the State pattern to manage such a
+trivial state.  Pretend that the behavior of the car in various
+conditions is determinted by the simulator using complicated
+independent algorithms that are better encapsulated in various
+states.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Null Object (5.8)
+</strong></font></td></tr></table><br><ul>
+
+Exercise 2.3 implements linked lists using classes Nil and Cons.
+Instances of Nil are quite similar to instances of a Null Object pattern.
+Recode Exercise 2.3 by eliminating Nil objects and using null references
+in their places.  What are the advantages (and disadvantages) provided
+by Null Objects in this problem?
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Strategy (5.9)
+</strong></font></td></tr></table><br><ul>
+
+Code a few algorithms for sorting an array of Comparable objects,
+e.g., straight selection sort, quicksort, and a combination of these
+where quicksort is used for long arrays and selection for short ones.
+<P>
+Test the performance of your algorithms with a driver that
+constructs a random array and times the execution of each
+algorithm on the array.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Template Method (5.10)
+</strong></font></td></tr></table><br><ul>
+
+A banner program writes large letters by using characters instead
+of pixels.  Suppose that the banner program stores the definition
+of each letter in a separate file and takes advantage of symmetries
+to reduce the files's sizes.  For example, the following files
+define the letters 'A', 'B' and 'C', which are representative of
+all cases of symmetry.  The font is "misc-10x20".
+<PRE>
+    VERTICAL                NONE                    HORIZONTAL
+    The letter A            The letter B            The letter C
+    5                       9                       9
+    14                      14                      8
+    10                      10                      10
+    20                      20                      20
+    -----                   ---------               ---------
+    ----+                   -+++++---               ---++++--
+    ---++                   -++--++--               --++--++-
+    --++-                   -++---++-               -++----++
+    --++-                   -++---++-               -++------
+    -++--                   -++---++-               -++------
+    -++--                   -++--++--               -++------
+    -++--                   -++++++--               -++------
+    -++++                   -++---++-               
+    -++--                   -++----++               
+    -++--                   -++----++               
+    -++--                   -++----++               
+    -++--                   -++---++-               
+    -++--                   -++++++--               
+</PRE>
+The first line defines the symmetry.  The second is a comment.
+The 3rd and 4th lines define the numbers of columns and rows of
+the file, e.g., in the letter 'A' file there are 5 columns and 14
+rows.  The 5th and 6th define the size of the complete letter.
+Complete letters are represented in a 10 by 20 matrix.
+<P>
+Design, code and test a banner program that uses a Template Method
+pattern to construct a complete letter from its definition.  The
+skeleton algorithm is specialized for letters with a vertical axis
+of symmetry (like 'A'), horizontal axis (like 'C' or no symmetry
+(like 'B').
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Visitor (5.11)
+</strong></font></td></tr></table><br><ul>
+
+The Visitor pattern is one of the most important --- and most
+difficult patterns to understand and use.  Your instructor has
+modified exercise 5.3.1 to use a visitor.  The visitor provided by
+the instructor implements the printing of the statements.
+<P>
+You are required to modify the instructor's code in two ways.
+First, design, code and test a new visitor for interpreting
+"while" programs.  Note that the "expr" package remains unchanged.
+Then, modify the "expr" package to use a visitor and design, code
+and test a visitor to evaluate expressions of "while" programs.
+
+
+</ul><H3>Concurrency Patterns</H3><ul>
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Single Threaded Execution (6.1)
+</s trong></font></td></tr></table><br><ul>
+
+Define a simple class, say Position, that holds three numbers,
+e.g., representing the cooordinates of an airplane in the sky.
+Define a method to set a position and methods to get its
+coordinates.  Set up two threads, say Reader and Writer, that
+respectively get (read) and set (write) a position.
+<P>
+Since the threads may read and write a position concurrently,
+without some care, it may be possible to get positions that were
+never set.  To verify this possibility, design the writer
+thread so that the three coordinates of a position are the same.
+In the reader thread, if after reading a position the coordinates
+are not the same, issue a message.
+<P>
+You can fix the problem, by synchronizing read and write accesses
+to a position.  An object with synchronized read/write access is
+called a Protected Variable.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Guarded Suspension (6.2)
+</strong></font></td></tr></table><br><ul>
+
+Consider a simulator of a machine that fills boxes of breakfast
+cereals.  The filling is simulated by repeatedly calling a method
+that drops a certain amount of cerals into the box during a
+certain interval of time.  Both the amount of cereals and the
+interval of time for a drop are subject to small random
+variations.  As a safety measure, the machine has a shutoff device
+that shuts off itself if the content of the box exceeds a certain
+threshold.
+<P>
+Design, code an implement the simulator.  Use a thread to
+repeatedly call the drop method.  Use a guarded suspension pattern
+for the shutoff device.  Hint: to test the safety device,
+your drop method may systematically return true.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Balking (6.3)
+</strong></font></td></tr></table><br><ul>
+
+Design and code an applet to test a Balking pattern.  The idea is
+a blank applet where the user can click.  A mouse click starts a
+simple animation in which a bubble is created, grows, and slowly
+fades away.  The applet reacts to a user click by creating and
+animating a bubble as long as there are two or less bubbles in the
+applet.  When there are three bubbles, a user click is discarded.
+<P>
+Balking is a rather easy pattern.  This exercise is an opportunity
+to discover the most elementary aspects of an animation.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Scheduler (6.4)
+</strong></font></td></tr></table><br><ul>
+
+Consider the simulation of a robot that delivers parcels of mail
+between desks on a same floor. Each request comes at the random
+time.  Parameters such that the origin and destination desks are
+ignored for the purpose of this exercise.  Each request has
+priority and the amount of time or duration necessary for the
+delivery.  The priority is 0 (bulk), 1 (regular), or 2 (express).
+The robot should deliver parcels in the order in which they arrive
+except for the priority.  If the delivery of a parcel has not
+begun and the delivery of a new parcel with higher priority is
+requested, the new parcel will be delivered first.
+<P>
+Design, code, and test a simulation of the robot activities.
+Assume that delivery requests and delivery time are uniformly and
+randomly distributed.  Use a Scheduler pattern to schedule
+concurrent requests to the robot.
+<P>
+Hints:  
+<OL>
+<LI>
+   A difficulty of this exercise is to simulate the clients.
+   Consider constructing a dozen or two threads that wake up at
+   random times and request a delivery with a random priority and
+   duration.  Some (but not too many) requests should be overlapping.
+<LI>
+   The scheduler pattern is quite difficult.  You may simplify the
+   technique described in the textbook by hardcoding in the scheduler
+   the scheduling order (this solution is less general, but it may
+   ease understanding a difficult pattern).
+<LI>
+   Ideally you first code a solution that does not use a scheduler.
+   The robot simply delivers parcels in the order in which they are
+   requested, i.e., it ignores the priority.  Then you add the scheduler.
+<LI>
+   The scheduler uses wait() and notify() to first prevent and
+   then free the access to a resource.  Could these be replaced by
+   suspend() and resume()?
+</OL>
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Read/Write Lock (6.5.1)
+</strong></font></td></tr></table><br><ul>
+
+The ReadWrite Lock pattern is not trivial.  Design and code a test
+harness for the implementation of this pattern provided in the CD
+that comes with the textbook.  Your test harness should create a
+dozen or two threads that at random intervals either read or
+write a complex object (such as the position of exercise 6.1).
+Try to instrument the entire code to verify that access to read
+or write is granted or denied when appropriate.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Read/Write Lock (6.5.2)
+</strong></font></td></tr></table><br><ul>
+
+The textbook implementation of the ReadWrite Lock pattern is a
+specialized form of the Scheduler pattern.  For some applications,
+e.g., the very "bid system" discussed in the textbook as a client
+of this pattern, an alternative and simpler implementation is
+viable.  Under the assumption that there are not waiting writers
+all the time and the order of pending writes is irrelevant (as for
+a "bid system"), no queue is needed.  Writers, similarly to
+readers, are simply held until access is non-deterministically
+granted.
+<P>
+Design, code and test this alternative implementation of the
+ReadWrite Lock pattern.
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Producer-Consumer (6.6)
+</strong></font></td></tr></table><br><ul>
+
+In a computer game, coconuts fall from a tree.  Three monkeys on
+the ground must catch the coconuts before they hit the ground and
+eat them.  Suppose that a new coconut falls between 0 and 250
+milliseconds with uniform distribution.  The monkey that catches
+the coconut is busy for 500 milliseconds to eat it before it can
+catch another one.  The game ends when a coconut hits the ground.
+<P>
+Model the game using a Producer-Consumer pattern.  Your program
+should produce a trace showing the events of a game.  Run your
+program a few times to count how many coconuts fall from the tree
+before the game ends (usually between 10 and 19 on the
+instructor's system).
+
+</ul><p><table><tr><td bgcolor="#99FFCC"><font size="3"><strong>
+Two-Phase Termination (6.7)
+</strong></font></td></tr></table><br><ul>
+
+Add orderly shutdown to exercise 6.6.  When the program
+terminates, print the number of nuts eaten by each monkey.
+
+</ul>
+</BODY>
+</HTML>

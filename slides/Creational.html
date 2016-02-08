@@ -1,0 +1,122 @@
+<HTML>
+<TITLE>Creational Patterns</TITLE>
+<BODY>
+
+<H2>Creational Patterns</H2>
+
+<H4>Main points</H4>
+
+<OL>
+<LI> Abstract the instantiation process.
+<LI> Provide independence of objects creation, composition and representation.
+<LI> Are useful for systems depending more on composition than inheritance.
+<LI> Use a small set of fundamental behaviors that can be composed into
+     several more complex behaviors, rather than hardcoding a fixed set
+     of behaviors.
+<LI> Create objects that require more than simply instantiating a class.
+</OL>
+
+<H4>Recurring themes</H4>
+
+<OL>
+<LI> Encapsulate knowledge about concrete classes used by a client.
+<LI> Hide to the client how objects are created and assembled.
+     Client only knows object interfaces
+<LI> Control what, who, how and when an object is created.
+<LI> Allow dynamic and static configuration of a client.
+</OL>
+
+<H3>Code sketches</H3>
+
+The following pseudo-code fragments try to highlight
+the distinguishing features of 4 patterns that, for
+some purposes, are interchangeable.  The goal is
+synthesis and comparison, not completeness and precision.
+
+<UL><A HREF=FactoryMethod.html><H4>FactoryMethod</H4></A>
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+FactoryMethodIF {               <FONT COLOR=BBBBFF>// an abstract class</FONT>
+  createProduct1 ()             <FONT COLOR=BBBBFF>// abstract or near empty</FONT>
+  createProduct2 ()             <FONT COLOR=BBBBFF>// abstract or near empty</FONT>
+  <FONT COLOR=FFFFFF><B>final</B></FONT> creator () {            <FONT COLOR=BBBBFF>// create products</FONT>
+    createProduct1 ()
+    createProduct2 ()
+  }
+}
+
+Factory_A extends FactoryMethodIF {   <FONT COLOR=BBBBFF>// a concrete class</FONT>
+  createProduct1 ()                   <FONT COLOR=BBBBFF>// specialized</FONT>
+  createProduct2 ()                   <FONT COLOR=BBBBFF>// specialized</FONT>
+}
+
+FactoryMethodIF factory = new Factory_A ()
+factory.creator ()
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+</UL>
+
+<!-- ------------------------------------------------ -->
+
+<UL><A HREF=AbstractFactory.html><H4>AbstractFactory</H4></A>
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+AbstractFactoryIF {           <FONT COLOR=BBBBFF>// an interface or abstract class</FONT>
+  createProduct1 ()           <FONT COLOR=BBBBFF>// abstract</FONT>
+  createProduct2 ()           <FONT COLOR=BBBBFF>// abstract</FONT>
+}
+
+Factory_A implements AbstractFactoryIF {  <FONT COLOR=BBBBFF>// a concrete class</FONT>
+  createProduct1 ()                       <FONT COLOR=BBBBFF>// specialized</FONT>
+  createProduct2 ()                       <FONT COLOR=BBBBFF>// specialized</FONT>
+}
+
+AbstractFactoryIF factory = new Factory_A ()
+factory.createProduct1 ()     <FONT COLOR=BBBBFF>// compose with other products</FONT>
+factory.createProduct2 ()     <FONT COLOR=BBBBFF>// compose with other products</FONT>
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+</UL>
+
+<!-- ------------------------------------------------ -->
+
+<UL><A HREF=Builder.html><H4>Builder</H4></A>
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+
+BuilderIF {                       <FONT COLOR=BBBBFF>// an interface or abstract class</FONT>
+  <FONT COLOR=FFFFFF><B>static</B></FONT> getInstance (type)       <FONT COLOR=BBBBFF>// get Concrete Builder</FONT>
+  createProduct1 ()               <FONT COLOR=BBBBFF>// abstract</FONT>
+  createProduct2 ()               <FONT COLOR=BBBBFF>// abstract</FONT>
+}
+
+Builder_A extends BuilderIF {             <FONT COLOR=BBBBFF>// a concrete class</FONT>
+  createProduct1 ()                       <FONT COLOR=BBBBFF>// specialized</FONT>
+  createProduct2 ()                       <FONT COLOR=BBBBFF>// specialized</FONT>
+}
+
+BuilderIF builder = BuilderIF.getInstance (type_of_A)
+builder.createProduct1 ()         <FONT COLOR=BBBBFF>// possibly via "director"</FONT>
+builder.createProduct2 ()         <FONT COLOR=BBBBFF>// possibly via "director"</FONT>
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+</UL>
+
+<!-- ------------------------------------------------ -->
+
+<UL><A HREF=Prototype.html><H4>Prototype</H4></A>
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+Prototype {
+  Prototype (prototypes)
+  Product1                            <FONT COLOR=BBBBFF>// to be cloned</FONT>
+  Product2                            <FONT COLOR=BBBBFF>// to be cloned</FONT>
+  createProduct1 ()
+  createProduct2 ()
+}
+
+Prototype prototype = new Prototype (prototypes)    <FONT COLOR=BBBBFF>// initialize</FONT>
+prototype.createProduct1 ()
+prototype.createProduct2 ()
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+</UL>
+
+<P><HR><P>
+<FONT SIZE=-1>
+Last updated: Mon Jan 17 09:44:25 PST 2000
+</FONT>
+</BODY>
+</HTML>

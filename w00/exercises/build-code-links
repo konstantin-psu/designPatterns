@@ -1,0 +1,44 @@
+#!/bin/sh
+
+# Script to generate the links to the exercises code
+# Sergio Antoy, Wed Dec 29 09:16:33 PST 1999
+
+html=`pwd`/code-index.html
+
+# begin the index file of all the documentation
+cat > $html << EOF
+    <HTML>
+    <TITLE>Code links</TITLE>
+    <BODY>
+EOF
+
+# code directories
+codedirs="Behavioral Concurrency Creational Fundamental Partitioning Structural"
+
+# main loop
+for i in $codedirs; do
+  for j in `find $i -type d`; do
+    onedir=`echo $j | sed -e "s#\./##"`
+    pushd $onedir > /dev/null 2>&1
+    files=`ls *.java 2> /dev/null | sort`
+    if [ "$files" != "" ]; then
+      onename=`echo $onedir | sed -e "s#/#-#g"`
+      echo '<H4>'$onename'</H4>' >> $html
+      echo '<BLOCKQUOTE>' >> $html
+      for k in $files; do
+        echo '<A HREF='$onedir/$k'>'$k'</A><BR>' >> $html
+      done
+      echo '</BLOCKQUOTE><BR>' >> $html
+    fi
+    popd > /dev/null 2>&1
+  done
+done
+
+# time stamp
+echo "Created on" `date` '<BR><BR><BR>' >> $html
+
+# finish the index file of all the documentation
+cat >> $html << EOF
+    </BODY>
+    </HTML>
+EOF

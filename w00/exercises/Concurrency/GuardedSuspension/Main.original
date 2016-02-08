@@ -1,0 +1,91 @@
+import java.util.Random;
+
+/**
+ *  This class is a driver for a Guarded Suspension pattern exercise.
+ *  It hosts a thread that simulates a machine that fills boxes
+ *  of breakfast cereals.
+ *  <P>
+ *  The simulator drops an amount of cereals into the box at
+ *  periodic intervals.  Both the amounts of cereals and the intervals
+ *  are subject to small random variations. When the box is filled
+ *  to nominal capacity, the drops end.
+ *  <P>
+ *  An overflow safety mechanism shutoffs the drops if the box
+ *  amount exceeds a certain threshold.
+ */
+public class Main {
+    // Filling simulation thread. 
+    private class Filler extends Thread {
+	// A new amount of cereal is dropped into the box
+	// every 22 to 38 milliseconds
+	private final int intervalStart = 22;
+	private final int intervalEnd = 38;
+	// The amount of cereal is dropped into the box every interval
+	// is between 5 and 11 grams.
+	private final int amountStart = 5;
+	private final int amountEnd = 11;
+	// The box is full with 400 grams.
+	private final int nominal = 400;
+	// The threshold is 3% above nominal capacity
+	private final int threshold = (int) (400 * 1.03 + 0.5);
+	// The current box content
+	private int content;
+	// The duration of the filling
+	private long duration = 0;
+
+	// True if and only iff drops occurs
+	private boolean filled = false;
+
+	// Shutoff mechanism
+	private synchronized void safety () {
+	    while (content < threshold && ! filled) { 
+		try { wait (); }
+		catch (InterruptedException ie) {}
+	    }
+	    // either the box is overflowing, or it has been filled  
+	    if (! filled) {
+		System.out.println ("Shutoff at "+content+
+				    " gr. after "+duration+" ms.");
+		// Deprecated, but necessary here
+		// setting variable "going" might result in one extra drop
+		// since this method executes in a separate thread
+		stop ();
+	    }
+	}
+
+	// Drop a certain amount in a certain interval
+	public synchronized void drop () {
+	    int interval = random (intervalStart, intervalEnd);
+	    int amount = random (amountStart, amountEnd);
+	    content += amount;
+	    duration += interval;
+	    notify ();
+	    try { sleep (interval); }
+	    catch (InterruptedException ie) {}
+	    // uncomment for normal operations, comment for shutoff
+	    // filled = content >= nominal;
+	}
+	// Execute the drops till the box is ful
+        public void run () { 
+	    while (! filled) drop ();
+	    System.out.println ("Filled at "+content+
+				" gr. after "+duration+" ms.");
+	}
+    }
+    // Device to compute intervals and amounts with random variations
+    private Random random = new Random ();
+    private int random (int start, int end) {
+	int tmp = Math.abs (random.nextInt ()) % (end - start) + start;
+	return tmp;
+    }
+    private void main () { 
+	Filler filler = new Filler ();
+	filler.safety ();
+	filler.start ();
+    }
+    /**
+     *  Usual entry point.
+     *  @param ignore Ditto
+     */
+    public static void main (String [] ignore) { (new Main ()).main (); }
+}

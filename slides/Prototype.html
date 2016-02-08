@@ -1,0 +1,70 @@
+<HTML>
+<TITLE>Prototype</TITLE>
+<BODY>
+
+<H2>Prototype</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>GoF 95</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    Create customized objects, the <EM>products</EM>,
+    without knowing their exact classes or construction details.
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    A class, the <EM>Client</EM>, stores an instance, the
+    <EM>Prototype</EM>, of every product it may create.
+    A method of the <EM>Client</EM> registers prototypical
+    instances.
+</TD> 
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    A CAD program allows users to draw symbols from a palette.
+    It must be easy to provide additional symbols.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+  <TABLE BORDER=1 CELLSPACING=0 CELLPADDING=5 WIDTH=100%>
+  <TR>
+  <TD><B>PrototypeIF</B></TD>
+  <TD>Interface implemented by all the <EM>products</EM>.</TD>
+  <TD>symbols of CAD program</TD>
+  </TR>
+  <TR>
+  <TD><B>Prototype</B></TD>
+  <TD>Implements the <EM>PrototypeIF</EM> interface and is cloned.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  <TR>
+  <TD><B>PrototypeBuilder</B></TD>
+  <TD>Supplies prototypical objects.</TD>
+  <TD>&nbsp;</TD>
+  </TR>
+  </TABLE>
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    <A HREF=AbstractFactory.html>AbstractFactory</A><BR>
+    <A HREF=FactoryMethod.html>FactoryMethod</A><BR>
+    <A HREF=Builder.html>Builder</A><BR>
+    <A HREF=Creational.html><EM>creational pattern summary</EM><BR>
+</TD>
+</TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

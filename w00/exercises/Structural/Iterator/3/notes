@@ -1,0 +1,28 @@
+This exercise is in two parts.
+
+The first part is about imlementing simple classes for binary
+search trees. A binary tree is either a Leaf or a Branch
+consisting of an Object (referred to as the decoration) and two
+binary trees (referred to as the left and right child). A binary
+search tree is a binary tree with some additional properties:
+there is a total ordering on the decorations; the children of a
+Branch are binary search trees; and the decoration of a Branch
+follows all the decorations of the left child and precedes all the
+decorations of the right child.
+
+The second part of the exercise is about an iterator for a binary
+search tree.  The iterator implements the java.util.Enumeration
+interface, which is intended exactly for iterators.  An iterator
+for a binary tree could be internal or external.  An internal
+iterator is coded inside the binary tree class and is returned by
+a method, often conventionally called elements (see
+java.util.Vector and java.util.Hashtable).  An external iterator is
+an independed class.  It is generally constructed using the object
+whose elements is expected to enumerate.
+
+For this exercise, an external iterator seems more appropriate,
+since the elements of a tree can be enumerated in various ways,
+e.g., preorder, inorder, and postorder.  The ways choosen in this
+exercise is inorder.  It is assumed that a tree will not change
+during an iteration of its elements.
+

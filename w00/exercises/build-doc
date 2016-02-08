@@ -1,0 +1,117 @@
+#!/bin/sh
+
+# Script to generate the documentation of the exercises
+# Sergio Antoy, Tue Oct  5 18:30:01 PDT 1999
+
+# To document all the exercises execute this script with no
+# options from this directory (the root directory of all
+# the exercises).
+
+# To document a single exercise, e.g., 
+#    ./build-doc root=Behavioral/Interpreter doc=myDocDir
+
+# ------------------------------------------------------------------
+
+# print error/help message
+error () {
+  echo Allowed commands are:
+  echo " " \"root=\*\" root of classes/packages to document \(default `pwd`\)
+  echo " " \"doc=\*\" documentation directory \(default `pwd`/doc\)
+}
+
+# set either root or doc or both from command line
+# default root is `pwd`
+# default doc is root/doc
+while : ; do
+  case $# in 0) break ;; esac
+  case "$1" in
+    root=*) eval $1 ;;
+    doc=*) eval $1 ;;
+    *) error ; break ;;
+  esac
+  shift
+done
+
+# the default root directory of files/packages to document
+if [ "$root" = "" ] ; then root=`pwd` ; fi
+
+# the default documentation directory
+if [ "$doc" = "" ]
+    then doc=$root/doc
+    else doc=`pwd`/$doc
+fi
+
+# generate the documentation directory if it doesn't exist
+mkdir -m 755 -p $doc
+
+# Set clean name for doc directory
+pushd $doc > /dev/null 2>&1
+doc=`pwd`
+popd > /dev/null 2>&1
+
+# Set clean name for root directory and cd to iy
+cd $root; root=`pwd`
+
+# echo ROOT=$root
+# echo DOC=$doc
+
+# the index file of all the documentation
+html=$doc/index.html
+
+# begin the index file of all the documentation
+# cat > $html << EOF
+#     <HTML>
+#     <TITLE>Exercises documentation</TITLE>
+#     <BODY>
+# EOF
+
+# mark begin of appended links
+# echo '<!--' `date` '-->' >> $html
+echo '<!--' `date` '-->' > $html
+
+# Construct documentation for packages and/or single files
+recur() {
+    pushd $2 > /dev/null 2>&1
+    current=`pwd`
+    if [ "$current" = "$1" ]
+	then link=`basename $current`
+	else link=`echo $current | sed -e "s#$1/##" | sed -e 's#/#-#g'`
+    fi
+    dest=$doc/$link
+    # echo CURRENT=$current
+    # echo ROOT=$root
+    # echo LINK=$link
+    # echo DEST=$dest
+    # echo HTML=$html
+    # if this directory is a package document classes and package
+    if [ -f PACKAGE ]; then
+        # rebuild the documentation directory if it exists
+	rm -r -f $dest; mkdir -m 755 -p $dest
+	echo "<A HREF=./$link/index.html>$link</A><BR>" >> $html
+	packages=`find . -type d | sed -e "s#^./##" | sed -e "s#^.\\\$##" | sed -e 's#/#.#g'`
+	files=`ls *.java 2> /dev/null | sort`
+#	echo javadoc -d $dest -sourcepath $current $packages $files
+	javadoc -d $dest -sourcepath $current $packages $files
+    else
+	# the java files, if any, in this directory
+	files=`ls *.java 2> /dev/null | sort`
+	if [ "$files" != "" ]; then
+	    # rebuild the documentation directory if it exists
+	    rm -r -f $dest; mkdir -m 755 -p $dest
+	    echo "<A HREF=./$link/index.html>$link</A><BR>" >> $html
+#	    echo javadoc -d $dest -package $files
+	    javadoc -d $dest -package $files
+	fi
+        dir=`ls -p | grep "/"`
+        for i in $dir; do recur $1 `pwd`/$i; done
+    fi
+    popd > /dev/null 2>&1
+}
+
+recur $root $root
+
+# finish the index file of all the documentation
+# cat >> $html << EOF
+#     </BODY>
+#     </HTML>
+# EOF

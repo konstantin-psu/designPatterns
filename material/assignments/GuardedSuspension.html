@@ -1,0 +1,24 @@
+<HTML>
+<HEAD><TITLE>Guarded Suspension</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>Guarded Suspension (6.2)</H2>
+<BLOCKQUOTE>
+
+Consider a simulator of a machine that fills boxes of breakfast
+cereals.  The filling is simulated by repeatedly calling a method
+that drops a certain amount of cerals into the box during a
+certain interval of time.  Both the amount of cereals and the
+interval of time for a drop are subject to small random
+variations.  As a safety measure, the machine has a shutoff device
+that shuts off itself if the content of the box exceeds a certain
+threshold.
+<P>
+Design, code an implement the simulator.  Use a thread to
+repeatedly call the drop method.  Use a guarded suspension pattern
+for the shutoff device.  Hint: to test the safety device,
+your drop method may systematically return true.
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

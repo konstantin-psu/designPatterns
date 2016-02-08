@@ -1,0 +1,1552 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Design Patterns for Building Flexible and Maintainable
+J2EE Applications</TITLE>
+
+
+  <META NAME="AUTHOR" CONTENT="Vijay Ramachandran">
+  <META NAME="DESCRIPTION" CONTENT="">
+  <META NAME="KEYWORDS" CONTENT="J2EE, design patterns, model-view-controller, MVC architecture">
+  <META NAME="OWNER" CONTENT="Editorial/JDC">
+  <META NAME="revision" CONTENT="@(#)index2.src	1.2 06/09/99  JDC">
+  
+  
+
+<!-- Start Body Insert-->
+  <STYLE TYPE="text/css">
+    <!-- 
+    CODE {font-family: Courier, Monospace;
+          font-size: 12pt}
+    PRE {font-family: Courier, Monospace;
+         font-size: 11pt}
+    BODY, div, span {font-family: Verdana, Arial, Helvetica, sans-serif}
+    td, th {font-family: Verdana, Arial, Helvetica, sans-serif}
+    tr {font-family: Verdana, Arial, Helvetica, sans-serif}
+    table {font-family: Verdana, Arial, Helvetica, sans-serif}
+    p {font-family: Verdana, Arial, Helvetica, sans-serif}
+    li {font-family: Verdana, Arial, Helvetica, sans-serif}
+    br {font-family: Verdana, Arial, Helvetica, sans-serif}
+    sup {font-family: Verdana, Arial, Helvetica, sans-serif}
+    h1, h2, h3, h4, h5, h6 {font-family: Verdana, Arial, Helvetica, sans-serif}
+    blockquote, input, select {font-family: Verdana, Arial, Helvetica, sans-serif}
+    textarea, form, ul, ol, font {font-family: Verdana, Arial, Helvetica, sans-serif}
+    
+    -->
+  </STYLE>
+</HEAD>
+
+<!--stopindex-->
+
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" ALINK="#FF0000" VLINK="#660066">
+
+
+<!--========================-->
+<!--===== JAVA SCRIPT ======-->
+<!--========================-->
+
+<SCRIPT language="JavaScript">
+<!--
+function printpage() {
+        self.location = "/servlet/PrintPageServlet?url=" + escape(document.URL);
+}
+// -->
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+<!--
+function gotoFunction() {
+        self.location = 
+document.productGoto.url.options[document.productGoto.url.selectedIndex].value;
+}
+function goFunction() {
+        self.location = 
+document.productGo.url.options[document.productGo.url.selectedIndex].value;
+}
+// -->
+
+</SCRIPT>
+
+<!--========================-->
+<!--=== END JAVA SCRIPT ====-->
+<!--========================-->
+
+<!-- End Body Insert-->
+
+<!-- Start PageTop Insert -->
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+  <TR ALIGN="CENTER" VALIGN="TOP">
+    <TD WIDTH="157" ALIGN="LEFT">
+    <IMG SRC="/images/pixel.gif" HEIGHT="40" WIDTH="40" ALT="">
+    <A HREF="http://java.sun.com/index.html"><IMG SRC="/images/javalogo52x88.gif" WIDTH="52" HEIGHT="88" ALT="Java Technology Home Page" BORDER="0"></A>
+    <BR>
+    <IMG SRC="/images/pixel.gif" WIDTH="157" HEIGHT="1" ALT=""></TD>
+
+    <TD>
+
+    <FORM NAME="seek1" METHOD="GET" ACTION="http://search.java.sun.com/query.html">
+    <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+      <TR>
+        <TD ALIGN="RIGHT">
+        <IMG SRC="/images/stripelt.gif" WIDTH="6" HEIGHT="14" ALT=""></TD>
+        
+        <TD WIDTH="100%">
+        
+        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%">
+          <TR>
+            <TD BGCOLOR="#CC9966" WIDTH="100%">
+            <IMG SRC="/images/pixel.gif" HEIGHT="2" WIDTH="1" ALT=""></TD>
+          </TR>
+          
+          <TR>
+            <TD>
+            <IMG SRC="/images/pixel.gif" HEIGHT="2" WIDTH="1" ALT=""></TD>
+          </TR>
+          
+          <TR>
+            <TD BGCOLOR="#CC9966">
+            <IMG SRC="/images/pixel.gif" HEIGHT="2" WIDTH="1" ALT=""></TD>
+          </TR>
+          
+          <TR>
+            <TD>
+            <IMG SRC="/images/pixel.gif" HEIGHT="2" WIDTH="1" ALT=""></TD>
+          </TR>
+          
+          <TR>
+            <TD BGCOLOR="#CC9966">
+            <IMG SRC="/images/pixel.gif" HEIGHT="2" WIDTH="1" ALT=""></TD>
+          </TR>
+          
+          <TR>
+            <TD>
+            <IMG SRC="/images/pixel.gif" HEIGHT="2" WIDTH="1" ALT=""></TD>
+          </TR>
+          
+          <TR>
+            <TD BGCOLOR="#CC9966">
+            <IMG SRC="/images/pixel.gif" HEIGHT="2" WIDTH="1" ALT=""></TD>
+          </TR>
+        </TABLE>
+        </TD>
+        
+        <TD ALIGN="LEFT">
+        <IMG SRC="/images/stripert.gif" WIDTH="6" HEIGHT="14" ALT=""></TD>
+
+        <TD>
+        
+        <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
+          <TR> 
+            <TD VALIGN="MIDDLE" WIDTH="110"><A HREF="http://servlet.java.sun.com/help/"><IMG SRC="/images/help.gif" BORDER="0" WIDTH="38" HEIGHT="11" ALT="Help Pages"></A><A HREF="http://java.sun.com/a-z/"><IMG SRC="/images/azindex.gif" BORDER="0" WIDTH="72" HEIGHT="11" ALT="A-Z Index"></A></TD>
+              
+            <TD VALIGN="MIDDLE">
+            <FONT SIZE="1">
+            <INPUT TYPE="text" SIZE="15" MAXLENGTH="128" NAME=qt></FONT></TD>
+            
+            <TD VALIGN="MIDDLE" WIDTH="55">
+            <INPUT TYPE="image" SRC="/images/search.button.gif" ALT="Search" value="search" BORDER="0" WIDTH="55"></TD>
+          </TR>
+        </TABLE>
+        </TD>
+      </TR>
+    </TABLE>
+    </FORM>
+    <P>
+
+    <TABLE BORDER="0" WIDTH="100%" CELLPADDING="0" CELLSPACING="0">
+      <TR VALIGN="TOP">
+        <TD WIDTH="100%"><IMG SRC="/images/chiclet.row.gif" WIDTH="55" 
+          HEIGHT="18" ALT=""></TD>
+          
+        <TD ROWSPAN="4" ALIGN="RIGHT" WIDTH="152">
+        <A HREF="/developer/index.html"><IMG SRC="/images/developer.connection.header.gif" BORDER="0" HEIGHT="42" WIDTH="319" ALT="Java Developer Connection(SM)"></A></TD>
+      </TR>
+      
+      <TR VALIGN="TOP">
+        <TD BGCOLOR="#FFFFFF" HEIGHT="1" WIDTH="100%">
+        <IMG SRC="/images/pixel.gif" HEIGHT="1" WIDTH="1" ALT=""></TD>
+      </TR>
+      
+      <TR VALIGN="TOP">
+        <TD BGCOLOR="#CC9966" HEIGHT="1" WIDTH="100%">
+        <IMG SRC="/images/pixel.gif" HEIGHT="1" WIDTH="1" ALT=""></TD>
+      </TR>
+      
+      <TR VALIGN="TOP">
+        <TD><A HREF="/developer/technicalArticles/"><IMG SRC="/images/technical-articles.gif" WIDTH="165" HEIGHT="22" ALT="Technical Articles" BORDER=0></A></TD>
+      </TR>
+    </TABLE>
+
+    </TD>
+  </TR>
+</TABLE>
+
+
+<!-- End PageTop Insert -->
+
+<!-- Start NavBar Insert -->
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#FFFFFF" WIDTH="157" ALIGN="LEFT">
+
+<!-- tab categories -->
+
+<TR>
+<TD><A HREF="http://java.sun.com/products/"><IMG SRC="/images/side.tab.products.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="Downloads, APIs, Documentation"></A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="/developer/"><IMG SRC="/images/side.tab.developer.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="Java Developer Connection"></A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="/developer/infodocs/"><IMG SRC="/images/side.tab.docs.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="Tutorials, Tech Articles, Training"></A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="/developer/support/"><IMG SRC="/images/side.tab.support.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="Online Support"></A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="/developer/community/"><IMG SRC="/images/side.tab.community.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="Community Discussion"></A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="http://java.sun.com/industry/"><IMG SRC="/images/side.tab.news.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="News &amp; Events from Everywhere"></A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="http://java.sun.com/solutions"><IMG SRC="/images/side.tab.solutions.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="Products from Everywhere"></A></TD>
+</TR>
+
+<TR>
+<TD><A HREF="http://java.sun.com/casestudies"><IMG SRC="/images/side.tab.case.gif" HEIGHT="15" WIDTH="130" BORDER="0" ALT="How Java Technology is Used Worldwide"></A></TD>
+</TR>
+<TR>
+<TD>    
+ 
+ 
+<!-- End NavBar Insert -->
+
+
+<!-- START SUB-NAV -->
+
+
+
+
+<!--========================-->
+<!--========================-->
+<!--=== Begin Categories ===-->
+<!--========================-->
+<!--========================-->
+
+
+
+<TR>
+<TD>
+<TABLE BORDER="0" CELLPADDING="0" WIDTH="100%" ALIGN="left">
+
+  <TR>
+    <TD ALIGN="LEFT" WIDTH="100%">
+    <A HREF="/servlet/PrintPageServlet" OnClick="javascript:printpage();return false;"><IMG SRC="/images/printable.gif" WIDTH="156" HEIGHT="25" ALT="Print Button" BORDER="0"></A><P>
+    <IMG SRC="/images/chiclet.gif" WIDTH="7" HEIGHT="7" ALT="Members Only">
+    <FONT SIZE="-1">
+    <B>Requires login</B></FONT><BR><BR>
+    
+<!--==========================-->    
+<!--====== EARLY ACCESS ======-->    
+<!--==========================--> 
+    
+    <FONT COLOR="#993333" SIZE="3"><B>Early Access</B></FONT>
+    <IMG SRC="/images/chiclet.gif" WIDTH="7" HEIGHT="7" ALT="Members Only">
+    </TD> 
+  </TR>
+  <TR>
+    <TD>
+    <FONT SIZE="2">
+    <A HREF="/developer/earlyAccess/" STYLE="color: #666699; text-decoration: none"><B>Downloads</B></A><BR><BR></FONT>
+    </TD>   
+  </TR>
+  
+<!--==========================-->    
+<!--===== BUG DATABASE =======-->    
+<!--==========================-->  
+  
+  <TR>
+    <TD>
+    <FONT COLOR="#993333" SIZE="3"><B>Bug Database</B></FONT>
+    <IMG SRC="/images/chiclet.gif" WIDTH="7" HEIGHT="7" ALT="Members Only"><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>    
+    <FONT SIZE="2">
+    <A HREF="http://java.sun.com/cgi-bin/bugreport.cgi/" STYLE="color: #666699; text-decoration: none"><B>Submit a Bug</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>    
+    <FONT SIZE="2">        
+    <A HREF="http://developer.java.sun.com/developer/bugParade/index.jshtml" STYLE="color: #666699; text-decoration: none"><B>View Database</B></A></FONT><BR><BR>
+    </TD>   
+  </TR> 
+
+<!--==========================-->    
+<!--====== NEWSLETTERS =======-->    
+<!--==========================-->  
+  
+  <TR>
+    <TD>   
+    <FONT SIZE="3" COLOR="#993333"><B>Newsletters</B></FONT><BR>
+    </TD>   
+  </TR>     
+  <TR>
+    <TD>
+    <FONT SIZE="2">
+    <A HREF="/developer/techDocs/Newsletters/" STYLE="color: #666699; text-decoration: none"><B>Back Issues</B></A></FONT><BR>
+    </TD>   
+  </TR>     
+  <TR>
+    <TD>
+    <FONT SIZE="2">
+    <A HREF="/subscription/" STYLE="color: #666699; text-decoration: none"><B>Subscribe</B></A></FONT><BR><BR>
+    </TD>   
+  </TR>     
+    
+    
+<!--==========================-->    
+<!--==== LEARNING CENTERS ====-->    
+<!--==========================--> 
+  
+  <TR>
+    <TD>     
+    <FONT COLOR="#993333" SIZE="3"><B>Learning Centers</B></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>       
+    <FONT SIZE="2">
+    <A HREF="/developer/technicalArticles/" STYLE="color: #666699; text-decoration: none"><B>Articles</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>     
+    <FONT SIZE="2">
+    <A HREF="/developer/Books/" STYLE="color: #666699; text-decoration: none"><B>Bookshelf</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>      
+    <FONT SIZE="2">
+    <A HREF="/developer/codesamples/" STYLE="color: #666699; text-decoration: none"><B>Code Samples</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>      
+    <FONT SIZE="2">
+    <A HREF="/developer/onlineTraining/new2java/" STYLE="color: #666699; text-decoration: none"><B>New to Java</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>      
+    <FONT SIZE="2">
+    <A HREF="/developer/qow/archive/" STYLE="color: #666699; text-decoration: none"><B>Question of the Week</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>
+    <FONT SIZE="2">
+    <A HREF="/developer/Quizzes/" STYLE="color: #666699; text-decoration: none"><B>Quizzes</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>
+    <FONT SIZE="2">
+    <A HREF="/developer/TechTips/" STYLE="color: #666699; text-decoration: none"><B>Tech Tips</B></A></FONT><BR>
+    </TD>   
+  </TR> 
+  <TR>
+    <TD>
+    <FONT SIZE="2">
+    <A HREF="/developer/onlineTraining/" STYLE="color: #666699; text-decoration: none"><B>Tutorials</B></A></FONT><BR><BR>
+    </TD>   
+  </TR>     
+
+
+<!--==========================-->    
+<!--======== FORUMS ==========-->    
+<!--==========================-->  
+  
+  <TR>
+    <TD>         
+    <FONT SIZE="3">
+    <A HREF="http://forum.java.sun.com/" STYLE="color: #993333; text-decoration: none"><B>Forums</B></A></FONT><BR><BR>
+     </TD>   
+  </TR>    
+</TABLE>
+
+    </TD>
+  </TR>
+
+  
+<!--=========================-->    
+<!--== TECHNOLOGY CENTERS ===-->    
+<!--=========================--> 
+
+
+  <TR>
+    <TD> 
+<!--========================-->
+<!--========================-->
+<!--===== JAVA SCRIPT ======-->
+<!--========================-->
+<!--========================-->
+
+<!--begin pop-down menus-->
+
+<FORM NAME="productGo" ACTION="/servlet/RedirectServlet" METHOD="POST" CLASS="mstmnu">
+<FONT COLOR="#993333" SIZE="3"><B>Technology Centers</B></font>
+<BR>
+<FONT SIZE="3">
+<SELECT NAME="url" ONCHANGE="goFunction()" ONBLUR="return options[0].selected=true">
+<OPTION VALUE="#">SELECT</OPTION>
+<OPTION VALUE="/developer/products/java2cs/">- Community </OPTION>
+<OPTION VALUE="/developer/products/java2cs/"> Source Area</OPTION>
+<OPTION VALUE="/developer/products/java2cs/">  </OPTION>
+
+<OPTION VALUE="http://java.sun.com/j2ee/developer">- Enterprise</OPTION>
+<OPTION VALUE="http://java.sun.com/j2ee/developer">  </OPTION>
+
+<OPTION VALUE="/developer/products/jini/">- Jini Network</OPTION>
+<OPTION VALUE="/developer/products/jini/"> Technology</OPTION>
+<OPTION VALUE="/developer/products/jini/">  </OPTION>
+
+<OPTION VALUE="/developer/products/wireless/">- Wireless</OPTION>
+<OPTION VALUE="/developer/products/wireless/">  </OPTION>
+
+<OPTION VALUE="/developer/products/">- more . . .</OPTION>
+<OPTION VALUE="/developer/products/"> </OPTION>
+
+
+</SELECT>
+</font> 
+    <DIV ALIGN="left">
+    <INPUT TYPE="image" SRC="/images/my_go.gif" BORDER="0" ALT="Go">
+    </DIV>
+    </FORM>
+    </TD>
+  </TR>
+
+
+
+<!--========================-->
+<!--========================-->
+<!--=== End   Categories ===-->
+<!--========================-->
+<!--========================-->
+
+<!-- END SUB-NAV -->
+
+<!--startindex-->
+
+
+<!-- ADDITIONAL SUB-NAV -->
+
+</TABLE> 
+
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR>
+<TD>
+
+<!-- Template Version 2.0 -->
+
+<!-- ================== -->
+<!-- Start Main Content -->
+<!-- ================== -->
+
+
+<DIV ALIGN="RIGHT"> 
+  <FONT SIZE="-1"><A HREF="/developer/technicalArticles/index.html">Articles 
+Index</A></FONT>
+<H2>Design Patterns for Building Flexible<br> and Maintainable
+J2EE<SUP><FONT SIZE="-2">TM</FONT></SUP> Applications</H2><p>
+<FONT SIZE="-1"><B>Vijay Ramachandran</B><BR>
+<I>January 2002</I></FONT>
+</DIV>
+
+
+<p>
+With the proliferation of Java<SUP><FONT SIZE="-2">TM</FONT></SUP> 2 Enterprise Edition (J2EE<SUP><FONT SIZE="-2">TM</FONT></SUP>) as a platform of choice for server-side applications, it is crucial for developers to share their experiences and designs. This article introduces some reusable designs you can use to build flexible and easily maintainable J2EE applications.  
+</p>
+
+<p>
+This article does not explain the patterns with their formal template or UML diagrams. The <a href="http://java.sun.com/j2ee/blueprints"> J2EE BluePrints Program</a> is the place to find these details, along with code samples. This article explains some problem domains that affect the flexibility and maintainability of J2EE applications, and the recommended solutions.
+</p>
+
+
+<h3>What are Design Patterns?</h3>
+
+<p>
+As you design and build different applications, you continually come across the same or very similar problem domains. This leads you to find a new solution for the similar problem each time. To save time and effort, it would be ideal if there was a repository which captured such common problem domains and proven solutions.
+</p>
+
+<p>
+In the simplest term, such a common solution is a <b>design pattern</b>. The repository or place of reference that contains these patterns is a <b>design pattern catalog</b>.
+</p>
+
+<p>
+A design pattern describes a proven solution, from experienced hands, for a recurring design problem. These solutions are very generic. They are described in well-defined Pattern Templates, with the most popular template defined by the <a href="http://hillside.net/patterns/writing/GOFtemplate.htm">Gang of Four</a>.
+
+<p>
+The pattern template usually includes a name that gives an idea as to what that pattern is about, 
+followed by where the pattern is applicable, the motivation, the issues in implementation, and so on. Apart from describing the problem and illustrating the solution, the pattern also explains the implementation issues involved and consequences, if any, of using the pattern.  
+</p>
+
+
+<p>
+Use of such patterns makes the design of an application transparent. These patterns have been used successfully by developers in their respective fields, and therefore, the pros and cons of the pattern (as well as implementation issues) are known beforehand. All design patterns are reusable and can be adapted to particular contexts. This gives you flexibility. The use of design patterns related to J2EE applications gives 
+the added advantage of showing solutions in terms of J2EE platform technologies.
+</p>
+
+
+
+<h3>Design Patterns For Building Flexible and Maintainable J2EE Applications</h3>
+
+<p>
+Multi-tiered J2EE applications consist of a number different views and components in the middle tier, possibly distributed. The following sections of this article suggest some design patterns that can help you keep typical J2EE applications extensible, flexible, and maintainable. Instead of discussing some abstract scenarios, this articles takes an imaginary sample application and tries to give you an understanding of these patterns in the context of this sample application. Once you know the sample application it is easier to extend the use of these patterns to other application scenarios.
+</p>
+
+<p>
+Take the case of an enterprise application for financial services over the web. Visitors to this site can browse through the list of services, create accounts, place orders for the products made available by the financial service, and so on. Also assume that this application allows existing customers to change their account details and profile, make use of services, and so on. Typically this kind of application has multiple views or screens which users click through to search for lists of services, access profiles, use the services, and to get other information. The business logic represents the user's account, profile, the catalog of services, ordering for services, and so on, as separate entities in the form of Enterprise JavaBeans<SUP><FONT SIZE="-2">TM</FONT></SUP> (EJB<SUP><FONT SIZE="-2">TM</FONT></SUP>). With this sample application in mind, look at some recurring problems and see how you can use specific patterns to build a flexible and maintainable application.
+</p>
+
+<h3>Model-View-Controller</h3>
+
+<p>
+<b>Problem Domain</b>
+</p>
+
+<p>
+All would be well if you were building this enterprise application for 
+a single type of client. If that were the case, we could simply mix the 
+data access / data modifying logic with the logic for the various client views. But 
+with the advent of the completely interconnected and wireless world, there are 
+client devices ranging from PDAs to cell phones to a browser on a powerful 
+desktop, in addition to other types of traditional clients. In this
+scenario, solving this problem by mixing data access with views is problematic
+because
+</p>
+
+<ul>
+<li>You must develop different versions of the same application to suit
+each type of client needs support</li>
+<li>Since the code for views and that for data access/modification is intertwined,
+the code for the data access/modification is duplicated everywhere, thereby
+making the application almost unmaintainable </li>
+<li>The development life cycle is extended unnecessarily.</li>
+</ul>
+
+<p>
+<b> Suggested Solution</b>
+</p>
+
+<p>
+In finding a solution for this problem, take note that:
+</p>
+
+<ul>
+<li>Regardless of the client type, the data being accessed and displayed comes from the same enterprise data source.</li>
+<li>All clients must be able to modify the data source.</li>
+<li>Modifying either a type of client or data accessing / modifying logic should not affect the other components of the application.</li>
+</ul>
+
+
+<p>
+You need a solution that lets you develop loosely-coupled applications. The <i>Model-View-Controller (MVC)</i> architecture is the suggested solution. MVC has been used very effectively in GUI-type applications. By applying the MVC architecture to a J2EE application, you can separate the data access logic from the data
+presentation logic. You can also build a flexible and easily extensible controller that controls  the whole flow of the application. The figure below depicts the MVC architecture.
+</p>
+
+<img alt="MVC Architecture" src="./gen-interactions.gif"> 
+
+<p>
+The MVC architecture can be mapped to multi-tiered enterprise J2EE applications 
+as follows:
+</p>
+
+<ul>
+<li>All enterprise data and the business logic to process the data can be
+represented in the MODEL.</li>
+<li>The VIEW can access the data through the model and decide on how to 
+present them to the client. The VIEW must ensure that the presentation 
+changes as and when the MODEL changes. </li>
+<li>The CONTROLLER can interact with the view and convert the client actions 
+into actions that are understood and performed by the MODEL. The CONTROLLER 
+also decides on the next view to be presented depending on the last client 
+action and results of the corresponding MODEL action(s).</li>
+</ul>
+
+<p>
+Applying the above logic to the sample financial application, you build
+the application as follows:
+</p> 
+
+<ul>
+<li>The business logic of the application is represented by EJBs that
+form the MODEL of MVC architecture. The MODEL responds to requests from
+CONTROLLER to access / modify the data it represents.</li>
+<li>The various screens of the application forms the VIEW of the MVC
+architecture. The VIEW updates itself when the MODEL changes.</li>
+<li>The CONTROLLER of the application is a set of objects that receive
+the user actions, convert them into requests understood by the model, and
+decide on the next screen to be displayed once the model completes the 
+processing request</li>
+</ul>
+
+<p>
+It is very difficult to fully showcase the MVC architecture in the form of a small 
+example code. The Java Pet Store Demo application from the 
+<a href="http://java.sun.com/j2ee/blueprints">
+J2EE BluePrints Program</a> is a good example of a complete J2EE
+application that is based on the MVC architecture.
+</p>
+
+<p>
+<b>Points to Note</b>
+</p>
+
+<p>
+Here are some points to note:
+</p>
+
+<ul>
+<li>MVC architecture is suitable for a highly interactive system that requires 
+extensibility, maintainability, and multiple user views.</li>
+<li> MVC decouples presentation, user interaction, and system model.</li>
+<li>Presenting multiple views for multiple data sets is made easy because
+of the decoupling. This also makes it much easier to enable support for new
+types of clients.</li>
+<li>Code duplication is minimized by using this architecture.</li>
+<li>By separating the presentation from model and overall application flow, 
+this architecture enables division of developer responsibilities, and thereby, 
+produces faster time to market.<br>
+</li>
+</ul>
+
+<h3>Front Controller</h3>
+
+<p>
+<b>Problem Domain</b>
+</p>
+
+<p>
+MVC gave you a way of architecting the whole application in a loosely coupled manner. Now look at a specific problem domain that arises frequently. In this sample application, the views or screens that the user sees depend on what the user is doing. These screens are highly interactive (such expecting the user to choose services, enter preferences, contact information, and so on) and these pages are highly interdependent. 
+</p>
+
+<p>
+In the absence of any pattern, this application will be a
+collection of interdependent web pages. That makes the application 
+very hard to maintain. Extending this application to accommodate more web pages
+(probably for offering more services) is difficult because of the
+interdependency of these web pages:
+</p>
+
+<ul>
+<li>When a page is moved, all other pages that have links to this page
+must be updated.</li>
+<li>When a set of pages need to be password protected, various configuration
+files need to be modified, or the pages themselves need to include new
+tags.</li>
+<li>When a page needs a new layout, the tags in the page must be rearranged.</li>
+</ul>
+
+<p>
+These problems only worsen as the application grows in complexity. 
+The problem, in terms of MVC architecture,
+is how to manage the complex interactions between the VIEW and the CONTROLLER.
+</p>
+
+<p>
+<b> Suggested Pattern</b>
+</p>
+
+<p>
+To address these problems, the suggested solution is the Front Controller pattern. This pattern solves the problems by channeling all client requests through a single object, the Front Controller. This central object then processes all requests, decides on the next view to  be displayed, and implements all security required for protection. Templating of views can also be achieved through this centralized object. Centralizing the decision on the next view, along with other functions like security, makes changing these functions 
+easy: you change only a small area of the application and the change is reflected across all views/screens of the application.
+</p>
+
+<p>
+The following small sample code gives an idea of the implementation. The first step is to ensure that all requests are serviced by a single object, the Front Controller. A central servlet to process all incoming requests is the best choice for the J2EE application. To do this, the <code>web.xml</code> file of the web
+component of this application is changed as follows (this code fragment assumes <code>/sample_app</code> to be the context root for all views of this sample application):
+</p>
+
+<p>
+<b><i>Code Sample 1: Part of the web.xml of the sample application that forces all web requests to be routed through a single Servlet -- the Front Controller</b></i>
+</p>
+
+<p>
+<code>
+&lt;web-app&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- the web.xml file of the web component of 
+the sample application --&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- all other specs --&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-name&gt;CentralEntryPoint&lt;/servlet-name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-class&gt;FrontControllerImpl&lt;/servlet-class&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/servlet&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-mapping&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-name&gt;CentralEntryPoint&lt;/servlet-name&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- The following forces all web page requests of this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+application to be routed through the front controller --&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;url-pattern&gt;/sample_app/*&lt;/url-pattern&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/servlet-mapping&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- all other specs --&gt;<br>
+&lt;/web-app&gt;
+</code>
+</p>
+
+
+
+<p>
+The above specification in <code>web.xml</code> ensures that all requests that have <code>/sample_app</code>, as the context root is channeled through the central servlet, called as the <code>FrontControllerImpl</code>. This is what the code for <code>FrontControllerImpl</code> would look like:
+</p>
+
+<p>
+<i><b>Code Sample 2: FrontControllerImpl.java that implements the central servlet -- the Front Controller -- that processes all requests</b></i>
+</p>
+
+<p>
+<code>
+// all required imports<br>
+// exceptions to be caught appropriately wherever applicable<br>
+<br>
+public class FrontControllerImpl extends HttpServlet {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// all required declarations, definitions<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void init() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do all init required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void doPost(HttpServletRequest request, HttpServletResponse
+ response)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+throws IOException, ServletException {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doGet(request, response);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void doGet(HttpServletRequest request, HttpServletResponse
+ response)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;throws IOException,  ServletException {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String currentPage= request.getPathInfo();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// check the requested page<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// apply all required security checks<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// process the request<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// depending on the result of 
+the processing, decide on the next page<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// forward to the next page<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</code>
+</p>
+
+
+<p>
+Note that in the above implementation of the FrontController servlet, all decisions regarding how to process the request and selection of the next page is done by the servlet. But as the size of the application grows with more views and different processing requests, this servlet code could become unmaintainable very quickly. But this can be easily overcome by specifying how to handle incoming requests, the next view to be displayed
+in response to the current request in an XML configuration file. If you do this, then the central servlet simply builds a hashtable from the XML file. This hashtable can later be used to take decisions on how to
+process the current request, what is the next view, and so on. The XML file that maps all these information would look like:
+</p>
+
+<p>
+<i><b>
+Code Sample 3: RequestMappings.xml file that maps incoming requests to their processors and next screen<br>
+</b></i>
+</p>
+
+<p>
+<code>
+&lt;request-mappings&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;url-mapping url="/request1" useRequestHandler="true" <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;requiresSecurityCheck="true" 
+nextScreen="screen2.jsp"&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;request-handler-class&gt;
+com.blah1.blah2.blah3.request1Handler&lt;/request-handler-class&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/url-mapping&gt;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- other requests and their corresponding mappings --&gt;<br>
+<br>
+&lt;/request-mappings&gt;
+</code>
+</p>
+
+<p>
+Once the above specification is available for the central servlet, then the Front Controller servlet will change a bit, as shown below:
+</p>
+
+<p>
+<i><b>
+Code Sample 4: FrontControllerImpl.java that implements the central servlet and uses the mapping file
+</b></i>
+</p>
+
+
+<p>
+<code>
+// all required imports<br>
+// exceptions to be caught appropriately wherever applicable<br>
+<br>
+public class FrontControllerImpl extends HttpServlet {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// all required declarations, definitions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private HashMap requestMappings;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void init() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// load the mappings 
+from XML file into the hashmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void doPost(HttpServletRequest request, HttpServletResponse
+ response)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+throws IOException, ServletException {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doGet(request, response);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void doGet(HttpServletRequest request, HttpServletResponse
+ response)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws
+IOException, ServletException {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String currentPage= request.getPathInfo();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// get all mapping info for "currentPage" from the hashmap<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// if "securityCheckRequired 
+= true", do the security check<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// if "useRequestHandler = true", 
+pass on the incoming request to the specified handler<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// forward the results to the given "nextScreen"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</code>
+</p>
+
+
+<p>
+The central servlet implemented in this way is easy to maintain, as only the XML mapping file needs to be updated for changes such as screen flow, new security requirements, and new ways of handling a request. Adding new screens is also very simple. The Front Controller pattern can be an effective way to simplify the complex interactions between the VIEW and CONTROLLER of a J2EE application.
+</p>
+
+
+<p>
+<b>Points to Note</b>
+</p>
+
+<p>
+Here are some points to note while deciding to use this pattern:
+</p>
+
+<ul>
+<li>This pattern is ideal for web applications with complex navigation through various views and screens that contain dynamic data.</li>
+<li>This pattern is also useful for web applications that require a common set of policies, transformations, and templating to be applied across all pages (or a significant subset of them).</li>
+<li>Because of centralization of the view selection at the Front Controller, navigation across views is easier to understand and configure.</li>
+<li>Views can be easily changed and reused.</li>
+<li>The complexity of interaction between view components is traded for complexity in the front controller. Consequently, as an application grows, the controller can be harder to maintain. But, in large part, this can be overcome with the use of the XML mappings as explained above.</li>
+<li>Implementing security checks required for the application is simplified.</li>
+<li>This pattern is not suitable for small applications or for applications that display lots of static content.</li>
+</ul>
+
+<h3>Session Facade</h3>
+
+<p>
+<b>Problem Domain</b>
+</p>
+
+<p>
+The Front Controller pattern gave you a way 
+to efficiently manage the complex user interactions of a
+J2EE application based on the MVC architecture. That pattern
+simplified the handling of screen flow and subsequent user
+request handling. It also made additions and changes to the screen flow much 
+easier. 
+</p>
+
+<p>
+Another common problem is changes that the client(s)
+of an application require when enterprise beans, representing the business
+logic of the application, are added or changed. Look at 
+this problem in the context of the sample scenario.
+</p>
+
+<p>
+Typically, to represent the account of an user, the sample application 
+has an EJB that implements the business logic pertaining
+to the account details (such as name, login ID, and password) and an EJB 
+that handles personal profile of the user (such as personal preferences,
+language preference, and display style preference). When a new account is
+created or an existing account is modified, the client (JavaServer 
+Pages<SUP><FONT SIZE="-2">TM</FONT></SUP> (JSP<SUP><FONT SIZE="-2">TM</FONT></SUP>), servlets, or
+standalone application clients) must have access the account details EJB, as
+well as the personal profile EJB to read, store, and update all the details of the user. There is
+a kind of workflow involved. 
+</p>
+
+<p>
+Of course, this is a very simple case. There may be a much larger workflow required when a user places an order for a service offered, such as checking the user's account or credit status, getting appropriate approvals, and placing the order. In this case, to implement the complete workflow, the client(s) must have access to the account EJB to complete the appropriate task. The code sample below shows a servlet client that handles orders placed by a customer.
+</p>
+
+<p>
+<b><i>Code Sample 5: A servlet that does the workflow required for placing an order</i></b>
+</p>
+
+<p>
+<code>
+// all required imports;<br>
+// exceptions to be caught appropriately wherever applicable;<br>
+// This servlet assumes that for placing an order the account and<br>
+// credit status of the customer has to be checked before getting the<br>
+// approval and committing the order. For simplicity, the EJBs that<br>
+// represent the business logic of account, credit status etc are<br>
+// not listed<br>
+<br>
+public class OrderHandlingServlet extends HttpServlet {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// all required declarations, definitions<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void init() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// all inits required done here<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void doPost(HttpServletRequest request, HttpServletResponse
+ response)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+throws IOException, ServletException {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// other logic as required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get reference to the required EJBs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitialContext ctxt = new InitialContext();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object obj = ctxt.lookup("java:comp/env/ejb/UserAccount");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserAccountHome acctHome = (UserAccountHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, UserAccountHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserAccount acct = acctHome.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = ctxt.lookup("java:comp/env/ejb/CreditCheck");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreditCheckHome creditCheckHome = (CreditCheckHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, CreditCheckHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreditCheck credit = creditCheckHome.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = ctxt.lookup("java:comp/env/ejb/Approvals");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ApprovalsHome apprHome = (ApprovalsHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, ApprovalsHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approvals appr = apprHome.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = ctxt.lookup("java:comp/env/ejb/CommitOrder");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommitOrderHome orderHome = (CommitOrderHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, CommitOrderHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommitOrder order = orderHome.create();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Acquire the customer ID and order details;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Now do the required workflow to place the order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int result = acct.checkStatus(customerId);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(result != OK) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// stop further steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = credit.checkCreditWorth(customerId, currentOrder);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(result != OK) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// stop further steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = appr.getApprovals(customerId, currentOrder);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(result != OK) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// stop further steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Everything OK; place the order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = order.placeOrder(customerId, currentOrder);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do further processing as required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}</code>
+</p>
+
+
+
+<p>
+The code above shows a single client. If this application supports multiple types of 
+clients, each type of client will have its own code implementing this workflow
+logic. In such a scenario, if one of the EJBs that implements part of the
+workflow is modified, then all the clients initiating the workflow must be
+changed. If the nature of interactions between the EJBs that implement the workflow
+undergoes a change, then the client(s) must be made aware of this. If a new
+step is introduced in the workflow in the form of a new EJB, once again all the
+client(s) need to be changed. 
+</p>
+
+<p>
+It is very hard to manage the EJBs that require 
+corresponding changes in the client(s). Moreover, the 
+client(s) have to make separate remote calls for each of the EJBs to 
+implement the complete workflow. This increases the network traffic and 
+is not very efficient. As the application's complexity grows, this problem
+gets worse.
+</p>
+
+<p>
+<b>Suggested Pattern</b>
+</p>
+
+<p>
+The solution for this recurring problem is to insulate the client(s)
+from any changes that happen in the set of EJBs they use. The suggested solution is the
+use of the <i>Session Facade</i> pattern. The facade, which is implemented as a
+session bean, provides a unified interface for a set of enterprise beans that
+implement a workflow. As a result, the client(s) which trigger a workflow  
+use this unified interface provided by the facade. Any changes in the underlying
+EJBs that implement the workflow and any change to the workflow itself result in a
+change to the facade only.
+</p>
+
+<p>
+Look at a sample code that implements this idea. First review
+the code for a facade that handles workflow related to orders placed by customers.
+</p>
+
+<p>
+<i><b>Code Sample 6: A session facade that does the workflow required for placing an order</b></i>
+</p>
+
+<p>
+<code>
+// All imports required<br>
+// Exception handling not shown in the sample code<br>
+<br>
+public class OrderSessionFacade implements SessionBean {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// all EJB specific methods like ejbCreate defined here<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Here is the business method that does the workflow <br>
+&nbsp;&nbsp;&nbsp;&nbsp;// required when a customer places a new order<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public int placeOrder(String customerId, Details orderDetails) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws RemoteException {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get reference to the required EJBs<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitialContext ctxt = new InitialContext();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object obj = ctxt.lookup("java:comp/env/ejb/UserAccount");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserAccountHome acctHome = (UserAccountHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, UserAccountHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserAccount acct = acctHome.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = ctxt.lookup("java:comp/env/ejb/CreditCheck");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreditCheckHome creditCheckHome = (CreditCheckHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, CreditCheckHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CreditCheck credit = creditCheckHome.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = ctxt.lookup("java:comp/env/ejb/Approvals");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ApprovalsHome apprHome = (ApprovalsHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, ApprovalsHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approvals appr = apprHome.create();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;obj = ctxt.lookup("java:comp/env/ejb/CommitOrder");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommitOrderHome orderHome = (CommitOrderHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, CommitOrderHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommitOrder order = orderHome.create();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Now do the required workflow to place the order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int result = acct.checkStatus(customerId);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(result != OK) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// stop further steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = credit.checkCreditWorth(customerId, currentOrder);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(result != OK) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// stop further steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = appr.getApprovals(customerId, currentOrder);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(result != OK) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// stop further steps<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Everything OK; place the order<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int orderId = order.placeOrder(customerId, currentOrder);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Do other processing required<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(orderId);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Implement other workflows for other order related functionalities (like <br>
+&nbsp;&nbsp;&nbsp;&nbsp;// updating an existing order, canceling an existing order etc.) in a <br>
+&nbsp;&nbsp;&nbsp;&nbsp;// similar way<br>
+}
+</code></p>
+
+
+<p>
+Once this facade is available, the servlet code of Code Sample 5 is easy to implement, as shown below.
+</p>
+
+<p>
+<i><b>Code Sample 7: A servlet that uses the session facade to place an order</b></i>
+</p>
+
+<p>
+<code>
+// all required imports<br>
+// exceptions to be caught appropriately wherever applicable<br>
+<br>
+public class OrderHandlingServlet extends HttpServlet {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// all required declarations, definitions<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void init() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// all inits required done here<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void doPost(HttpServletRequest request, HttpServletResponse
+ response)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+throws IOException, ServletException {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// other logic as required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Get reference to the session facade<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitialContext ctxt = new InitialContext();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object obj = ctxt.lookup("java:comp/env/ejb/OrderSessionFacade");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OrderSessionFacadeHome facadeHome = (OrderSessionFacadeHome)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PortableRemoteObject.narrow(obj, OrderSessionFacadeHome.class);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OrderSessionFacade facade = facadeHome.create();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// trigger the order workflow<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int orderId = facade.placeOrder(customerId, currentOrder);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do further processing as required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}</code>
+</p>
+
+
+<p>
+As shown, with the facade, the logic in the client (in this case, the servlet) becomes
+very simple. Any change to the workflow requires a change in one place: the facade.
+There is no need to update the client(s), as they can continue to use the same
+interface. Moreover, the same facade can  
+implement the workflows for other processes (in the sample code, for example, the workflows
+related to orders, such as updating an existing order and removing an existing order).
+This lets you use the same facade for different client actions requiring different 
+workflows. In such a case, the flexibility that a facade provides, to keep the 
+application easily maintainable, multiplies in importance.
+</p>
+
+
+<p>
+<b>Points to Note</b>
+</p>
+
+<p>
+Here are some points to note while deciding to use this pattern:
+</p>
+
+<ul>
+<li>Since the facade does not represent data in the database, it is implemented as
+a session bean.</li>
+<li>This pattern is an ideal choice when a simple interface is required to a 
+complex subsystem of enterprise beans.</li>
+<li>This pattern is definitely not suitable if there is no workflow involved.</li>
+<li>This pattern results in a reduction of communication and dependencies between 
+client objects and enterprise beans.</li>
+<li>Since interactions between EJBs are handled only by the session facade, there is
+less chance of misuse of the EJBs by the clients.</li>
+<li>This pattern eases support for multiple client types.</li>
+<li>The facade can also reduce network traffic.</li>
+<li>Since the implementation details of the server are hidden from the client, 
+application services can be implemented or modified without client redeployment.</li>
+<li>The facade can also serve as a central place where security checks and
+all required logging is done.</li>
+</ul>
+
+<h3>Data Access Object</h3>
+
+<p>
+<b>Problem Domain</b>
+</p>
+
+<p>
+So far you have seen patterns that can be used to build flexible and easily maintainable
+J2EE applications. The patterns, in essence, decouple different tiers of the
+application as much as possible. But there is one more coupling that needs to be addressed: 
+the EJBs that represent data in the database. They include code (like SQL) 
+specific to a database. EJBs that have database-specific SQL code, are, in a sense, 
+coupled to the database type. If the database type is changed, all such EJBs must undergo change. 
+</p>
+
+<p>
+To define the problem in a more general way: having 
+data resource specific code in EJBs makes a tight coupling between the application 
+and the type of data resource. This can result in an inflexible and unmaintainable 
+application. The code below shows an EJB that has SQL embedded in it. For 
+simplicity, the code home and remote interface of the EJB are not shown.
+</p>
+
+<p>
+<i><b>Code Sample 8: An EJB that has SQL code embedded in it</b></i>
+</p>
+
+<p>
+<code>
+// all imports required<br>
+// exceptions not handled in the sample code<br>
+<br>
+public class UserAccountEJB implements EntityBean {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// All EJB methods like ejbCreate, ejbRemove go here<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Business methods start here<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public UserDetails getUserDetails(String userId) {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// A simple query for this example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String query = "SELECT id, name, phone FROM userdetails WHERE name = " + userId;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitialContext ic = new InitialContext();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datasource = (DataSource)ic.lookup("java:comp/env/jdbc/DataSource");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection dbConnection = datasource.getConnection();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statement stmt = dbConnection.createStatement();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResultSet result = stmt.executeQuery(queryStr);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// other processing like creation of UserDetails object<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stmt.close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbConnection.close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(details);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</code>
+</p>
+
+
+
+<p>
+<b>Suggested Pattern</b>
+</p>
+
+<p>
+The answer to this problem lies in decoupling the EJBs from the data resource. Such a
+decoupling lets you change the data resource type very easily. The suggested pattern
+for this is the Data Access Object (DAO) pattern. This patterns removes the data access
+specific logic from the EJBs and puts them in a separate interface. As a result, the EJBs
+carry on with their business logic and use the Data Access Objects whenever they 
+need to read or modify the data they represent. This implementation does not couple
+the EJBs with their data resource. A change of data resource requires only a change in the
+Data Access Objects. 
+</p>
+
+<p>
+The sample code listings below show an example of this decoupling. The first step is to create the Data Access Object. Code Sample 9 shows a DAO for the <code>UserAccountEJB</code> of Code Sample 8.
+</p>
+
+<p>
+<i><b>Code Sample 9: A Data Access Object that encapsulates all data resource access code</b></i>
+</p>
+
+<p>
+<code>
+// All required imports<br>
+// Exception handling code not listed below for simplicity <br>
+<br>
+public class UserAccountDAO {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;private transient Connection dbConnection = null;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public UserAccountDAO() {}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public UserDetails getUserDetails(String userId) {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// A simple query for this example<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String query = "SELECT id, name, phone FROM userdetails WHERE name = " + userId;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;InitialContext ic = new InitialContext();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datasource = (DataSource)ic.lookup("java:comp/env/jdbc/DataSource");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection dbConnection = datasource.getConnection();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statement stmt = dbConnection.createStatement();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResultSet result = stmt.executeQuery(queryStr);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// other processing like creation of UserDetails object<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stmt.close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dbConnection.close();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(details);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Other data access / modification methods pertaining to the UserAccountEJB<br>
+}
+</code>
+</p>
+
+
+
+<p>
+Now that you have a data access object, the <code>UserAccountEJB</code> can use that object
+and thereby decouple itself from an data resource specific code. This is shown in the
+code sample below.
+</p>
+
+<p>
+<i><b>Code Sample 10: An EJB that uses a DAO</b></i>
+</p>
+
+<p>
+<code>
+// all imports required<br>
+// exceptions not handled in the sample code<br>
+<br>
+public class UserAccountEJB implements EntityBean {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// All EJB methods like ejbCreate, ejbRemove go here<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Business methods start here<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public UserDetails getUserDetails(String userId) {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// other processing as required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserAccountDAO dao = new UserAccountDAO();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserDetails details = dao.getUserDetails(userId);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// other processing as required<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(details);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+</code>
+</p>
+
+
+
+<p>
+Any change in the data resource now only requires a change in the DAO. Moreover, to enable an application to support different types of data resources, you can develop different data access objects for different
+types of data resources, and then specify the data resource to be used as part of the deployment environment of the EJB. In such a case, the EJB can get the DAO through the use of a factory object, which in turn gets the DAO to be used from the deployment environment. An application implemented this way can easily change from
+one type of data resource to another, as there is no code change required. An example of this implementation is shown in the Java Pet Store demo code of the <a href="http://java.sun.com/j2ee/blueprints">J2EE BluePrints Program</a>.
+</p>
+
+<p>
+<b>Points to Note</b>
+</p>
+
+<p>
+Here are some points to note when deciding to use this pattern:
+</p>
+
+<ul>
+<li>This pattern separates the business logic from the data access logic.</li>
+<li>This pattern is specially useful in applications that use bean-managed 
+persistence. Use of this pattern also eases the migration to container-managed 
+persistence at a later point of time.</li>
+<li>DAOs enable selection of data resource type at the time of
+application deployment.</li>
+<li>DAOs improve the flexibly and extensibility of the application because additional
+support of a new data resource type is very easy.</li>
+<li>DAOs need not be limited to accessing databases. They can also access
+data resource of other types, such as XML data source.</li>
+<li>Use of this pattern results in extra classes and might result in a slight increase in the
+complexity of applications.</li>
+</ul>
+
+<h3>Going Forward</h3>
+
+<p>
+In this article, you have seen design patterns that you can use effectively to build a J2EE application. The patterns--MVC architecture, Front Controller, Session Facade, and Data Access Object--focus on 
+decoupling different tiers and layers to achieve the flexibility and maintainability. 
+</p>
+
+<p>
+The Java Pet Store Demo sample application and the patterns catalog of the <a href="http://java.sun.com/j2ee/blueprints"> J2EE BluePrints program</a> give formal definitions of the patterns, along with UML diagrams and working sample code. If you want to discuss these patterns:
+
+<ol>
+  <li> Sign up for the 
+  <a href="http://archives.java.sun.com/archives/j2eeblueprints-interest.html">J2EE 
+  BluePrints interest list</a>
+  <li> After you sign up, you can use the j2eeblueprints-interest@java.sun.com mail alias.
+</ol>
+
+<A NAME="resources"></A><H4>Resources</H4>
+
+<ol>
+ 
+  <li>Design Patterns section of the <a href="http://java.sun.com/j2ee/blueprints">
+ J2EE BluePrints Program</a> </li>
+ 
+  <li>F. Buschmann, R. Meunier, H. Rohnert, P. Sommerlad, M. Stal. <i>Pattern-Oriented
+Software Architecture: A System of Patterns.</i> John Wiley &amp; Sons Ltd.,
+ 1996.</li>
+ 
+  <li>M. Fowler's <a href="http://martinfowler.com/isa/index.html">Information
+System Architecture</a>.</li>
+ 
+  <li>E. Gamma, R. Helm, R. Johnson, J. Vlissides. <i>Design Patterns: Elements
+of Reusable Object-Oriented Software.</i> Addison-Wesley, 1995.</li>
+ 
+  <li><a href="http://hillside.net/patterns/writing/GOFtemplate.htm">"Gang
+of Four" Patterns Template</a></li>
+ 
+</ol>
+
+<!-- End Body -->
+
+<p>
+<IMG SRC="/images/coffeecup13x10.gif" WIDTH="13" HEIGHT="10" alt="Coffecup Logo">
+
+<H4>About the Author</H4>
+
+<p>
+<b>Vijay Ramachandran</b> is a member of the J2EE BluePrints team for Sun Microsystems, 
+and contributed to the recent Java Pet Store sample application. He is currently focusing on the Web services features of
+forthcoming J2EE releases. 
+<HR>
+
+<H3>Reader Feedback</H3><p>
+
+Tell us what you think of this article.
+
+<p>
+<IMG SRC="/images/T7.gif" WIDTH="85" HEIGHT="63" ALT="" ALIGN="LEFT">
+
+<FORM METHOD="POST" ACTION="/servlet/jdc.survey.TabulationServlet">
+<INPUT TYPE="hidden" NAME="survey_id" VALUE="2600"> 
+<INPUT TYPE="hidden" NAME="anonymous" VALUE="True">
+<INPUT TYPE="hidden" NAME="answer_count" VALUE="3">
+<INPUT TYPE="hidden" NAME="answer1" VALUE="despat_1101">
+<INPUT NAME="answer2" TYPE="RADIO" VALUE="2">&nbsp; Very worth reading
+<INPUT NAME="answer2" TYPE="RADIO" VALUE="1">&nbsp; Worth reading
+<INPUT NAME="answer2" TYPE="RADIO" VALUE="0">&nbsp; Not worth reading
+
+<p>
+If you have other comments or ideas for future articles, please 
+type them here:
+
+<p>
+<TEXTAREA NAME="answer3" ROWS="2" COLS="50"></TEXTAREA>
+
+<p>
+<INPUT TYPE="SUBMIT" VALUE="Submit">
+<INPUT TYPE="RESET">
+</FORM>
+
+<!--
+<HR><A NAME="footnote"></A>
+<FONT SIZE="-1">
+<SUP>1</SUP> As used on this web site, the terms Java virtual
+machine or Java VM mean a virtual machine for the Java platform.
+</FONT>
+-->
+
+<!-- ================ -->
+<!-- End Main Content -->
+<!-- ================ -->
+
+</TD>
+</TR>
+</TABLE>
+
+<!--stopindex-->
+
+<!-- Copyright Insert -->
+
+<BR CLEAR="ALL">
+
+<FORM ACTION="/cgi-bin/search.cgi" METHOD="POST">
+<TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="5">   
+  <TR>
+    <TD VALIGN="BOTTOM">
+<A HREF="/servlet/PrintPageServlet" OnClick="javascript:printpage();return false;"><IMG SRC="/images/printbutton.gif" WIDTH="155" HEIGHT="25" ALT="Print Button" BORDER="0"></A>
+	
+    <CENTER>
+    <FONT SIZE="-1" COLOR="#999999">
+    [ This page was updated: <!-- new date --> 14-Jan-2002 ]
+    </FONT></CENTER>
+    </TD>
+  </TR>
+  
+  <TR>
+    <TD BGCOLOR="#CCCCCC">
+    <IMG SRC="/images/pixel.gif" HEIGHT="1" WIDTH="1" ALT=""></TD>
+  </TR>
+  
+  <TR>
+    <TD>
+    <CENTER>
+    <FONT SIZE="-2">
+    <A HREF="http://java.sun.com/products/">Products &amp; APIs</A> | 
+    <A HREF="/developer/index.html">Developer Connection</A> | 
+    <A HREF="/developer/infodocs/">Docs &amp; Training</A> | 
+    <A HREF="/developer/support/index.html">Online Support</A><BR>
+    <A HREF="/developer/community/index.html">Community Discussion</A> |
+    <A HREF="http://java.sun.com/industry/">Industry News</A> | 
+    <A HREF="http://java.sun.com/solutions">Solutions Marketplace</A> | 
+    <A HREF="http://java.sun.com/casestudies">Case Studies</A>
+    </FONT>
+    </CENTER>
+    </TD>
+  </TR>
+  
+  <TR>
+    <TD BGCOLOR="#CCCCCC">
+    <IMG SRC="/images/pixel.gif" HEIGHT="1" WIDTH="1" ALT=""></TD>
+  </TR>
+
+  <TR>
+    <TD>
+    <CENTER>
+    <FONT SIZE="-2">
+    <A HREF="http://java.sun.com/docs/glossary.html">Glossary</A> |
+    <A HREF="http://servlet.java.sun.com/help/">Help Pages</A> 
+    </FONT>
+    </CENTER>
+
+    </TD>
+  </TR>
+  
+  <TR>
+    <TD>
+
+    <TABLE WIDTH="100%" CELLPADDING="0" BORDER="0" CELLSPACING="0">
+      <TR>
+        <TD WIDTH="50%">
+        <FONT SIZE="-2">
+        For answers to common questions and further contact<BR>
+       information please see the java.sun.com 
+       <A HREF="http://servlet.java.sun.com/help/">Help Pages</A>. <br><br>
+       Unless otherwise licensed, code in all technical materials herein <br>
+    (including articles, FAQs, samples) is provided under this 
+    <a href="/berkeley_license.html">License</a>.
+        <BR>
+        </FONT>
+        </TD>
+
+        <TD ALIGN="RIGHT" WIDTH="50%">
+        <A HREF="http://www.sun.com"><IMG SRC="/images/lgsun.gif" width="64" height="30" border="0" ALT="Sun Microsystems, Inc."></A><BR>
+        <FONT SIZE="-2">
+        Copyright &copy; 1995-2002
+        <A HREF="http://www.sun.com">Sun Microsystems, Inc.</A><BR>
+        All Rights Reserved. 
+        <A HREF="http://www.sun.com/share/text/termsofuse.html">Terms of Use</A>. 
+        <A HREF="http://www.sun.com/privacy/">Privacy&nbsp;Policy</A>.
+        </FONT>
+        </TD>
+      </TR>
+    </TABLE>
+	
+    </TD>
+  </TR> 
+</TABLE>
+</FORM>
+
+<!-- End Copyright Insert -->
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,54 @@
+<HTML>
+<HEAD><TITLE>Creational Patterns</TITLE></HEAD>
+<BODY BGCOLOR=#CCCCCC>
+
+<H2>Creational Patterns</H2>
+
+Four creational patterns (AbstractFactory, Builder, FactoryMethod,
+and Prototype) deal with the construction of complex objects.
+They are useful when the objects come in different flavors, or
+families, of related components.  For the purpose of the following
+exercises, the "complex object" is an computer account and a
+corresponding security manager. (This is not really complex,
+but the focus is only on the structure of the patterns.)
+
+<H2>Problem (2.1)</H2>
+<BLOCKQUOTE>
+
+The complex objects of this problem come in several flavors referred to as
+"economy", "standard" and "professional".
+The differences between these flavors concerns the resources that
+an account can use, e.g.:
+
+<BLOCKQUOTE>
+<TABLE BORDER=2>
+  <TR>
+    <TD></TD><TD>Econ</TD><TD>Std</TD><TD>Pro</TD>
+  </TR>
+  <TR>
+    <TD>Hours months</TD>
+    <TD>60</TD><TD>150</TD><TD>unlim</TD>
+  </TR>
+  <TR>
+    <TD>Connect speed</TD>
+    <TD>56</TD><TD>56</TD><TD>unlim</TD>
+  </TR>
+  <TR>
+    <TD>Mailboxes</TD>
+    <TD>1</TD><TD>3</TD><TD>5</TD>
+  </TR>
+  <TR>
+    <TD>Storage</TD>
+    <TD>5</TD><TD>12</TD><TD>50</TD>
+  </TR>
+</TABLE>
+</BLOCKQUOTE>
+
+A <EM>security manager</EM> is an object associated to an account.
+It monitors that an account does not use more resources than allowed.
+A user is an object that contains an account and its associated
+security monitor.
+
+</BLOCKQUOTE>
+</BODY>
+</HTML>

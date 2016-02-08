@@ -1,0 +1,10 @@
+Dynamic linkage is not necessary for dynamic loading. Design and
+execute a small experiment to verify that a class is loaded only
+when needed. For instance, the need to load a class arises when
+the class's constructor is executed. 
+
+Hint: Designate a class as "expensive to instantiate". Code a
+program that waits for user input. When the user provides this
+input, a method of the proxy executes the constructor of the
+expensive-to-instantiate class. Remove this class from the file
+system and execute the program.

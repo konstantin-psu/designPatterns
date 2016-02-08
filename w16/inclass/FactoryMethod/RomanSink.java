@@ -1,0 +1,2 @@
+class RomanSink implements Sink {
+}

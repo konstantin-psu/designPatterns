@@ -1,0 +1,57 @@
+<HTML>
+<TITLE>Single Threaded Execution</TITLE>
+<BODY>
+
+<H2>Single Threaded Execution</H2>
+
+<TABLE BORDER=1>
+<TR>
+<TD>Origin:</TD>
+<TD>Grand 98</TD>
+</TR>
+<TR>
+<TD>Reason:</TD>
+<TD>
+    To prevent concurrent access to data or other resouces
+    (aka Critical Section).
+</TD>
+</TR>
+<TR>
+<TD>Synopsis:</TD>
+<TD>
+    Synchronize on a same object the portions of code that
+    should not be concurrently executed.
+</TR>
+<TR>
+<TD>Example:</TD>
+<TD>
+    Several threads set and get a datum held by an object.
+    The time of an access is non deteministic.
+</TD>
+</TR>
+<TR>
+<TD>Solution:</TD>
+<TD>
+    In its simplest form, setter and getter methods of a non-concurrent
+    resouce look like:
+<BLOCKQUOTE><TABLE BGCOLOR=000000 CELLPADDING=10 WIDTH=75%><TR><TD><FONT COLOR=FFFF00><PRE>
+class HoldDatum {
+    private Datum datum;
+    public <FONT COLOR=FFFFFF><B>synchronized</B></FONT> void set (Datum d) { datum = d; }
+    public <FONT COLOR=FFFFFF><B>synchronized</B></FONT> Datum get () { return datum; }
+}
+</PRE></FONT></TD></TR></TABLE></BLOCKQUOTE>
+    A resource such as an I/O stream may be accessed by a
+    single <EM>synchronized</EM> method.
+</TD>
+</TR>
+<TR>
+<TD>See also:</TD>
+<TD>
+    This pattern is used by other "temporal" patterns.
+</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

@@ -1,0 +1,311 @@
+<HTML>
+<HEAD>
+<TITLE>Design Patterns, W00 exam</TITLE>
+</HEAD>
+<BODY>
+<DIV ALIGN="RIGHT">
+CS510 Design Patterns, Winter 00, Final, March 13
+<BR>
+<BR>
+Name: ______________________
+</DIV>
+<P>
+<BR>
+<BR>
+
+<P>
+This is an individual, closed-book exam.
+There are 6 problems.
+You have 75 minutes to complete this exam.
+
+<P>
+If a problem asks for an example or a fragment of code,
+please, answer with the simplest example or fragment of code
+you can think of.
+
+<P>
+If a problem asks for a Yes/No or similar answer, please
+make sure that your solution provides this answer.
+
+<P>
+If you feel that you need to make additional assumptions
+for the solution of a problem, please state the assumptions
+you make.
+
+<!--
+<P>
+<B>Return this exam stapled to your answers.</B>
+You are encouraged to write your answers on this exam
+whenever possible.  You can use additional sheets
+if you need to write more.
+-->
+
+<P>
+<BR>
+<BR>
+
+<P>
+<DL COMPACT>
+<DD><P>
+<DT>1.
+<DD>
+What is the name of the pattern intended
+to prevent concurrent access to data?
+
+<P>
+<FONT COLOR=440099><PRE>
+    Single Threaded Execution
+</PRE></FONT>
+<P>
+Sketch the code/structure of this pattern.
+
+<P>
+<FONT COLOR=440099><PRE>
+    class HoldDatum {
+        private Datum datum;
+        public synchronized void set (Datum d) { datum = d; }
+        public synchronized Datum get () { return datum; }
+    }
+</PRE></FONT>
+<P>
+<BR>
+
+<P>
+<DT>2.
+<DD>
+The <EM>Singleton Pattern</EM> relies on two key Java constructs
+or features to ensure that:
+(1) at most only one object of a class is ever created by clients, and
+(2) a reference to the unique instance of the singleton class is always accessible to clients.
+
+<P>
+Name and briefly explain these features.
+
+<P>
+<FONT COLOR=440099><PRE>
+    PRIVATE CONSTRUCTOR: a private constructor that ensures that
+    the singleton class cannot be instantiated by clients.
+
+    STATIC getInstance METHOD: a static method that returns
+    a reference to the unique instance of the singleton class.
+</PRE></FONT>
+<P>
+Sketch the code/structure of this pattern.
+
+<P>
+<FONT COLOR=440099><PRE>
+    class Singleton {
+        private Singleton () {}
+        private static Singleton instance = new Singleton ();
+        public static Singleton getInstance () { return instance; }
+    }
+</PRE></FONT>
+<P>
+<BR>
+
+<P>
+<DT>3.
+<DD>
+A command of a <EM>Command Pattern</EM>, say <EM>SetCurrentClock</EM>,
+is intended to set the current time within an application program.
+
+<P>
+Discuss the key elements of a class that implements
+the <EM>SetCurrentClock</EM> command and sketch its code.
+Hint: you can assume the existence of any time manipulation
+method that you need.  Use an expressive enough name for any
+such method and/or describe with a comment or separately what the method does.
+
+<P>
+<FONT COLOR=440099><PRE>
+    Class SetCurrentClock extends some base class, say Command.
+    Class SetCurrentClock has methods doit and undoit.
+    Class SetCurrentClock stores internally the difference
+    between the application clock time before being set by the
+    method doit and the application clock time after being set.
+
+    This allows the undoit method to later restore the clock time
+    as if the doit command had not been executed.
+</PRE></FONT>
+<P>
+Sketch the code/structure of the <EM>SetCurrentClock</EM> class.
+
+<P>
+<FONT COLOR=440099><PRE>
+    class SetCurrentClock extends Command {
+        private Time delta;
+        public void doit (Time toBeSet) {
+           delta = time difference between current time and time to be set;
+           // advance (or delay) current time by delta
+           add delta to current time;
+        }
+        public void undoit () { 
+            // undo what method doit did
+           subtract delta to current time;
+        }
+    }
+</PRE></FONT>
+<P>
+<BR>
+
+<P>
+<DT>4.
+<DD>
+The <EM>Factory Method Pattern</EM> is used to construct
+families of related objects.  This pattern relies on a key
+property of Object Oriented Programming Languages and
+Java in particular.
+
+<P>
+Describe this property and how it enables the pattern
+to construct different objects.  Hint: In your answer,
+I am looking for a clear, complete and concise explanation.
+I do not want to read code.
+
+<P>
+<FONT COLOR=440099><PRE>
+    The Factory Method Pattern consists of a base abstract class B
+    and specialized subclasses.  Class B defines a method
+    referred to as the "factory method" which is not overridden
+    in subclasses.  Class B also declares abstract methods, m1, m2, ...
+    which are defined in subclasses.  The factory method calls
+    m1, m2, ...  When the factory method is executed for an object
+    of a subclass S of B, the calls to m1, m2, ... are executed
+    by the methods of S that override m1, m2, ...  The differences
+    between m1, m2, ... in different subclasses of B are responsible
+    for the differences in the objects constructed by these subclasses.
+</PRE></FONT>
+<P>
+<BR>
+
+<P>
+<DT>5.
+<DD>
+The <EM>Visitor Pattern</EM> relies on both <EM>overloading</EM>
+and <EM>overriding</EM> of methods.  Briefly define these concepts and use
+a minimal abstract example to clarify your statements or definitions.
+I am not asking for a description or an example of an actual visitor.
+
+<P>
+What are the conventional names and signatures of the overloaded
+and overridden methods in the <EM>Visitor Pattern</EM>.
+
+<P>
+<FONT COLOR=440099><PRE>
+    Two methods with the same name (identifier) are OVERLOADED
+    when they have the same scope.  The methods must have a
+    different signature.  The ambiguity is resolved
+    at compile-time, by looking at the DECLARATION of the
+    overloaded method arguments.  E.g.,
+
+             class S extends B { ... }
+             void f (B b) { ...}             // 1
+             void f (S s) { ... }            // 2
+             B b = new S ();
+             f (x);                          // calls 2
+
+    A method f declared in a class S that extends B OVERRIDES
+    a method with the same name AND SIGNATURE and RETURN type
+    declared in B. The abmiguity is resolved at run-time.
+    The method executed by a call to f depends on the actual
+    type of the object to which f belongs to.  E.g.,
+
+            class B { void f () { ... } }
+            class S extends B { void f () { ... } }
+            B b = new S ();
+            b.f ()             // execute f defined in S
+             
+
+    In the Visitor Pattern, method accept in an Element class is
+    overidden, and method visit in a concrete Visitor is overloaded.
+</PRE></FONT>
+<P>
+<BR>
+
+<P>
+<DT>6.
+<DD>
+For each question check zero or more choices according to the directions.
+
+<P>
+<DL COMPACT>
+<DD><P>
+<DT>(a)
+<DD>
+A not-yet-loaded Java class is loaded when (check the most accurate choice):
+<DL COMPACT>
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>A constructor is invoked.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>A static member is referenced.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Both of the above choices.
+<DT><U>&nbsp;&nbsp;<FONT COLOR=440099>X</FONT>&nbsp;&nbsp;</U>
+<DD>All of the above choices and in additional situations.
+</DL>
+<P>
+<DT>(b)
+<DD>
+The <EM>equals</EM> method in class <EM>java.lang.Object</EM>
+(check all the correct choices):
+<DL COMPACT>
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Takes two arguments to compare.
+<DT><U>&nbsp;&nbsp;<FONT COLOR=440099>X</FONT>&nbsp;&nbsp;</U>
+<DD>Can be overridden in subclasses.
+<DT><U>&nbsp;&nbsp;<FONT COLOR=440099>X</FONT>&nbsp;&nbsp;</U>
+<DD>Tests whether two references refer to the same object.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Tests whether two references refer to objects with the same value.
+</DL>
+<P>
+<DT>(c)
+<DD>
+<EM>Enumeration</EM> in package <EM>java.util</EM> identifies
+(check all the correct choices):
+<DL COMPACT>
+<DT><U>&nbsp;&nbsp;<FONT COLOR=440099>X</FONT>&nbsp;&nbsp;</U>
+<DD>An interface.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>An abstract class.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>A (concrete) class.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>None of the above choices.
+</DL>
+<P>
+<DT>(d)
+<DD>
+The <EM>Prototype Pattern</EM> creates new objects by
+(check the most accurate choice):
+<DL COMPACT>
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Shallow copying.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Deep copying.
+<DT><U>&nbsp;&nbsp;<FONT COLOR=440099>X</FONT>&nbsp;&nbsp;</U>
+<DD>An appropriate combination of both the above choices.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Invoking either method <EM>clone</EM> or a ``copy constructor.''
+</DL>
+<P>
+<DT>(e)
+<DD>
+The ``extrinsic state'' of a <EM>Flyweight</EM> object is
+(check all the correct choices):
+<DL COMPACT>
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Information shared by all the <EM>Flyweight</EM> objects.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Information shared by some <EM>Flyweight</EM> objects.
+<DT><U>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</U>
+<DD>Information shared by no <EM>Flyweight</EM> objects.
+<DT><U>&nbsp;&nbsp;<FONT COLOR=440099>X</FONT>&nbsp;&nbsp;</U>
+<DD>Information stored by clients of <EM>Flyweight</EM> objects.
+</DL>
+<P>
+</DL></DL>
+<P>
+<BR>
+</BODY>
+</HTML>

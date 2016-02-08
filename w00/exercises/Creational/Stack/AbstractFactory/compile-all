@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Compile all program in this directory and subdirectories
+# Sergio Antoy, Fri Oct  8 09:32:58 PDT 1999
+
+export CLASSPATH=.:`pwd`
+
+for direct in `find . -type d`; do
+  pushd $direct > /dev/null 2>&1
+  java=`ls *.java 2> /dev/null`
+  if [ "$java" != "" ]; then
+    echo compiling all files in directory $direct
+    rm -f *.class
+    javac *.java
+  fi
+  popd > /dev/null 2>&1
+done
+
+# java Director
+# next will produce an exception
+# java Director 10
+# java Director 31

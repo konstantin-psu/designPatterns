@@ -1,0 +1,42 @@
+
+<HTML>
+
+<HEAD>
+
+<meta name="GENERATOR" content="Microsoft Internet Assistant for PowerPoint 97">
+ <TITLE>Code Example: Scheduler continued</TITLE> 
+</HEAD>
+
+<BODY     >
+
+ <H1>Code Example: Scheduler continued</H1> 
+ <P><UL>
+<H2>synchronized public void done() {
+</H2>
+</UL><UL>
+<H2>    if (runningThread != Thread.currentThread()) {
+</H2>
+</UL><UL>
+<H2>        String msg = "Wrong Thread";
+</H2>
+</UL><UL>
+<H2>        throw new IllegalStateException(msg);
+</H2>
+</UL><UL>
+<H2>    } // if</H2>
+</UL></P>
+<P></P> 
+<P>
+<TABLE>
+  <TD HEIGHT=100 WIDTH=100> <A HREF="tsld061.htm">Previous slide</A> </TD>
+  <TD HEIGHT=100 WIDTH=100> <A HREF="tsld063.htm">Next slide</A> </TD>
+  <TD HEIGHT=100 WIDTH=150> <A HREF="tsld001.htm">Back to first slide</A> </TD>
+  <TD HEIGHT=100 WIDTH=150> <A HREF="sld062.htm">View graphic version</A> </TD>
+</TABLE>
+<BR>
+</P>
+
+
+
+</Body>
+</HTML>

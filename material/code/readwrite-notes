@@ -1,0 +1,32 @@
+The ReadWrite Lock pattern is not trivial.  Design and code a test
+harness for the implementation of this pattern provided in the CD
+that comes with the textbook.  Your test harness should create a
+dozen or two threads that at random intervals either read or
+write a complex object (such as the position of exercise 6.1).
+Try to instrument the entire code to verify that access to read
+or write is granted or denied when appropriate.
+
+Tranform exercise 6.1 (Single Threaded Execution) to use the
+Read/Write Lock pattern.  To make the exercise more realistic,
+construct several threads that frequently try to read and a
+couple of threads that once in a while write the Position.
+
+Design, code and test your implementation.
+
+------------------------------------------------------------------
+
+In java.lang.Object API
+
+A thread becomes the owner of the object's monitor in one of three ways: 
+  - By executing a synchronized instance method of that object. 
+  - By executing the body of a synchronized statement that
+    synchronizes on the object.
+  - For objects of type Class, by executing a synchronized static
+    method of that class. 
+Only one thread at a time can own an object's monitor.
+
+When obj.wait() is called, the current thread must own obj's
+monitor.
+
+When obj.notify() is called, the current thread must be the owner
+of obj's monitor.
