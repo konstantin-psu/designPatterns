@@ -1,7 +1,9 @@
 class Cons<E> implements ListIF<E> {
-    E head;
-    ListIF<E> tail;
-    Cons(E head, ListIF<E> tail) {
+    // Head of the list contains some generic data
+    private E head;
+    // Tail of the list
+    private ListIF<E> tail;
+    public Cons(E head, ListIF<E> tail) {
         this.head = head;
         this.tail = tail;
     }

@@ -1,6 +1,6 @@
 interface StackImplementationIF<E> {
-    E push(E c);
-    E pop();
-    E peek();
-    boolean isEmpty();
+    public E push(E c);
+    public E pop();
+    public E peek();
+    public boolean isEmpty();
 }

@@ -1,33 +1,60 @@
 import java.util.Enumeration;
+
+
 class Stack<E> implements Cloneable {
-    StackImplementationIF<E> stackImpl = new StackArray<E>();
+
+    // Actual stack implementation
+    private StackImplementationIF<E> stackImpl = new StackArray<E>();
     
-    Stack() {
+    /**
+     *  Use cloneable interface to get a copy of the stack.
+     *  @return Return a copy of the stack.
+     */
+    public Stack<E> clone() {
+        try { return (Stack<E>) super.clone(); }
+        catch(CloneNotSupportedException ex) {
+            System.out.println(ex.getMessage());
+            System.exit(1);
+            return null;
+        }
     }
-    public Stack clone() {
-    try { return (Stack) super.clone(); }
-    catch(CloneNotSupportedException ex) {
-        System.out.println(ex.getMessage());
-        System.exit(1);
-        return null;
-    }
-    }
-    boolean isEmpty() {
+
+    /**
+     *  Return true if the stack is empty.
+     *  @return Return true if the stack is empty, otherwise false.
+     */
+    public boolean isEmpty() {
         return stackImpl.isEmpty();
     }
-    E peek() {
+
+    /**
+     *  Pop an item from the stack.
+     *  @return Return the generic value at the top of the stack.
+     */
+    public E peek() {
         return stackImpl.peek();
     }
-    E pop() {
+
+    /**
+     *  Pop an item from the stack.
+     *  @return Return the generic value popped from the stack.
+     */
+    public E pop() {
         return stackImpl.pop();
     }
-    E push(E item) {
+
+    /**
+     *  Push an item onto the stack.
+     *  @param item The generic value pushed onto the stack.
+     *  @return Return the generic value pushed onto the stack.
+     */
+    public E push(E item) {
         try {
             stackImpl.push(item);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Switching to unbound implementation");
-            StackImplementationIF<E> stackImplTemp = new ListStack2<E>();
-            for (Enumeration en = new ImplIterator(this); en.hasMoreElements();) {
+            System.out.println("Array is full. Switching to unbound implementation");
+            StackImplementationIF<E> stackImplTemp = new ListStack<E>();
+            for (Enumeration en = new ImplIterator<E>(this); en.hasMoreElements();) {
                 E c = (E) en.nextElement();
                 stackImplTemp.push(c);
             }

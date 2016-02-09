@@ -1,18 +1,17 @@
 import java.util.Enumeration;
 import java.util.LinkedList;
 
-class ImplIterator implements Enumeration 
+class ImplIterator<E> implements Enumeration 
 {
-    LinkedList list = new LinkedList();
-    ImplIterator(Stack stack) { 
-        Stack c = stack.clone();
+    private LinkedList<E> list = new LinkedList<E>();
+    ImplIterator(Stack<E> stack) { 
+        Stack<E> c = stack.clone();
         while(!stack.isEmpty()) {
             list.addFirst(c.pop());
         }
     }
     public boolean hasMoreElements() { return ! list.isEmpty(); }
-    public Object nextElement() { 
-        Object current = list.poll();
-        return current; 
+    public E nextElement() { 
+        return list.poll();
     }
 }

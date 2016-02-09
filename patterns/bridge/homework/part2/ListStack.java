@@ -1,18 +1,20 @@
 import java.util.*;
 class ListStack<E> implements StackImplementationIF<E> {
-    LinkedList<E> elements = new LinkedList<E>();
+    private ListIF<E> elements = new Nil<E>();
     public E push(E c) {
-        elements.addFirst(c);
+        elements = new Cons<E>(c,elements);
         return c;    
     }
-    public E peek() {
-        return elements.peek();    
-    }
     public E pop() {
-        E t = elements.poll();
-        if (t == null) { throw new IllegalStateException("Empty List"); }
-        return t;
+        E r = elements.head();
+        elements = elements.tail();
+        return r;
     }
+
+    public E peek() {
+        return elements.head();
+    }
+
     public boolean isEmpty() {
         return elements.isEmpty();
     }
