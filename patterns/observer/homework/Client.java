@@ -4,15 +4,11 @@ import java.awt.*;
 public class Client extends JFrame {
     public Client() {
         Observer observer = new Observer();
-        System.out.println("Test;");
         setSize(400,50);
         JPanel panel = new JPanel();
         setTitle("Observerable");
         setLayout(new GridLayout(1,2,3,3));
         Digital field1 =new Digital(observer);
-
-
-
 
         panel.add(field1, BorderLayout.LINE_START);
         Slider slider = new Slider(observer);
