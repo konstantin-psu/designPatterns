@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 
 public class TextBox extends JTextField implements ObservableIF {
     private Observer observer;
-    TextBox(Observer observer) {
+    public TextBox(Observer observer) {
         this.observer = observer;
         this.observer.register(this);
         setColumns(3);
@@ -36,8 +36,7 @@ public class TextBox extends JTextField implements ObservableIF {
     }
 
     /**
-     *  Setup field filter to 
-     *    limit the text area to numeric input of max length 3
+     *  Setup the field to limit the text area to numeric input of max length 3
      */
     private void setFilter() {
 

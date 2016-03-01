@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Client extends JFrame {
     public Client() {
-	// Create  and setup main window
+    	// Create  and setup main window
         JPanel panel = new JPanel();
         setSize(400,50);
         setTitle("Observer Assignment");
@@ -14,7 +14,7 @@ public class Client extends JFrame {
         TextBox field1 =new TextBox(observer);
         Slider slider = new Slider(observer);
 
-	// Set up main window layout and various attributes
+    	// Set up main window layout and various attributes
         panel.add(field1, BorderLayout.LINE_START);
         panel.add(new Slider(observer));
         add(panel);
@@ -23,6 +23,8 @@ public class Client extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+
+        // Set default value to 89
         observer.update(slider,89);
     }
 }
