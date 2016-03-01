@@ -3,15 +3,19 @@ import java.awt.*;
 
 public class Client extends JFrame {
     public Client() {
-        Observer observer = new Observer();
-        setSize(400,50);
+	// Create  and setup main window
         JPanel panel = new JPanel();
-        setTitle("Observerable");
+        setSize(400,50);
+        setTitle("Observer Assignment");
         setLayout(new GridLayout(1,2,3,3));
-        Digital field1 =new Digital(observer);
 
-        panel.add(field1, BorderLayout.LINE_START);
+        Observer observer = new Observer();
+
+        Digital field1 =new Digital(observer);
         Slider slider = new Slider(observer);
+
+	// Set up main window layout and various attributes
+        panel.add(field1, BorderLayout.LINE_START);
         panel.add(new Slider(observer));
         add(panel);
         setResizable(false);

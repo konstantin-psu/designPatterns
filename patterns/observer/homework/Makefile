@@ -1,4 +1,6 @@
 all:
 	javac *.java
 clean:
-	rm -f *.javac
+	rm -f *.class
+run:
+	make all && java Main && make clean

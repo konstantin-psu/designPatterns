@@ -5,7 +5,7 @@ import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
 import java.awt.event.ActionEvent;
 
-public class Digital extends JTextField implements Settable {
+public class Digital extends JTextField implements ObservableIF {
     private Observer observer;
     Digital(Observer observer) {
         this.observer = observer;
@@ -13,12 +13,13 @@ public class Digital extends JTextField implements Settable {
         setColumns(3);
         setText("0");
         setVisible(true);
+
+        // Catch return 
         Action action = new AbstractAction()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                System.out.println("some action");
                 update();
             }
         };
@@ -34,6 +35,7 @@ public class Digital extends JTextField implements Settable {
         observer.update(this,new Integer(getText()));
     }
 
+    // Limit the text area to numeric input of max length 3
     private void setFilter() {
 
         PlainDocument doc = (PlainDocument) getDocument();

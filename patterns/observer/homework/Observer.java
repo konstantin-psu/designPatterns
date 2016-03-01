@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
 public class Observer {
-    ArrayList<Settable> observabals = new ArrayList<Settable>();
+    ArrayList<ObservableIF> observables = new ArrayList<ObservableIF>();
 
-    void register(Settable settable) {
-        if (!observabals.contains(settable)) {
-            observabals.add(settable);
+    void register(ObservableIF settable) {
+        if (!observables.contains(settable)) {
+            observables.add(settable);
         }
     }
 
-    void update(Settable settable, int value) {
-        for (Settable c: observabals) {
+    void update(ObservableIF settable, int value) {
+        for (ObservableIF c: observables) {
             if (settable != c) {
                 c.set(value);
             }

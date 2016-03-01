@@ -2,7 +2,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Slider extends JSlider implements Settable {
+public class Slider extends JSlider implements ObservableIF {
     private Observer observer;
     Slider(Observer observer) {
         super(0,100);
