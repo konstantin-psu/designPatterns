@@ -5,16 +5,16 @@ import javax.swing.text.DocumentFilter;
 import javax.swing.text.PlainDocument;
 import java.awt.event.ActionEvent;
 
-public class Digital extends JTextField implements ObservableIF {
+public class TextBox extends JTextField implements ObservableIF {
     private Observer observer;
-    Digital(Observer observer) {
+    TextBox(Observer observer) {
         this.observer = observer;
         this.observer.register(this);
         setColumns(3);
         setText("0");
         setVisible(true);
 
-        // Catch return 
+        // Update on return
         Action action = new AbstractAction()
         {
             @Override
@@ -31,11 +31,14 @@ public class Digital extends JTextField implements ObservableIF {
         setText(value + "");
     }
 
-    public void update() {
+    private void update() {
         observer.update(this,new Integer(getText()));
     }
 
-    // Limit the text area to numeric input of max length 3
+    /**
+     *  Setup field filter to 
+     *    limit the text area to numeric input of max length 3
+     */
     private void setFilter() {
 
         PlainDocument doc = (PlainDocument) getDocument();

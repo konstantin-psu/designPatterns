@@ -11,7 +11,7 @@ public class Client extends JFrame {
 
         Observer observer = new Observer();
 
-        Digital field1 =new Digital(observer);
+        TextBox field1 =new TextBox(observer);
         Slider slider = new Slider(observer);
 
 	// Set up main window layout and various attributes

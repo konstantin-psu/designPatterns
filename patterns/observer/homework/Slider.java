@@ -4,7 +4,7 @@ import javax.swing.event.ChangeListener;
 
 public class Slider extends JSlider implements ObservableIF {
     private Observer observer;
-    Slider(Observer observer) {
+    public Slider(Observer observer) {
         super(0,100);
         this.observer = observer;
         this.observer.register(this);
@@ -20,7 +20,7 @@ public class Slider extends JSlider implements ObservableIF {
         setValue(value);
     }
 
-    public void update() {
+    private void update() {
         observer.update(this, getValue());
     }
 }
