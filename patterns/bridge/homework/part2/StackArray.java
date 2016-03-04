@@ -1,8 +1,8 @@
 import java.lang.reflect.Array;
 class StackArray<E> implements StackImplementationIF<E> {
-    private E[] elements;
-    private int lastIndex;
-    private int max = 10;
+        private E[] elements;
+        private int lastIndex;
+        private int max = 10;
     
     @SuppressWarnings("unchecked") 
     StackArray() {
