@@ -1,0 +1,26 @@
+Consider a simulator of a machine that fills boxes of breakfast
+cereals.  The filling is simulated by repeatedly calling a method
+that drops a certain amount of cerals into the box during a
+certain interval of time.  Both the amount of cereals and the
+interval of time for a drop are subject to small random
+variations.  As a safety measure, the machine has a shutoff device
+that shuts off itself if the content of the box exceeds a certain
+threshold.
+
+Design, code an implement the simulator.  Use a thread to
+repeatedly call the drop method.  Use a guarded suspension pattern
+for the shutoff device.  Hint: to test the safety device,
+your drop method may systematically return true.
+
+------------------------------------------------------------------
+
+On the instructor system using Sun's JSDK1.2.2 for linux, the
+solution compiles without errors, but the execution produces
+
+Exception in thread "main" java.lang.VerifyError: (class: Main$Watcher, method: run signature: ()V) Incompatible type for getting or setting field
+	at Main.<init>(Main.java:30)
+	at Main.main(Main.java:101)
+
+Using IBM's JDK 2 version 1.3.0 for linux the program compiles and
+executes as expected.
+
