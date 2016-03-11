@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.util.Vector;
 
 /**
@@ -11,14 +12,14 @@ public class Compound extends Statement {
             statements.add(s);
         }
     }
-    void pp(int depth) {
+    void pp(PrintStream out, int depth) {
         indent(depth);
-        System.out.println("begin");
+        out.println("begin");
         for(Statement s: statements) {
-            s.pp(depth + defaultIndent);
+            s.pp(out, depth + defaultIndent);
         }
         indent(depth);
-        System.out.println("end");
+        out.println("end");
 
     }
 }

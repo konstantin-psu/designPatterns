@@ -1,0 +1,3 @@
+interface IcecreamIF {
+    int calories();
+}

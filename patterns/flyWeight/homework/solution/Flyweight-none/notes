@@ -1,0 +1,36 @@
+Revisit problem 3.3 (exercise about the Composite pattern).
+Extend the implementation of the "while" language with
+expressions, which were left empty.  The abstract syntax of
+expressions is
+
+  Expr := Variable | Operation Expr Expr
+  
+where "Variable" is an identifier or a literal and "Operation" is
+a familiar infix operation, such as add, sub, mul, etc.
+
+Design, code and test three programs:
+
+1. The objects representing variables (and literals) are not shared.
+2. The objects representing variables (and literals) contain only
+   intrinsic state and are shared by the statements.
+3. The objects representing variables (and literals) contain both
+   intrinsic and extrinsic state. They are not shared by the
+   statements, but share themselves the objects with intrinsic
+   state only. For this exercise's purpose, the extrinsic state
+   is the line in a source program with a variable occurs.
+
+As in the original problem, it suffices to contruct the
+representation of a program and print it.
+
+==================================================================
+
+An important issue in the Flyweight pattern concerns the state of
+objects.  We distinguish between intrinsic and extrinsic states.
+Intrinsic is stored in a shared object and obviously does not
+depend on the context of an object.  Extrinsic depends on the
+context of an object and cannot be shared.
+
+[For example, in the expressions of the "while" language, the
+value of a variable is intrinsic, but the line (and column) in a
+source program where the variable occurs is extrinsic.]
+

@@ -1,0 +1,3 @@
+interface Fruit {
+    String getColor();
+}

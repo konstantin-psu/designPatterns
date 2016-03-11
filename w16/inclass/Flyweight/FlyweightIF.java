@@ -1,0 +1,3 @@
+interface FlyweightIF {
+    String toString();
+}

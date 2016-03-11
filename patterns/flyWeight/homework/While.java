@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+
 /**
  * Created by konstantin on 1/21/16.
  */
@@ -8,10 +10,12 @@ public class While extends Statement {
         this.cond = e;
         this.s = s;
     }
-    void pp(int depth) {
+    void pp(PrintStream out, int depth) {
         indent(depth);
-        System.out.println("while "+cond+ " do");
-        s.pp(depth+defaultIndent);
+        out.print("while ");
+        cond.pp(out, depth);
+        out.print( " do\n");
+        s.pp(out, depth+defaultIndent);
 
     }
 }

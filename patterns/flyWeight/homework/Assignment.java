@@ -1,16 +1,21 @@
+import java.io.PrintStream;
+
 /**
  * Created by konstantin on 1/21/16.
  */
 public class Assignment extends Statement {
-    Var lhs;
+    Variable lhs;
     Expr rhs;
-    Assignment(Var var, Expr expr) {
-        this.lhs = var;
+    Assignment(Variable variable, Expr expr) {
+        this.lhs = variable;
         this.rhs = expr;
     }
 
-    void pp(int depth) {
+    void pp(PrintStream out, int depth) {
         indent(depth);
-        System.out.println(lhs + " := " + rhs);
+        lhs.pp(out, depth);
+        out.print(" := ");
+        rhs.pp(out, depth);
+        out.println("");
     }
 }

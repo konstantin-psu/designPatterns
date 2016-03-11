@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+
 /**
  * Created by konstantin on 1/21/16.
  */
@@ -8,6 +10,6 @@ abstract public class Statement {
             System.out.print(" ");
         }
     }
-    abstract void pp(int dept);
+    abstract void pp(PrintStream out, int dept);
     //void pp(int dept) {}
 }

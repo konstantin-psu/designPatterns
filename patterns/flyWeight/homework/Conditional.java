@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+
 /**
  * Created by konstantin on 1/21/16.
  */
@@ -11,11 +13,11 @@ public class Conditional extends Statement {
         falseCase = s2;
     }
 
-    void pp(int depth) {
+    void pp(PrintStream out, int depth) {
         indent(depth);
-        System.out.println("if "+e +" then:");
-        trueCase.pp(depth+defaultIndent);
-        System.out.println("else:");
-        falseCase.pp(depth+defaultIndent);
+        out.println("if "+e +" then:");
+        trueCase.pp(out, depth+defaultIndent);
+        out.println("else:");
+        falseCase.pp(out, depth+defaultIndent);
     }
 }
